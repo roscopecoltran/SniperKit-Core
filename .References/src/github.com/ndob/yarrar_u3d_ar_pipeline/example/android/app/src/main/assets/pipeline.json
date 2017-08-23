@@ -1,0 +1,45 @@
+{
+    "pipeline":
+    {
+        "dataproviders":
+        [
+            {
+                "type": "android_image",
+                "config": { }
+            },
+            {
+                "type": "android_sensor",
+                "config": { }
+            },
+            {
+                "type": "android_gyro",
+                "config": { }
+            }
+        ],
+        "trackers":
+        [
+            {
+                "type": "marker",
+                "config":
+                {
+                    "parser": "yarrar_parser",
+                    "tracking_resolution_width": 320
+                }
+            }
+        ],
+        "fusion":
+        [
+            {
+                "type": "visual_with_sensors",
+                "config": {}
+            }
+        ],
+        "renderers":
+        [
+            {
+                "type": "opengl",
+                "config": { }
+            }
+        ]
+    }
+}
