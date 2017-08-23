@@ -1,0 +1,74 @@
+package: github.com/roscopecoltran/alpine-apk-lookup
+import:
+- package: github.com/PuerkitoBio/goquery
+  version: 2e29ea41f0d13f4a303c75553f4eeadddc7a4c56
+  repo: https://github.com/PuerkitoBio/goquery
+- package: github.com/Sirupsen/logrus
+  version: cd7d1bbe41066b6c1f19780f895901052150a575
+  repo: https://github.com/Sirupsen/logrus
+- package: github.com/andybalholm/cascadia
+  version: 3ad29d1ad1c4f2023e355603324348cf1f4b2d48
+  repo: https://github.com/andybalholm/cascadia
+- package: github.com/golang/protobuf
+  version: 7cc19b78d562895b13596ddce7aafb59dd789318
+  repo: https://github.com/golang/protobuf
+  subpackages:
+  - proto
+  - ptypes/any
+- package: github.com/onsi/ginkgo
+  version: 5437a97bf824dec14e58d68c56ee36e772670c2e
+  repo: https://github.com/onsi/ginkgo
+- package: github.com/onsi/gomega
+  version: c73e51675ad2455a4515b6213eb7145eaade4824
+  repo: https://github.com/onsi/gomega
+- package: github.com/stretchr/testify
+  version: 6cb3b85ef5a0efef77caef88363ec4d4b5c0976d
+  repo: https://github.com/stretchr/testify
+  subpackages:
+  - assert
+  - vendor/github.com/davecgh/go-spew/spew
+  - vendor/github.com/pmezard/go-difflib/difflib
+- package: golang.org/x/net
+  version: ef00b378c73f107bf44d5c9b69875255ce89b79a
+  repo: https://go.googlesource.com/net
+  subpackages:
+  - html
+- package: golang.org/x/sys
+  version: d4feaf1a7e61e1d9e79e6c4e76c6349e9cab0a03
+  repo: https://go.googlesource.com/sys
+  subpackages:
+  - unix
+- package: golang.org/x/text
+  version: f773ec03ce334298742df7f3108fc0d402646d22
+  repo: https://go.googlesource.com/text
+  subpackages:
+  - cases
+  - encoding
+  - internal/gen
+  - internal/tag
+  - internal/testtext
+  - internal/triegen
+  - internal/ucd
+  - internal/utf8internal
+  - language
+  - runes
+  - transform
+  - unicode/cldr
+  - unicode/norm
+  - unicode/rangetable
+  - width
+- package: gopkg.in/airbrake/gobrake.v2
+  version: 31c8ff1fb8b79a6947e6565e9a6df535f98a6b94
+  repo: https://gopkg.in/airbrake/gobrake.v2
+- package: gopkg.in/check.v1
+  version: 4f90aeace3a26ad7021961c297b22c42160c7b25
+  repo: https://gopkg.in/check.v1
+- package: gopkg.in/gemnasium/logrus-airbrake-hook.v2
+  version: 31e6fd4bd5a98d8ee7673d24bc54ec73c31810dd
+  repo: https://gopkg.in/gemnasium/logrus-airbrake-hook.v2
+- package: gopkg.in/yaml.v2
+  version: a83829b6f1293c91addabc89d0571c246397bbf4
+  repo: https://gopkg.in/yaml.v2
+- package: github.com/jessfraz/apk-file
+  subpackages:
+  - version
