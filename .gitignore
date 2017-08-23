@@ -58,3 +58,11 @@ _install/**
 NativePlugins/_logs
 NativePlugins/_logs/
 NativePlugins/_logs/**
+
+NativePlugins/external/nanomsg
+NativePlugins/external/nanomsg/
+NativePlugins/external/nanomsg/**
+
+NativePlugins/external/nng
+NativePlugins/external/nng/
+NativePlugins/external/nng/**
