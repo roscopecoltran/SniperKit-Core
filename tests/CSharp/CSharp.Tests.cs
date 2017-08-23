@@ -1,0 +1,1070 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using CppSharp.Utils;
+using CSharp;
+using NUnit.Framework;
+using CSharp.Delegates;
+
+public unsafe class CSharpTests : GeneratorTestFixture
+{
+    public class ExtendsWrapper : TestOverrideFromSecondaryBase
+    {
+        public ExtendsWrapper()
+        {
+            ProtectedFunction();
+        }
+    }
+
+    [Test]
+    public void TestUncompilableCode()
+    {
+#pragma warning disable 0168 // warning CS0168: The variable `foo' is declared but never used
+#pragma warning disable 0219 // warning CS0219: The variable `foo' is assigned but its value is never used
+
+        ALLCAPS_UNDERSCORES a;
+        using (var testRenaming = new TestRenaming())
+        {
+            testRenaming.name();
+            testRenaming.Name();
+            testRenaming.Property.GetHashCode();
+        }
+        new ForceCreationOfInterface().Dispose();
+        new InheritsProtectedVirtualFromSecondaryBase().Dispose();
+        new InheritanceBuffer().Dispose();
+        new HasProtectedVirtual().Dispose();
+        new Proprietor(5).Dispose();
+        using (var testOverrideFromSecondaryBase = new TestOverrideFromSecondaryBase())
+        {
+            testOverrideFromSecondaryBase.function();
+            var ok = false;
+            testOverrideFromSecondaryBase.function(ref ok);
+            var property = testOverrideFromSecondaryBase.property;
+            testOverrideFromSecondaryBase.VirtualMember();
+        }
+        using (var foo = new Foo())
+        {
+            var isNoParams = foo.IsNoParams;
+            foo.SetNoParams();
+            foo.Width = 5;
+            using (var hasSecondaryBaseWithAbstractWithDefaultArg = new HasSecondaryBaseWithAbstractWithDefaultArg())
+            {
+                hasSecondaryBaseWithAbstractWithDefaultArg.Abstract();
+                hasSecondaryBaseWithAbstractWithDefaultArg.AbstractWithNoDefaultArg(foo);
+            }
+        }
+        using (var hasOverride = new HasOverrideOfHasPropertyWithDerivedType())
+            hasOverride.CauseRenamingError();
+        using (var qux = new Qux())
+        {
+            new Bar(qux).Dispose();
+        }
+        using (ComplexType complexType = TestFlag.Flag1)
+        {
+        }
+        using (var typeMappedWithOperator = new TypeMappedWithOperator())
+        {
+            int i = typeMappedWithOperator | 5;
+        }
+        using (Base<int> @base = new DerivedFromSpecializationOfUnsupportedTemplate())
+        {
+        }
+
+        CSharp.CSharp.FunctionInsideInlineNamespace();
+
+#pragma warning restore 0168
+#pragma warning restore 0219
+    }
+
+    [Test]
+    public void TestIndexer()
+    {
+        var foo = new Foo();
+
+        Assert.That(foo[0], Is.EqualTo(50));
+        foo[0] = 250;
+        Assert.That(foo[0], Is.EqualTo(250));
+
+        Assert.That(foo[(uint) 0], Is.EqualTo(15));
+
+        var bar = new Bar();
+        Assert.That(bar[0].A, Is.EqualTo(10));
+        bar[0] = new Foo { A = 25 };
+        Assert.That(bar[0].A, Is.EqualTo(25));
+    }
+
+    [Test]
+    public void TestPropertyAccessModifier()
+    {
+        Assert.That(typeof(Foo).GetProperty("P",
+            BindingFlags.Instance | BindingFlags.NonPublic), Is.Not.Null);
+    }
+
+    [Test]
+    public void TestMultipleInheritance()
+    {
+        using (var baz = new Baz())
+        {
+            Assert.That(baz.Method, Is.EqualTo(1));
+            var bar = (IBar) baz;
+            Assert.That(bar.Method, Is.EqualTo(2));
+            Assert.That(baz[0], Is.EqualTo(50));
+            bar[0] = new Foo { A = 1000 };
+            Assert.That(bar[0].A, Is.EqualTo(1000));
+            Assert.That(baz.FarAwayFunc, Is.EqualTo(20));
+            Assert.That(baz.TakesQux(baz), Is.EqualTo(20));
+            Assert.That(baz.ReturnQux().FarAwayFunc, Is.EqualTo(20));
+            baz.SetMethod(1);
+            Assert.AreEqual(5, baz.P);
+        }
+    }
+
+    [Test]
+    public void TestProperties()
+    {
+        var proprietor = new Proprietor();
+        Assert.That(proprietor.Parent, Is.EqualTo(0));
+        proprietor.Value = 20;
+        Assert.That(proprietor.Value, Is.EqualTo(20));
+        proprietor.Prop = 50;
+        Assert.That(proprietor.Prop, Is.EqualTo(50));
+        using (var qux = new Qux())
+        {
+            using (var p = new P((IQux) qux) { Value = 20 })
+            {
+                Assert.That(p.Value, Is.EqualTo(30));
+                p.Prop = 50;
+                Assert.That(p.Prop, Is.EqualTo(150));
+
+                using (var complexType = new ComplexType())
+                {
+                    p.ComplexType = complexType;
+                    Assert.That(p.ComplexType.Check(), Is.EqualTo(5));
+                }
+
+                Assert.That(p.Test, Is.True);
+                Assert.That(p.IsBool, Is.False);
+            }
+        }
+    }
+
+    [Test]
+    public void TestAttributes()
+    {
+        Assert.That(typeof(Qux).GetMethod("Obsolete")
+            .GetCustomAttributes(typeof(ObsoleteAttribute), false).Length,
+            Is.GreaterThan(0));
+    }
+
+    [Test]
+    public void TestDestructors()
+    {
+        CSharp.TestDestructors.InitMarker();
+        Assert.AreEqual(0, CSharp.TestDestructors.Marker);
+
+        var dtors = new TestDestructors();
+        Assert.AreEqual(0xf00d, CSharp.TestDestructors.Marker);
+        dtors.Dispose();
+        Assert.AreEqual(0xcafe, CSharp.TestDestructors.Marker);
+    }
+
+    [Test]
+    public unsafe void TestArrayOfPointersToPrimitives()
+    {
+        var bar = new Bar();
+        var array = new IntPtr[1];
+        int i = 5;
+        array[0] = new IntPtr(&i);
+        bar.ArrayOfPrimitivePointers = array;
+        Assert.That(i, Is.EqualTo(*(int*) bar.ArrayOfPrimitivePointers[0]));
+    }
+
+    [Test]
+    public void TestCopyConstructorValue()
+    {
+        var testCopyConstructorVal = new TestCopyConstructorVal { A = 10, B = 5 };
+        var copyBar = new TestCopyConstructorVal(testCopyConstructorVal);
+        Assert.That(testCopyConstructorVal.A, Is.EqualTo(copyBar.A));
+        Assert.That(testCopyConstructorVal.B, Is.EqualTo(copyBar.B));
+    }
+
+    [Test]
+    public void TestPropertiesConflictingWithMethod()
+    {
+        var p = new P((IQux) new Qux()) { Test = true };
+        Assert.That(p.Test, Is.True);
+        p.GetTest();
+    }
+
+    [Test]
+    public void TestDefaultArguments()
+    {
+        using (var methodsWithDefaultValues = new MethodsWithDefaultValues())
+        {
+            methodsWithDefaultValues.DefaultPointer();
+            methodsWithDefaultValues.DefaultVoidStar();
+            methodsWithDefaultValues.DefaultValueType();
+            methodsWithDefaultValues.DefaultChar();
+            methodsWithDefaultValues.DefaultEmptyChar();
+            methodsWithDefaultValues.DefaultRefTypeBeforeOthers();
+            methodsWithDefaultValues.DefaultRefTypeAfterOthers();
+            methodsWithDefaultValues.DefaultRefTypeBeforeAndAfterOthers(0, null);
+            methodsWithDefaultValues.DefaultIntAssignedAnEnum();
+            methodsWithDefaultValues.defaultRefAssignedValue();
+            methodsWithDefaultValues.DefaultRefAssignedValue();
+            methodsWithDefaultValues.DefaultEnumAssignedBitwiseOr();
+            methodsWithDefaultValues.DefaultEnumAssignedBitwiseOrShort();
+            methodsWithDefaultValues.DefaultNonEmptyCtor();
+            methodsWithDefaultValues.DefaultNonEmptyCtorWithNullPtr();
+            Assert.That(methodsWithDefaultValues.DefaultMappedToEnum(), Is.EqualTo(Flags.Flag3));
+            methodsWithDefaultValues.DefaultMappedToZeroEnum();
+            methodsWithDefaultValues.DefaultMappedToEnumAssignedWithCtor();
+            methodsWithDefaultValues.DefaultZeroMappedToEnumAssignedWithCtor();
+            methodsWithDefaultValues.DefaultImplicitCtorInt();
+            methodsWithDefaultValues.DefaultImplicitCtorChar();
+            methodsWithDefaultValues.DefaultImplicitCtorFoo();
+            methodsWithDefaultValues.DefaultImplicitCtorEnum();
+            methodsWithDefaultValues.DefaultIntWithLongExpression();
+            methodsWithDefaultValues.DefaultRefTypeEnumImplicitCtor();
+            methodsWithDefaultValues.Rotate4x4Matrix(0, 0, 0);
+            methodsWithDefaultValues.DefaultPointerToValueType();
+            methodsWithDefaultValues.DefaultDoubleWithoutF();
+            methodsWithDefaultValues.DefaultIntExpressionWithEnum();
+            methodsWithDefaultValues.DefaultCtorWithMoreThanOneArg();
+            methodsWithDefaultValues.DefaultWithRefManagedLong();
+            methodsWithDefaultValues.DefaultWithFunctionCall();
+            methodsWithDefaultValues.DefaultWithPropertyCall();
+            methodsWithDefaultValues.DefaultWithGetPropertyCall();
+            methodsWithDefaultValues.DefaultWithIndirectStringConstant();
+            methodsWithDefaultValues.DefaultWithDirectIntConstant();
+            methodsWithDefaultValues.DefaultWithEnumInLowerCasedNameSpace();
+            methodsWithDefaultValues.DefaultWithCharFromInt();
+            methodsWithDefaultValues.DefaultWithFreeConstantInNameSpace();
+            methodsWithDefaultValues.DefaultWithStdNumericLimits(10, 5);
+            methodsWithDefaultValues.DefaultWithParamNamedSameAsMethod(5);
+        }
+    }
+
+    [Test]
+    public void TestGenerationOfAnotherUnitInSameFile()
+    {
+        AnotherUnit.FunctionInAnotherUnit();
+    }
+
+    [Test]
+    public void TestPrivateOverride()
+    {
+        using (var hasOverridesWithChangedAccess = new HasOverridesWithChangedAccess())
+            hasOverridesWithChangedAccess.PrivateOverride();
+        using (var hasOverridesWithIncreasedAccess = new HasOverridesWithIncreasedAccess())
+            hasOverridesWithIncreasedAccess.PrivateOverride();
+    }
+
+    [Test]
+    public void TestQFlags()
+    {
+        Assert.AreEqual(TestFlag.Flag2, new ComplexType().ReturnsQFlags);
+    }
+
+    [Test]
+    public void TestCopyCtor()
+    {
+        Qux q1 = new Qux();
+        for (int i = 0; i < q1.Array.Length; i++)
+        {
+            q1.Array[i] = i;
+        }
+        Qux q2 = new Qux(q1);
+        for (int i = 0; i < q2.Array.Length; i++)
+        {
+            Assert.AreEqual(q1.Array[i], q2.Array[i]);
+        }
+    }
+
+    [Test]
+    public void TestImplicitCtor()
+    {
+        Foo foo = new Foo { A = 10 };
+        using (MethodsWithDefaultValues m = foo)
+        {
+            Assert.AreEqual(foo.A, m.A);
+        }
+        using (MethodsWithDefaultValues m1 = 5)
+        {
+            Assert.AreEqual(5, m1.A);
+        }
+    }
+
+    [Test]
+    public void TestStructWithPrivateFields()
+    {
+        var structWithPrivateFields = new StructWithPrivateFields(10, new Foo { A = 5 });
+        Assert.AreEqual(10, structWithPrivateFields.SimplePrivateField);
+        Assert.AreEqual(5, structWithPrivateFields.ComplexPrivateField.A);
+    }
+
+    [Test]
+    public void TestRenamingVariable()
+    {
+        Assert.AreEqual(5, Foo.Rename);
+    }
+
+    [Test]
+    public void TestPrimarySecondaryBase()
+    {
+        var a = new MI_A0();
+        var resa = a.Get();
+        Assert.That(resa, Is.EqualTo(50));
+
+        var c = new MI_C();
+        var res = c.Get();
+        Assert.That(res, Is.EqualTo(50));
+    }
+
+    [Test]
+    public void TestNativeToManagedMapWithForeignObjects()
+    {
+        IntPtr native1;
+        IntPtr native2;
+        var hasVirtualDtor1Map = (IDictionary<IntPtr, HasVirtualDtor1>) typeof(
+            HasVirtualDtor1).GetField("NativeToManagedMap",
+            BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+        var hasVirtualDtor2Map = (IDictionary<IntPtr, HasVirtualDtor2>) typeof(
+            HasVirtualDtor2).GetField("NativeToManagedMap",
+            BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+        using (var testNativeToManagedMap = new TestNativeToManagedMap())
+        {
+            var hasVirtualDtor2 = testNativeToManagedMap.HasVirtualDtor2;
+            native2 = hasVirtualDtor2.__Instance;
+            native1 = hasVirtualDtor2.HasVirtualDtor1.__Instance;
+            Assert.IsTrue(hasVirtualDtor1Map.ContainsKey(native1));
+            Assert.IsTrue(hasVirtualDtor2Map.ContainsKey(native2));
+            Assert.AreSame(hasVirtualDtor2, testNativeToManagedMap.HasVirtualDtor2);
+        }
+        Assert.IsFalse(hasVirtualDtor1Map.ContainsKey(native1));
+        Assert.IsFalse(hasVirtualDtor2Map.ContainsKey(native2));
+    }
+
+    [Test]
+    public void TestNativeToManagedMapWithOwnObjects()
+    {
+        using (var testNativeToManagedMap = new TestNativeToManagedMap())
+        {
+            var quxMap = (IDictionary<IntPtr, IQux>) typeof(
+                Qux).GetField("NativeToManagedMap",
+                BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
+            var bar = new Bar();
+            testNativeToManagedMap.PropertyWithNoVirtualDtor = bar;
+            Assert.AreSame(bar, testNativeToManagedMap.PropertyWithNoVirtualDtor);
+            Assert.IsTrue(quxMap.ContainsKey(bar.__Instance));
+            bar.Dispose();
+            Assert.IsFalse(quxMap.ContainsKey(bar.__Instance));
+        }
+    }
+
+    [Test]
+    public void TestCallingVirtualDtor()
+    {
+        var callDtorVirtually = new CallDtorVirtually();
+        var hasVirtualDtor1 = CallDtorVirtually.GetHasVirtualDtor1(callDtorVirtually);
+        hasVirtualDtor1.Dispose();
+        Assert.That(CallDtorVirtually.Destroyed, Is.True);
+    }
+
+    [Test]
+    public void TestParamTypeToInterfacePass()
+    {
+        var baseClass = new TestParamToInterfacePassBaseTwo();
+        baseClass++;
+        Assert.AreEqual(baseClass.M, 1);
+        ITestParamToInterfacePassBaseTwo baseInterface = new TestParamToInterfacePassBaseTwo();
+        var dervClass = new TestParamToInterfacePass();
+        dervClass.AddM(baseClass);
+        Assert.AreEqual(dervClass.M, 1);
+        dervClass = new TestParamToInterfacePass(dervClass + baseClass);
+        Assert.AreEqual(dervClass.M, 2);
+        dervClass = new TestParamToInterfacePass(dervClass + baseInterface);
+        Assert.AreEqual(dervClass.M, 2);
+    }
+    
+    [Test]
+    public unsafe void TestMultiOverLoadPtrToRef()
+    {
+        var r = 0;
+        MultiOverloadPtrToRef m = &r;
+        m.Dispose();
+        var obj = new MultiOverloadPtrToRef(ref r);
+        var p = obj.ReturnPrimTypePtr();
+        Assert.AreEqual(0, p[0]);
+        Assert.AreEqual(0, p[1]);
+        Assert.AreEqual(0, p[2]);
+
+        obj.TakePrimTypePtr(ref *p);
+        Assert.AreEqual(100, p[0]);
+        Assert.AreEqual(200, p[1]);
+        Assert.AreEqual(300, p[2]);
+
+        int[] array = { 1, 2, 3 };
+        fixed (int* p1 = array)
+        {
+            obj.TakePrimTypePtr(ref *p1);
+            Assert.AreEqual(100, p1[0]);
+            Assert.AreEqual(200, p1[1]);
+            Assert.AreEqual(300, p1[2]);
+        }
+
+        Assert.AreEqual(100, array[0]);
+        Assert.AreEqual(200, array[1]);
+        Assert.AreEqual(300, array[2]);
+
+        float pThree = 0;
+        var refInt = 0;
+        obj.FuncPrimitivePtrToRef(ref refInt, null, ref pThree);
+        obj.FuncPrimitivePtrToRefWithDefVal(ref refInt, null, null, ref refInt);
+        obj.FuncPrimitivePtrToRefWithMultiOverload(ref refInt, null, null, ref refInt);
+    }
+
+    [Test]
+    public void TestFixedArrayRefType()
+    {
+        Foo[] foos = new Foo[4];
+        foos[0] = new Foo { A = 5 };
+        foos[1] = new Foo { A = 6 };
+        foos[2] = new Foo { A = 7 };
+        foos[3] = new Foo { A = 8 };
+        Bar bar = new Bar { Foos = foos };
+
+        Foo[] retFoos = bar.Foos;
+        Assert.AreEqual(5, retFoos[0].A);
+        Assert.AreEqual(6, retFoos[1].A);
+        Assert.AreEqual(7, retFoos[2].A);
+        Assert.AreEqual(8, retFoos[3].A);
+
+        Foo[] foosMore = new Foo[2];
+        foosMore[0] = new Foo();
+        foosMore[1] = new Foo();
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => bar.Foos = foosMore);
+        Assert.AreEqual("value", ex.ParamName);
+        Assert.AreEqual("The dimensions of the provided array don't match the required size." + Environment.NewLine + "Parameter name: value", ex.Message);
+    }
+
+    [Test]
+    public void TestOutTypeInterfacePassTry()
+    {
+        var interfaceClassObj = new TestParamToInterfacePassBaseTwo();
+        ITestParamToInterfacePassBaseTwo interfaceType = interfaceClassObj;
+        var obj = new TestOutTypeInterfaces();
+        obj.FuncTryInterfaceTypeOut(out interfaceType);
+        ITestParamToInterfacePassBaseTwo interfaceTypePtr;
+        obj.FuncTryInterfaceTypePtrOut(out interfaceTypePtr);
+    }
+
+    [Test]
+    public void TestConversionForCtorWithDefaultParams()
+    {
+        using (Foo foo = 15)
+        {
+            Assert.That(foo.A, Is.EqualTo(15));
+        }
+    }
+
+    [Test]
+    public unsafe void TestSizeOfDerivesFromTemplateInstantiation()
+    {
+        Assert.That(sizeof(DerivesFromTemplateInstantiation.__Internal), Is.EqualTo(sizeof(int)));
+    }
+
+    [Test]
+    public void TestReferenceToArrayWithConstSize()
+    {
+        int[] incorrectlySizedArray = { 1 };
+        Assert.Catch<ArgumentOutOfRangeException>(() => CSharp.CSharp.PassConstantArrayRef(incorrectlySizedArray));
+        int[] array = { 1, 2 };
+        var result = CSharp.CSharp.PassConstantArrayRef(array);
+        Assert.That(result, Is.EqualTo(array[0]));
+    }
+
+    [Test]
+    public void TestComparison()
+    {
+        var testComparison1 = new TestComparison { A = 5, B = 5.5f };
+        var testComparison2 = new TestComparison { A = 5, B = 5.5f };
+        Assert.IsTrue(testComparison1 == testComparison2);
+        Assert.IsTrue(testComparison1.Equals(testComparison2));
+        var testHashes = new Dictionary<TestComparison, int>();
+        testHashes[testComparison1] = 1;
+        testHashes[testComparison2] = 2;
+        Assert.That(testHashes[testComparison1], Is.EqualTo(2));
+    }
+
+    [Test]
+    public void TestOverriddenPropertyFromIndirectBase()
+    {
+        using (var overridePropertyFromIndirectPrimaryBase = new OverridePropertyFromIndirectPrimaryBase())
+        {
+            Assert.That(overridePropertyFromIndirectPrimaryBase.Property, Is.EqualTo(5));
+        }
+    }
+
+    [Test]
+    public void TestCallingVirtualBeforeCtorFinished()
+    {
+        using (new QApplication())
+        {
+            using (new QWidget())
+            {
+            }
+        }
+    }
+
+    [Test]
+    public void TestMultipleInheritanceFieldOffsets()
+    {
+        using (var multipleInheritanceFieldOffsets = new MultipleInheritanceFieldOffsets())
+        {
+            Assert.That(multipleInheritanceFieldOffsets.Primary, Is.EqualTo(1));
+            Assert.That(multipleInheritanceFieldOffsets.Secondary, Is.EqualTo(2));
+            Assert.That(multipleInheritanceFieldOffsets.Own, Is.EqualTo(3));
+        }
+    }
+
+    [Test]
+    public void TestVirtualDtorAddedInDerived()
+    {
+        using (new VirtualDtorAddedInDerived())
+        {
+        }
+        Assert.IsTrue(VirtualDtorAddedInDerived.DtorCalled);
+    }
+
+    [Test]
+    public void TestGetEnumFromNativePointer()
+    {
+        using (var getEnumFromNativePointer = new GetEnumFromNativePointer())
+        {
+            Assert.That(UsesPointerToEnumInParamOfVirtual.CallOverrideOfHasPointerToEnumInParam(
+                getEnumFromNativePointer, Flags.Flag3), Is.EqualTo(Flags.Flag3));
+        }
+    }
+
+    [Test, Platform(Exclude = "Linux", Reason = "This fails on Linux for no reason at all.")]
+    public void TestStdStringConstant()
+    {
+        Assert.That(CSharp.HasFreeConstant.AnotherUnit.STD_STRING_CONSTANT, Is.EqualTo("test"));
+        // check a second time to ensure it hasn't been improperly freed
+        Assert.That(CSharp.HasFreeConstant.AnotherUnit.STD_STRING_CONSTANT, Is.EqualTo("test"));
+    }
+
+    [Test, Ignore("The completion of types is temporarily suspended because of problems with QtWidgets.")]
+    public void TestTemplateInternals()
+    {
+        foreach (var internalType in new[]
+            {
+                typeof(CSharp.IndependentFields.__Internal),
+                typeof(CSharp.DependentValueFields.__Internalc__S_DependentValueFields__b),
+                //typeof(CSharp.DependentValueFields.Internal_float),
+                typeof(CSharp.DependentPointerFields.__Internal),
+                //typeof(CSharp.DependentValueFields.Internal_Ptr),
+                typeof(CSharp.HasDefaultTemplateArgument.__Internalc__S_HasDefaultTemplateArgument__I___S_IndependentFields__I)
+            })
+        {
+            var independentFields = internalType.GetFields();
+            Assert.That(independentFields.Length, Is.EqualTo(1));
+            var fieldOffset = (FieldOffsetAttribute) independentFields[0].GetCustomAttribute(typeof(FieldOffsetAttribute));
+            Assert.That(fieldOffset.Value, Is.EqualTo(0));
+        }
+        foreach (var internalType in new Type[]
+            {
+                //typeof(CSharp.TwoTemplateArgs.Internal_Ptr),
+                //typeof(CSharp.TwoTemplateArgs.Internal_intPtr_int),
+                //typeof(CSharp.TwoTemplateArgs.Internal_intPtr_float)
+            })
+        {
+            var independentFields = internalType.GetFields();
+            Assert.That(independentFields.Length, Is.EqualTo(2));
+            var fieldOffsetKey = (FieldOffsetAttribute) independentFields[0].GetCustomAttribute(typeof(FieldOffsetAttribute));
+            Assert.That(fieldOffsetKey.Value, Is.EqualTo(0));
+            var fieldOffsetValue = (FieldOffsetAttribute) independentFields[1].GetCustomAttribute(typeof(FieldOffsetAttribute));
+            Assert.That(fieldOffsetValue.Value, Is.EqualTo(Marshal.SizeOf(IntPtr.Zero)));
+        }
+    }
+
+    [Test]
+    public void TestConstantArray()
+    {
+        Assert.That(CSharp.CSharp.VariableWithFixedPrimitiveArray[0], Is.EqualTo(5));
+        Assert.That(CSharp.CSharp.VariableWithFixedPrimitiveArray[1], Is.EqualTo(10));
+        Assert.That(CSharp.CSharp.VariableWithVariablePrimitiveArray[0], Is.EqualTo(15));
+        Assert.That(CSharp.CSharp.VariableWithVariablePrimitiveArray[1], Is.EqualTo(20));
+    }
+
+    [Test]
+    public void TestPointerPassedAsItsSecondaryBase()
+    {
+        using (QApplication application = new QApplication())
+        {
+            using (QWidget widget = new QWidget())
+            {
+                using (QPainter painter = new QPainter(widget))
+                {
+                    Assert.That(widget.Test, Is.EqualTo(5));
+                }
+            }
+        }
+    }
+
+    [Test]
+    public void TestUnicode()
+    {
+        using (var testString = new TestString())
+        {
+            Assert.That(testString.UnicodeConst, Is.EqualTo("ქართული ენა"));
+        }
+    }
+
+    [Test]
+    public void TestEnumProperty()
+    {
+        using (var proprietor = new Proprietor())
+        {
+            Assert.That(proprietor.Items, Is.EqualTo(Bar.Items.Item1));
+            proprietor.Items = Bar.Items.Item2;
+            Assert.That(proprietor.Items, Is.EqualTo(Bar.Items.Item2));
+            Assert.That(proprietor.ItemsByValue, Is.EqualTo(Bar.Items.Item1));
+            proprietor.ItemsByValue = Bar.Items.Item2;
+            Assert.That(proprietor.ItemsByValue, Is.EqualTo(Bar.Items.Item2));
+        }
+    }
+
+    [Test]
+    public void TestOverrideVirtualWithString()
+    {
+        using (var overrideVirtualWithString = new OverrideVirtualWithString())
+        {
+            Assert.That(overrideVirtualWithString.CallsVirtualToReturnString("test"), Is.EqualTo("test_test"));
+            Assert.IsFalse(overrideVirtualWithString.CallsVirtualToReturnBool(true));
+        }
+    }
+
+    [Test]
+    public void TestStackOverflowOnVirtualCall()
+    {
+        using (var hasMissingObjectOnVirtualCall = new HasMissingObjectOnVirtualCall())
+        {
+            using (var missingObjectOnVirtualCall = new MissingObjectOnVirtualCall())
+            {
+                hasMissingObjectOnVirtualCall.SetMissingObjectOnVirtualCall(missingObjectOnVirtualCall);
+                Assert.That(hasMissingObjectOnVirtualCall.MakeMissingObjectOnVirtualCall(), Is.EqualTo(15));
+            }
+        }
+    }
+
+    [Test]
+    public void TestTemplateWithPointerToTypeParameter()
+    {
+        int staticT = 5;
+        Assert.That(IndependentFieldsExtensions.StaticDependent(ref staticT), Is.EqualTo(5));
+    }
+
+    [Test]
+    public void TestTemplateCopyConstructor()
+    {
+        using (var original = new IndependentFields<int>(5))
+        {
+            using (var copy = new IndependentFields<int>(original))
+            {
+                Assert.That(copy.Independent, Is.EqualTo(original.Independent));
+            }
+        }
+    }
+
+    [Test]
+    public void TestTemplateWithIndependentFields()
+    {
+        using (var independentFields = new IndependentFields<int>())
+        {
+            var t = 5;
+            Assert.That(independentFields.GetDependent(ref t), Is.EqualTo(5));
+            Assert.That(independentFields.Independent, Is.EqualTo(1));
+        }
+        using (var independentFields = new IndependentFields<bool>())
+        {
+            var t = true;
+            Assert.That(independentFields.GetDependent(ref t), Is.EqualTo(true));
+            Assert.That(independentFields.Independent, Is.EqualTo(1));
+        }
+    }
+
+    [Test]
+    public void TestVirtualTemplate()
+    {
+        using (var virtualTemplate = new VirtualTemplate<int>())
+        {
+            Assert.That(virtualTemplate.Function, Is.EqualTo(5));
+        }
+    }
+
+    [Test]
+    public void TestOverrideOfTemplate()
+    {
+        using (var hasVirtualTemplate = new HasVirtualTemplate())
+        {
+            using (var overrideVirtualTemplate = new OverrideVirtualTemplate())
+            {
+                hasVirtualTemplate.SetV(overrideVirtualTemplate);
+                Assert.That(hasVirtualTemplate.Function, Is.EqualTo(10));
+            }
+        }
+    }
+
+    [Test]
+    public void TestDefaultTemplateArgument()
+    {
+        using (var hasDefaultTemplateArgument = new HasDefaultTemplateArgument<int, int>())
+        {
+            hasDefaultTemplateArgument.Property = 10;
+            Assert.That(hasDefaultTemplateArgument.Property, Is.EqualTo(10));
+        }
+    }
+
+    [Test]
+    public void TestTemplateStaticProperty()
+    {
+        HasDefaultTemplateArgument<int, int>.StaticProperty = 5;
+        Assert.That(HasDefaultTemplateArgument<int, int>.StaticProperty, Is.EqualTo(5));
+    }
+
+    [Test]
+    public void TestIndependentConstInIndependentTemplate()
+    {
+        Assert.That(IndependentFields<int>.IndependentConst, Is.EqualTo(15));
+        Assert.That(IndependentFields<bool>.IndependentConst, Is.EqualTo(15));
+        Assert.That(IndependentFields<T1>.IndependentConst, Is.EqualTo(15));
+    }
+
+    [Test]
+    public void TestTemplateWithIndexer()
+    {
+        using (var templateWithIndexer = new TemplateWithIndexer<int>())
+        {
+            templateWithIndexer[0] = 5;
+            Assert.That(templateWithIndexer[0], Is.EqualTo(5));
+            templateWithIndexer["test"] = 15;
+            Assert.That(templateWithIndexer["test"], Is.EqualTo(15));
+        }
+        using (var templateWithIndexer = new TemplateWithIndexer<T1>())
+        {
+            using (var t1 = new T1(10))
+            {
+                templateWithIndexer[0] = t1;
+                Assert.That(templateWithIndexer[0].Field, Is.EqualTo(t1.Field));
+            }
+            using (var t1 = new T1(15))
+            {
+                templateWithIndexer["test"] = t1;
+                Assert.That(templateWithIndexer["test"].Field, Is.EqualTo(t1.Field));
+            }
+        }
+    }
+
+    [Test]
+    public void TestTemplateComparison()
+    {
+        using (var left = new HasDefaultTemplateArgument<int, int>())
+        using (var right = new HasDefaultTemplateArgument<int, int>())
+        {
+            left.Property = 15;
+            right.Property = 15;
+            Assert.IsTrue(left == right);
+            Assert.IsTrue(left.Equals(right));
+        }
+    }
+
+    [Test]
+    public void TestReturnInjectedClass()
+    {
+        using (var dependentValueFields = new DependentValueFields<int>())
+        {
+            dependentValueFields.DependentValue = 5;
+            Assert.That(dependentValueFields.ReturnInjectedClass().DependentValue,
+                Is.EqualTo(dependentValueFields.DependentValue));
+        }
+    }
+
+    [Test]
+    public void TestReturnTemplateValue()
+    {
+        using (var dependentValueFields = new DependentValueFields<int>())
+        {
+            dependentValueFields.DependentValue = 10;
+            Assert.That(dependentValueFields.ReturnValue().DependentValue,
+                Is.EqualTo(dependentValueFields.DependentValue));
+        }
+    }
+
+    [Test]
+    public void TestOperatorReturnTemplateValue()
+    {
+        using (var dependentValueFields = new DependentValueFields<int>())
+        {
+            using (var other = new DependentValueFields<int>())
+            {
+                dependentValueFields.DependentValue = 10;
+                other.DependentValue = 15;
+                Assert.That((dependentValueFields + other).DependentValue, Is.EqualTo(25));
+            }
+        }
+    }
+
+    [Test]
+    public void TestReturnTemplateWithRenamedTypeArg()
+    {
+        using (var dependentValueFields = new DependentValueFields<int>())
+        {
+            dependentValueFields.DependentValue = 10;
+            using (var hasDefaultTemplateArgument = new HasDefaultTemplateArgument<int, int>())
+            {
+                var returnTemplateWithRenamedTypeArg =
+                    hasDefaultTemplateArgument.ReturnTemplateWithRenamedTypeArg(dependentValueFields);
+                Assert.That(returnTemplateWithRenamedTypeArg.DependentValue, Is.EqualTo(10));
+            }
+        }
+    }
+
+    [Test]
+    public void TestPropertyReturnsTemplateWithRenamedTypeArg()
+    {
+        using (var hasDefaultTemplateArgument = new HasDefaultTemplateArgument<int, int>())
+        {
+            var returnTemplateWithRenamedTypeArg =
+                hasDefaultTemplateArgument.PropertyReturnsTemplateWithRenamedTypeArg;
+            Assert.That(returnTemplateWithRenamedTypeArg.DependentValue, Is.EqualTo(0));
+        }
+    }
+
+    [Test]
+    public void TestAbstractImplementatonsInPrimaryAndSecondaryBases()
+    {
+        using (var implementsAbstractsFromPrimaryAndSecondary = new ImplementsAbstractsFromPrimaryAndSecondary())
+        {
+            Assert.That(implementsAbstractsFromPrimaryAndSecondary.AbstractInPrimaryBase, Is.EqualTo(101));
+            Assert.That(implementsAbstractsFromPrimaryAndSecondary.AbstractInSecondaryBase, Is.EqualTo(5));
+            Assert.That(implementsAbstractsFromPrimaryAndSecondary.AbstractReturnsFieldInPrimaryBase, Is.EqualTo(201));
+            Assert.That(implementsAbstractsFromPrimaryAndSecondary.AbstractReturnsFieldInSecondaryBase, Is.EqualTo(202));
+        }
+    }
+
+    [Test]
+    public void TestOverriddenSetterOnly()
+    {
+        using (var hasGetterAndOverriddenSetter = new HasGetterAndOverriddenSetter())
+        {
+            const int value = 5;
+            hasGetterAndOverriddenSetter.SetBaseSetter(value);
+            Assert.That(hasGetterAndOverriddenSetter.BaseSetter, Is.EqualTo(value));
+        }
+    }
+
+    private class OverrideVirtualWithString : HasVirtualTakesReturnsProblematicTypes
+    {
+        public override string VirtualTakesAndReturnsString(string c)
+        {
+            return "test_test";
+        }
+
+        public override bool VirtualTakesAndReturnsBool(bool b)
+        {
+            return !base.VirtualTakesAndReturnsBool(b);
+        }
+    }
+
+    private class GetEnumFromNativePointer : UsesPointerToEnumInParamOfVirtual
+    {
+        public override Flags HasPointerToEnumInParam(Flags pointerToEnum)
+        {
+            return base.HasPointerToEnumInParam(pointerToEnum);
+        }
+    }
+
+    [Test]
+    public void TestGenerationOfIncompleteClasses()
+    {
+        var incompleteStruct = CSharp.CSharp.CreateIncompleteStruct();
+        Assert.IsNotNull(incompleteStruct);
+        Assert.DoesNotThrow(() => CSharp.CSharp.UseIncompleteStruct(incompleteStruct));
+    }
+
+    [Test]
+    public void TestForwardDeclaredStruct()
+    {
+        var forwardDeclaredStruct = CSharp.CSharp.CreateForwardDeclaredStruct(10);
+        var i = CSharp.CSharp.UseForwardDeclaredStruct(forwardDeclaredStruct);
+        Assert.AreEqual(forwardDeclaredStruct.I, i);
+    }
+
+    [Test]
+    public void TestDuplicateDeclaredIncompleteStruct()
+    {
+        var duplicateDeclaredIncompleteStruct = CSharp.CSharp.CreateDuplicateDeclaredStruct(10);
+        var i = CSharp.CSharp.UseDuplicateDeclaredStruct(duplicateDeclaredIncompleteStruct);
+        Assert.AreEqual(10, i);
+    }
+
+    [Test]
+    public void TestMyMacroTestEnum()
+    {
+        var a = (MyMacroTestEnum)'1';
+        var b = (MyMacroTestEnum)'2';
+        Assert.IsTrue(a == MyMacroTestEnum.MY_MACRO_TEST_1 && b == MyMacroTestEnum.MY_MACRO_TEST_2);
+    }
+
+    [Test]
+    public void TestGenerationOfArraySetter()
+    {
+        var complexArrayElements = new ComplexArrayElement[10];
+        complexArrayElements[0] = new ComplexArrayElement();
+        complexArrayElements[1] = new ComplexArrayElement();
+        complexArrayElements[2] = new ComplexArrayElement();
+        complexArrayElements[3] = new ComplexArrayElement();
+        complexArrayElements[4] = new ComplexArrayElement();
+        complexArrayElements[5] = new ComplexArrayElement();
+        complexArrayElements[6] = new ComplexArrayElement();
+        complexArrayElements[7] = new ComplexArrayElement();
+        complexArrayElements[8] = new ComplexArrayElement();
+        complexArrayElements[9] = new ComplexArrayElement();
+
+        complexArrayElements[0].BoolField = true;
+        complexArrayElements[0].IntField = 2450;
+        complexArrayElements[0].FloatField = -40;
+
+        complexArrayElements[1].BoolField = false;
+        complexArrayElements[1].IntField = 2451;
+        complexArrayElements[1].FloatField = -41;
+
+        complexArrayElements[2].BoolField = true;
+        complexArrayElements[2].IntField = 2452;
+        complexArrayElements[2].FloatField = -42;
+
+        complexArrayElements[3].BoolField = true;
+        complexArrayElements[3].IntField = 2453;
+        complexArrayElements[3].FloatField = -43;
+
+        complexArrayElements[4].BoolField = false;
+        complexArrayElements[4].IntField = 2454;
+        complexArrayElements[4].FloatField = -44;
+
+        complexArrayElements[5].BoolField = true;
+        complexArrayElements[5].IntField = 2455;
+        complexArrayElements[5].FloatField = -45;
+
+        complexArrayElements[6].BoolField = true;
+        complexArrayElements[6].IntField = 2456;
+        complexArrayElements[6].FloatField = -46;
+
+        complexArrayElements[7].BoolField = true;
+        complexArrayElements[7].IntField = 2457;
+        complexArrayElements[7].FloatField = -47;
+
+        complexArrayElements[8].BoolField = false;
+        complexArrayElements[8].IntField = 2458;
+        complexArrayElements[8].FloatField = -48;
+
+        complexArrayElements[9].BoolField = true;
+        complexArrayElements[9].IntField = 2459;
+        complexArrayElements[9].FloatField = -49;
+
+        using (HasComplexArray tests = new HasComplexArray { ComplexArray = complexArrayElements })
+        {
+            Assert.AreEqual(tests.ComplexArray[0].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[0].IntField, 2450);
+            Assert.AreEqual(tests.ComplexArray[0].FloatField, -40);
+
+            Assert.AreEqual(tests.ComplexArray[1].BoolField, false);
+            Assert.AreEqual(tests.ComplexArray[1].IntField, 2451);
+            Assert.AreEqual(tests.ComplexArray[1].FloatField, -41);
+
+            Assert.AreEqual(tests.ComplexArray[2].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[2].IntField, 2452);
+            Assert.AreEqual(tests.ComplexArray[2].FloatField, -42);
+
+            Assert.AreEqual(tests.ComplexArray[3].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[3].IntField, 2453);
+            Assert.AreEqual(tests.ComplexArray[3].FloatField, -43);
+
+            Assert.AreEqual(tests.ComplexArray[4].BoolField, false);
+            Assert.AreEqual(tests.ComplexArray[4].IntField, 2454);
+            Assert.AreEqual(tests.ComplexArray[4].FloatField, -44);
+
+            Assert.AreEqual(tests.ComplexArray[5].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[5].IntField, 2455);
+            Assert.AreEqual(tests.ComplexArray[5].FloatField, -45);
+
+            Assert.AreEqual(tests.ComplexArray[6].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[6].IntField, 2456);
+            Assert.AreEqual(tests.ComplexArray[6].FloatField, -46);
+
+            Assert.AreEqual(tests.ComplexArray[7].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[7].IntField, 2457);
+            Assert.AreEqual(tests.ComplexArray[7].FloatField, -47);
+
+            Assert.AreEqual(tests.ComplexArray[8].BoolField, false);
+            Assert.AreEqual(tests.ComplexArray[8].IntField, 2458);
+            Assert.AreEqual(tests.ComplexArray[8].FloatField, -48);
+
+            Assert.AreEqual(tests.ComplexArray[9].BoolField, true);
+            Assert.AreEqual(tests.ComplexArray[9].IntField, 2459);
+            Assert.AreEqual(tests.ComplexArray[9].FloatField, -49);
+        }
+
+        foreach (var complexArrayElement in complexArrayElements)
+        {
+            complexArrayElement.Dispose();
+        }
+    }
+
+    [Test]
+    public void TestConstRefIndexer()
+    {
+        using (var indexproperty = new TestIndexedProperties())
+        {
+            int a = 2;
+            Assert.That(indexproperty[&a], Is.EqualTo(2));
+        }
+    }
+
+    [Test]
+    public void TestVoidPtrReturningIndexer()
+    {
+        using (var indexproperty = new TestIndexedProperties())
+        {
+            uint n = 21;
+            Assert.That(*((int*) indexproperty[n]), Is.EqualTo(21));
+        }
+    }
+
+    [Test]
+    public void TestFuncWithTypedefedFuncPtrAsParam()
+    {
+        TypedefedFuncPtr function = (a, b) => 5;
+        Assert.That(CSharp.CSharp.FuncWithTypedefedFuncPtrAsParam(function), Is.EqualTo(5));
+    }
+
+    [Test]
+    public void TestIncrement()
+    {
+        var bar = new Bar();
+        bar.Index = 5;
+        bar++;
+        Assert.That(bar.Index, Is.EqualTo(6));
+        bar.Dispose();
+    }
+
+    private class OverrideVirtualTemplate : VirtualTemplate<int>
+    {
+        public override int Function
+        {
+            get { return 10; }
+        }
+    }
+}
