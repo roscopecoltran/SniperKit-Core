@@ -17,6 +17,9 @@ cmake:
           find:
             required: True
 
+# https://github.com/ruslo/hunter/tree/master/examples
+# 
+
 # 1.a download flatbuffers
 # hunter_add_package(flatbuffers)
 # find_package(flatbuffers CONFIG REQUIRED)
