@@ -23,6 +23,8 @@ export ANDROID_NDK=/usr/local/share/android-ndk
 
 # git subtree add --prefix NativePlugins/External/Protocols https://github.com/roscopecoltran/nng.git sniperkit --squash
 # git subtree add --prefix .References/src/github.com/mortea15/DAT234_MandatoryBashScripting https://github.com/mortea15/DAT234.git master --squash
+# git subtree add --prefix .References/src/github.com/m039/XLIS_Interop_Experiments https://github.com/m039/XLIS.git master --squash
+
 
 mkdir -p build_v7a && cd build_v7a
 
