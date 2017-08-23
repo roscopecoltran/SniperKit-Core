@@ -1,0 +1,1 @@
+"cmake" "-H." "-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/ios-11-0-dep-8-0-libcxx-hid-sections" "-GXcode" "-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/ios-11-0-dep-8-0-libcxx-hid-sections.cmake"

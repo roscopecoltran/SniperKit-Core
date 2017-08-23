@@ -1,0 +1,14 @@
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/CMakeFiles/install.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/CMakeFiles/package.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/CMakeFiles/tstunity.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/CMakeFiles/ALL_BUILD.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/CMakeFiles/ZERO_CHECK.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/CMakeFiles/install.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/CMakeFiles/package.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/CMakeFiles/distnn.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/CMakeFiles/ALL_BUILD.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/CMakeFiles/ZERO_CHECK.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/src/CMakeFiles/install.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/src/CMakeFiles/package.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/src/CMakeFiles/nng.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode-hid-sections/external/nng/src/CMakeFiles/nng_static.dir

@@ -1,0 +1,48 @@
+Determining if the function clock_gettime exists in the rt failed with the following output:
+Change Dir: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-Release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e9570/fast"
+/Applications/Xcode-beta.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_e9570.dir/build.make CMakeFiles/cmTC_e9570.dir/build
+Building C object CMakeFiles/cmTC_e9570.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -I /usr/local/lib/python2.7/site-packages/numpy/core/include -DCHECK_FUNCTION_EXISTS=clock_gettime -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk   -o CMakeFiles/cmTC_e9570.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e9570
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9570.dir/link.txt --verbose=1
+/usr/bin/gcc -I /usr/local/lib/python2.7/site-packages/numpy/core/include -DCHECK_FUNCTION_EXISTS=clock_gettime -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_e9570.dir/CheckFunctionExists.c.o  -o cmTC_e9570 -lrt 
+ld: library not found for -lrt
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_e9570] Error 1
+make: *** [cmTC_e9570/fast] Error 2
+
+
+Determining if the function gethostbyname exists in the nsl failed with the following output:
+Change Dir: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-Release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c5bfa/fast"
+/Applications/Xcode-beta.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_c5bfa.dir/build.make CMakeFiles/cmTC_c5bfa.dir/build
+Building C object CMakeFiles/cmTC_c5bfa.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -I /usr/local/lib/python2.7/site-packages/numpy/core/include -DCHECK_FUNCTION_EXISTS=gethostbyname -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk   -o CMakeFiles/cmTC_c5bfa.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c5bfa
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5bfa.dir/link.txt --verbose=1
+/usr/bin/gcc -I /usr/local/lib/python2.7/site-packages/numpy/core/include -DCHECK_FUNCTION_EXISTS=gethostbyname -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_c5bfa.dir/CheckFunctionExists.c.o  -o cmTC_c5bfa -lnsl 
+ld: library not found for -lnsl
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_c5bfa] Error 1
+make: *** [cmTC_c5bfa/fast] Error 2
+
+
+Determining if the function socket exists in the socket failed with the following output:
+Change Dir: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-Release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2cf43/fast"
+/Applications/Xcode-beta.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_2cf43.dir/build.make CMakeFiles/cmTC_2cf43.dir/build
+Building C object CMakeFiles/cmTC_2cf43.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -I /usr/local/lib/python2.7/site-packages/numpy/core/include -DCHECK_FUNCTION_EXISTS=socket -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk   -o CMakeFiles/cmTC_2cf43.dir/CheckFunctionExists.c.o   -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2cf43
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2cf43.dir/link.txt --verbose=1
+/usr/bin/gcc -I /usr/local/lib/python2.7/site-packages/numpy/core/include -DCHECK_FUNCTION_EXISTS=socket -isysroot /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_2cf43.dir/CheckFunctionExists.c.o  -o cmTC_2cf43 -lsocket 
+ld: library not found for -lsocket
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cmTC_2cf43] Error 1
+make: *** [cmTC_2cf43/fast] Error 2
+
+

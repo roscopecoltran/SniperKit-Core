@@ -1,0 +1,291 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "--version"
+cmake version 3.9.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/osx-10-13`
+  `-GXcode`
+  `-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/osx-10-13.cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "-H." "-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/osx-10-13" "-GXcode" "-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/osx-10-13.cmake"
+-- [polly] Used toolchain: Xcode (OS X 10.13) / clang / LLVM Standard C++ Library (libc++) / c++11 support
+-- The C compiler identification is AppleClang 9.0.0.9000031
+-- The CXX compiler identification is AppleClang 9.0.0.9000031
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/cmake/Modules;/Users/lucmichalski/local/cpp/cmake/hunter/cmake/modules;/Users/lucmichalski/local/cpp/cmake/hunter/cmake/find;/Users/lucmichalski/local/cpp/xbuild/polly/utilities/../find;/Users/lucmichalski/local/cpp/xbuild/polly/utilities <:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:
+-- config.cmake --
+  MSVC:
+  APPLE: 1
+  ANDROID:
+  IOS:
+  is_linux: 0
+  XCODE: 1
+APPLE ==========================================================================
+-- [hunter] HUNTER_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter
+-- [hunter] [ Hunter-ID: xxxxxxx | Toolchain-ID: dd1842b | Config-ID: 895f828 ]
+-- [hunter] SUGAR_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cellar/f33ac0045d6ee4582d41f5290010802ad72fe2fa/f33ac00/raw (ver.: 1.2.2)
+-- [sugar] SUGAR_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cellar/f33ac0045d6ee4582d41f5290010802ad72fe2fa/f33ac00/raw
+-- [hunter] PROTOBUF_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 3.0.0-p1)
+--  *** APPEND *** PACKAGE_NAME=Protobuf, _package_name_uppercase=PROTOBUF
+--  *** APPEND *** PACKAGE_NAME=ZLIB, _package_name_uppercase=ZLIB
+--  *** APPEND *** PACKAGE_NAME=ZLIB, _package_name_uppercase=ZLIB
+--  *** APPEND *** LIBRARY_NAME=ZLIB::zlib, _library_name_uppercase=ZLIB::ZLIB
+--  *** APPEND *** LIBRARY NAME : ZLIB::zlib
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- Found ZLIB: ZLIB::zlib
+--  *** APPEND *** FIND_PACKAGE *** ARGS :
+--  *** APPEND *** LIBRARY_NAME=protobuf::libprotobuf, _library_name_uppercase=PROTOBUF::LIBPROTOBUF
+--  *** APPEND *** LIBRARY NAME : protobuf::libprotobuf
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** LIBRARY_NAME=protobuf::libprotobuf-lite, _library_name_uppercase=PROTOBUF::LIBPROTOBUF-LITE
+--  *** APPEND *** LIBRARY NAME : protobuf::libprotobuf-lite
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** LIBRARY_NAME=protobuf::libprotoc, _library_name_uppercase=PROTOBUF::LIBPROTOC
+--  *** APPEND *** LIBRARY NAME : protobuf::libprotoc
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** PROCESSING *** EXECUTABLE_NAME=protobuf::protoc, _executable_name_uppercase: PROTOBUF::PROTOC
+--  *** APPEND *** ADD EXECUTABLE *** ARGS : IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] FLATBUFFERS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 1.3.0-p3)
+--  *** APPEND *** PACKAGE_NAME=flatbuffers, _package_name_uppercase=FLATBUFFERS
+--  *** APPEND *** LIBRARY_NAME=flatbuffers::flatbuffers, _library_name_uppercase=FLATBUFFERS::FLATBUFFERS
+--  *** APPEND *** LIBRARY NAME : flatbuffers::flatbuffers
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] GLM_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 0.9.8.5)
+--  *** APPEND *** PACKAGE_NAME=glm, _package_name_uppercase=GLM
+--  *** APPEND *** LIBRARY_NAME=glm, _library_name_uppercase=GLM
+--  *** APPEND *** LIBRARY NAME : glm
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] SPDLOG_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 0.13.0-p0)
+--  *** APPEND *** PACKAGE_NAME=spdlog, _package_name_uppercase=SPDLOG
+--  *** APPEND *** LIBRARY_NAME=spdlog::spdlog, _library_name_uppercase=SPDLOG::SPDLOG
+--  *** APPEND *** LIBRARY NAME : spdlog::spdlog
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] EOS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 0.12.1)
+--  *** APPEND *** PACKAGE_NAME=eos, _package_name_uppercase=EOS
+--  *** APPEND *** PACKAGE_NAME=OpenCV, _package_name_uppercase=OPENCV
+--  *** APPEND *** LIBRARY_NAME=libjasper, _library_name_uppercase=LIBJASPER
+--  *** APPEND *** LIBRARY NAME : libjasper
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** LIBRARY_NAME=ittnotify, _library_name_uppercase=ITTNOTIFY
+--  *** APPEND *** LIBRARY NAME : ittnotify
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** LIBRARY_NAME=opencv_world, _library_name_uppercase=OPENCV_WORLD
+--  *** APPEND *** LIBRARY NAME : opencv_world
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** LIBRARY_NAME=opencv_img_hash, _library_name_uppercase=OPENCV_IMG_HASH
+--  *** APPEND *** LIBRARY NAME : opencv_img_hash
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+-- Found OpenCV: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (found version "3.3.0")
+--  *** APPEND *** PACKAGE_NAME=PNG, _package_name_uppercase=PNG
+--  *** APPEND *** LIBRARY_NAME=PNG::png, _library_name_uppercase=PNG::PNG
+--  *** APPEND *** LIBRARY NAME : PNG::png
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** PACKAGE_NAME=JPEG, _package_name_uppercase=JPEG
+--  *** APPEND *** LIBRARY_NAME=JPEG::jpeg, _library_name_uppercase=JPEG::JPEG
+--  *** APPEND *** LIBRARY NAME : JPEG::jpeg
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** PROCESSING *** EXECUTABLE_NAME=JPEG::cjpeg, _executable_name_uppercase: JPEG::CJPEG
+--  *** APPEND *** ADD EXECUTABLE *** ARGS : IMPORTED
+--  *** PROCESSING *** EXECUTABLE_NAME=JPEG::djpeg, _executable_name_uppercase: JPEG::DJPEG
+--  *** APPEND *** ADD EXECUTABLE *** ARGS : IMPORTED
+--  *** PROCESSING *** EXECUTABLE_NAME=JPEG::jpegtran, _executable_name_uppercase: JPEG::JPEGTRAN
+--  *** APPEND *** ADD EXECUTABLE *** ARGS : IMPORTED
+--  *** PROCESSING *** EXECUTABLE_NAME=JPEG::rdjpgcom, _executable_name_uppercase: JPEG::RDJPGCOM
+--  *** APPEND *** ADD EXECUTABLE *** ARGS : IMPORTED
+--  *** PROCESSING *** EXECUTABLE_NAME=JPEG::wrjpgcom, _executable_name_uppercase: JPEG::WRJPGCOM
+--  *** APPEND *** ADD EXECUTABLE *** ARGS : IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : REQUIRED
+--  *** APPEND *** PACKAGE_NAME=Boost, _package_name_uppercase=BOOST
+--  *** APPEND *** PACKAGE_NAME=Boost, _package_name_uppercase=BOOST
+-- Boost version: 1.64.0
+-- Found the following Boost libraries:
+--   system
+--  *** APPEND *** FIND_PACKAGE *** ARGS : MODULE;REQUIRED;system
+--  *** APPEND *** LIBRARY_NAME=Boost::boost, _library_name_uppercase=BOOST::BOOST
+--  *** APPEND *** LIBRARY NAME : Boost::boost
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** LIBRARY_NAME=Boost::system, _library_name_uppercase=BOOST::SYSTEM
+--  *** APPEND *** LIBRARY NAME : Boost::system
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED;system
+--  *** APPEND *** PACKAGE_NAME=Eigen3, _package_name_uppercase=EIGEN3
+--  *** APPEND *** LIBRARY_NAME=Eigen3::Eigen, _library_name_uppercase=EIGEN3::EIGEN
+--  *** APPEND *** LIBRARY NAME : Eigen3::Eigen
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** PACKAGE_NAME=cereal, _package_name_uppercase=CEREAL
+--  *** APPEND *** LIBRARY_NAME=cereal::cereal, _library_name_uppercase=CEREAL::CEREAL
+--  *** APPEND *** LIBRARY NAME : cereal::cereal
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** PACKAGE_NAME=nanoflann, _package_name_uppercase=NANOFLANN
+--  *** APPEND *** LIBRARY_NAME=nanoflann::nanoflann, _library_name_uppercase=NANOFLANN::NANOFLANN
+--  *** APPEND *** LIBRARY NAME : nanoflann::nanoflann
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** PACKAGE_NAME=eigen3-nnls, _package_name_uppercase=EIGEN3-NNLS
+--  *** APPEND *** LIBRARY_NAME=eigen3-nnls::eigen3-nnls, _library_name_uppercase=EIGEN3-NNLS::EIGEN3-NNLS
+--  *** APPEND *** LIBRARY NAME : eigen3-nnls::eigen3-nnls
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** LIBRARY_NAME=eos::eos, _library_name_uppercase=EOS::EOS
+--  *** APPEND *** LIBRARY NAME : eos::eos
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] GLM_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 0.9.8.5)
+--  *** APPEND *** PACKAGE_NAME=glm, _package_name_uppercase=GLM
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] EIGEN_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 3.3.1-p4)
+Eigen licenses:
+* /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install/licenses/Eigen/COPYING.MPL2
+--  *** APPEND *** PACKAGE_NAME=Eigen3, _package_name_uppercase=EIGEN3
+--  *** APPEND *** PACKAGE_NAME=Eigen3, _package_name_uppercase=EIGEN3
+-- [hunter] CXXOPTS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 1.0.0-p0)
+--  *** APPEND *** PACKAGE_NAME=cxxopts, _package_name_uppercase=CXXOPTS
+--  *** APPEND *** LIBRARY_NAME=cxxopts::cxxopts, _library_name_uppercase=CXXOPTS::CXXOPTS
+--  *** APPEND *** LIBRARY NAME : cxxopts::cxxopts
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] OPENCV_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 3.3.0-p1)
+--  *** APPEND *** PACKAGE_NAME=OpenCV, _package_name_uppercase=OPENCV
+-- [hunter] DLIB_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 19.4-p2)
+--  *** APPEND *** PACKAGE_NAME=dlib, _package_name_uppercase=DLIB
+--  *** APPEND *** LIBRARY_NAME=dlib::dlib, _library_name_uppercase=DLIB::DLIB
+--  *** APPEND *** LIBRARY NAME : dlib::dlib
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] CEREAL_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 1.2.1-p1)
+--  *** APPEND *** PACKAGE_NAME=cereal, _package_name_uppercase=CEREAL
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+-- [hunter] LIBYUV_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/dd1842b/895f828/Install (ver.: 1514-p3)
+--  *** APPEND *** PACKAGE_NAME=libyuv, _package_name_uppercase=LIBYUV
+--  *** APPEND *** LIBRARY_NAME=libyuv::yuv, _library_name_uppercase=LIBYUV::YUV
+--  *** APPEND *** LIBRARY NAME : libyuv::yuv
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : CONFIG;REQUIRED
+--  *** APPEND *** PACKAGE_NAME=Git, _package_name_uppercase=GIT
+--  *** APPEND *** FIND_PACKAGE *** ARGS : QUIET
+--  *** APPEND *** PACKAGE_NAME=Threads, _package_name_uppercase=THREADS
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE
+--  *** APPEND *** LIBRARY_NAME=Threads::Threads, _library_name_uppercase=THREADS::THREADS
+--  *** APPEND *** LIBRARY NAME : Threads::Threads
+--  *** APPEND *** ADD LIBRARY *** ARGS : INTERFACE;IMPORTED
+--  *** APPEND *** FIND_PACKAGE *** ARGS : REQUIRED
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - not found
+-- Looking for sem_wait in pthread
+-- Looking for sem_wait in pthread - found
+-- Looking for gethostbyname in nsl
+-- Looking for gethostbyname in nsl - not found
+-- Looking for socket in socket
+-- Looking for socket in socket - not found
+-- Looking for AF_UNIX
+-- Looking for AF_UNIX - found
+-- Looking for backtrace_symbols_fd
+-- Looking for backtrace_symbols_fd - found
+-- Performing Test NNG_HAVE_MSG_CONTROL
+-- Performing Test NNG_HAVE_MSG_CONTROL - Success
+--  *** APPEND *** LIBRARY_NAME=nng_static, _library_name_uppercase=NNG_STATIC
+--  *** APPEND *** LIBRARY NAME : nng_static
+--  *** APPEND *** ADD LIBRARY *** ARGS : STATIC;nng.c;nng.h;nng_compat.c;nng_compat.h;core/defs.h;core/aio.c;core/aio.h;core/clock.c;core/clock.h;core/device.c;core/device.h;core/endpt.c;core/endpt.h;core/event.c;core/event.h;core/idhash.c;core/idhash.h;core/init.c;core/init.h;core/list.c;core/list.h;core/message.c;core/message.h;core/msgqueue.c;core/msgqueue.h;core/nng_impl.h;core/options.c;core/options.h;core/panic.c;core/panic.h;core/pipe.c;core/pipe.h;core/platform.h;core/protocol.c;core/protocol.h;core/random.c;core/random.h;core/socket.c;core/socket.h;core/taskq.c;core/taskq.h;core/thread.c;core/thread.h;core/timer.c;core/timer.h;core/transport.c;core/transport.h;platform/posix/posix_impl.h;platform/posix/posix_config.h;platform/posix/posix_aio.h;platform/posix/posix_pollq.h;platform/posix/posix_alloc.c;platform/posix/posix_clock.c;platform/posix/posix_debug.c;platform/posix/posix_epdesc.c;platform/posix/posix_ipc.c;platform/posix/posix_pipe.c;platform/posix/posix_pipedesc.c;platform/posix/posix_pollq_poll.c;platform/posix/posix_rand.c;platform/posix/posix_resolv_gai.c;platform/posix/posix_sockaddr.c;platform/posix/posix_tcp.c;platform/posix/posix_thread.c;platform/posix/posix_udp.c;platform/windows/win_impl.h;platform/windows/win_clock.c;platform/windows/win_debug.c;platform/windows/win_iocp.c;platform/windows/win_ipc.c;platform/windows/win_net.c;platform/windows/win_pipe.c;platform/windows/win_rand.c;platform/windows/win_resolv.c;platform/windows/win_thread.c;protocol/bus/bus.c;protocol/pair/pair_v0.c;protocol/pair/pair_v1.c;protocol/pipeline/pull.c;protocol/pipeline/push.c;protocol/pubsub/pub.c;protocol/pubsub/sub.c;protocol/reqrep/rep.c;protocol/reqrep/req.c;protocol/survey/respond.c;protocol/survey/survey.c;transport/inproc/inproc.c;transport/ipc/ipc.c;transport/tcp/tcp.c
+--  *** APPEND *** LIBRARY_NAME=nng, _library_name_uppercase=NNG
+--  *** APPEND *** LIBRARY NAME : nng
+--  *** APPEND *** ADD LIBRARY *** ARGS : SHARED;nng.c;nng.h;nng_compat.c;nng_compat.h;core/defs.h;core/aio.c;core/aio.h;core/clock.c;core/clock.h;core/device.c;core/device.h;core/endpt.c;core/endpt.h;core/event.c;core/event.h;core/idhash.c;core/idhash.h;core/init.c;core/init.h;core/list.c;core/list.h;core/message.c;core/message.h;core/msgqueue.c;core/msgqueue.h;core/nng_impl.h;core/options.c;core/options.h;core/panic.c;core/panic.h;core/pipe.c;core/pipe.h;core/platform.h;core/protocol.c;core/protocol.h;core/random.c;core/random.h;core/socket.c;core/socket.h;core/taskq.c;core/taskq.h;core/thread.c;core/thread.h;core/timer.c;core/timer.h;core/transport.c;core/transport.h;platform/posix/posix_impl.h;platform/posix/posix_config.h;platform/posix/posix_aio.h;platform/posix/posix_pollq.h;platform/posix/posix_alloc.c;platform/posix/posix_clock.c;platform/posix/posix_debug.c;platform/posix/posix_epdesc.c;platform/posix/posix_ipc.c;platform/posix/posix_pipe.c;platform/posix/posix_pipedesc.c;platform/posix/posix_pollq_poll.c;platform/posix/posix_rand.c;platform/posix/posix_resolv_gai.c;platform/posix/posix_sockaddr.c;platform/posix/posix_tcp.c;platform/posix/posix_thread.c;platform/posix/posix_udp.c;platform/windows/win_impl.h;platform/windows/win_clock.c;platform/windows/win_debug.c;platform/windows/win_iocp.c;platform/windows/win_ipc.c;platform/windows/win_net.c;platform/windows/win_pipe.c;platform/windows/win_rand.c;platform/windows/win_resolv.c;platform/windows/win_thread.c;protocol/bus/bus.c;protocol/pair/pair_v0.c;protocol/pair/pair_v1.c;protocol/pipeline/pull.c;protocol/pipeline/push.c;protocol/pubsub/pub.c;protocol/pubsub/sub.c;protocol/reqrep/rep.c;protocol/reqrep/req.c;protocol/survey/respond.c;protocol/survey/survey.c;transport/inproc/inproc.c;transport/ipc/ipc.c;transport/tcp/tcp.c
+--  *** APPEND *** LIBRARY_NAME=tstunity, _library_name_uppercase=TSTUNITY
+--  *** APPEND *** LIBRARY NAME : tstunity
+--  *** APPEND *** ADD LIBRARY *** ARGS : MODULE;tstunity/math_helper.c;tstunity/sort_helper.c
+--  #### - ZLIB::zlib
+--  #### - protobuf::libprotobuf
+--  #### - protobuf::libprotobuf-lite
+--  #### - protobuf::libprotoc
+--  #### - flatbuffers::flatbuffers
+--  #### - glm
+--  #### - spdlog::spdlog
+--  #### - libjasper
+--  #### - ittnotify
+--  #### - opencv_world
+--  #### - opencv_img_hash
+--  #### - PNG::png
+--  #### - JPEG::jpeg
+--  #### - Boost::boost
+--  #### - Boost::system
+--  #### - Eigen3::Eigen
+--  #### - cereal::cereal
+--  #### - nanoflann::nanoflann
+--  #### - eigen3-nnls::eigen3-nnls
+--  #### - eos::eos
+--  #### - cxxopts::cxxopts
+--  #### - dlib::dlib
+--  #### - libyuv::yuv
+--  #### - tstunity
+-- Configuring done
+CMake Error at CMakeLists.txt:349 (add_custom_command):
+  Error evaluating generator expression:
+
+    $<TARGET_FILE:glm>
+
+  Target "glm" is not an executable or library.
+
+
+CMake Error at CMakeLists.txt:349 (add_custom_command):
+  Error evaluating generator expression:
+
+    $<TARGET_FILE:glm>
+
+  Target "glm" is not an executable or library.
+
+
+CMake Error at CMakeLists.txt:349 (add_custom_command):
+  Error evaluating generator expression:
+
+    $<TARGET_FILE:glm>
+
+  Target "glm" is not an executable or library.
+
+
+CMake Error at CMakeLists.txt:349 (add_custom_command):
+  Error evaluating generator expression:
+
+    $<TARGET_FILE:glm>
+
+  Target "glm" is not an executable or library.
+
+
+-- Generating done
+-- Build files have been written to: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/osx-10-13

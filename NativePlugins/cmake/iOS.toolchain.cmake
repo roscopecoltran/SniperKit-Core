@@ -211,3 +211,6 @@ SET(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer")
 SET(MACOSX_BUNDLE_GUI_IDENTIFIER "org.racing")
 # http://stackoverflow.com/questions/11198878/how-do-you-specify-a-universal-ios-application-when-building-through-cmake
 SET(CMAKE_XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2")
+
+
+

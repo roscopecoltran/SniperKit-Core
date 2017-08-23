@@ -1,0 +1,14 @@
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/CMakeFiles/install.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/CMakeFiles/package.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/CMakeFiles/tstunity.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/CMakeFiles/ALL_BUILD.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/CMakeFiles/ZERO_CHECK.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/CMakeFiles/install.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/CMakeFiles/package.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/CMakeFiles/distnn.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/CMakeFiles/ALL_BUILD.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/CMakeFiles/ZERO_CHECK.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/src/CMakeFiles/install.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/src/CMakeFiles/package.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/src/CMakeFiles/nng.dir
+/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/xcode/external/nng/src/CMakeFiles/nng_static.dir

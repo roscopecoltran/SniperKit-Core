@@ -1,0 +1,1 @@
+"cmake" "-H." "-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-Release" "-DCMAKE_BUILD_TYPE=Release" "-GUnix Makefiles" "-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/gcc.cmake"

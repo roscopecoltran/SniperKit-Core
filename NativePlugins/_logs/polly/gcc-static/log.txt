@@ -1,0 +1,81 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "--version"
+cmake version 3.9.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-static-Release`
+  `-DCMAKE_BUILD_TYPE=Release`
+  `-GUnix Makefiles`
+  `-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/gcc-static.cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "-H." "-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-static-Release" "-DCMAKE_BUILD_TYPE=Release" "-GUnix Makefiles" "-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/gcc-static.cmake"
+-- [polly] Used toolchain: gcc / c++11 support / static
+-- The C compiler identification is AppleClang 9.0.0.9000031
+-- The CXX compiler identification is AppleClang 9.0.0.9000031
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- broken
+CMake Error at /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CMakeTestCCompiler.cmake:51 (message):
+  The C compiler "/usr/bin/gcc" is not able to compile a simple test program.
+
+  It fails with the following output:
+
+   Change Dir: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-static-Release/CMakeFiles/CMakeTmp
+
+
+
+  Run Build Command:"/usr/bin/make" "cmTC_a4c65/fast"
+
+  /Applications/Xcode-beta.app/Contents/Developer/usr/bin/make -f
+  CMakeFiles/cmTC_a4c65.dir/build.make CMakeFiles/cmTC_a4c65.dir/build
+
+  Building C object CMakeFiles/cmTC_a4c65.dir/testCCompiler.c.o
+
+  /usr/bin/gcc -static -isysroot
+  /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
+  -o CMakeFiles/cmTC_a4c65.dir/testCCompiler.c.o -c
+  /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-static-Release/CMakeFiles/CMakeTmp/testCCompiler.c
+
+
+  Linking C executable cmTC_a4c65
+
+  /usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script
+  CMakeFiles/cmTC_a4c65.dir/link.txt --verbose=1
+
+  /usr/bin/gcc -static -isysroot
+  /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
+  -Wl,-search_paths_first -Wl,-headerpad_max_install_names
+  CMakeFiles/cmTC_a4c65.dir/testCCompiler.c.o -o cmTC_a4c65
+
+  ld: library not found for -lcrt0.o
+
+  clang: error: linker command failed with exit code 1 (use -v to see
+  invocation)
+
+  make[1]: *** [cmTC_a4c65] Error 1
+
+  make: *** [cmTC_a4c65/fast] Error 2
+
+
+
+
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:41 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-static-Release/CMakeFiles/CMakeOutput.log".
+See also "/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/gcc-static-Release/CMakeFiles/CMakeError.log".

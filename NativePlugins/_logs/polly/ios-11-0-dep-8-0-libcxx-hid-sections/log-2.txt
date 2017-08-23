@@ -1,0 +1,263 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "--version"
+cmake version 3.9.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/ios-11-0-dep-8-0-libcxx-hid-sections`
+  `-GXcode`
+  `-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/ios-11-0-dep-8-0-libcxx-hid-sections.cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "-H." "-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/ios-11-0-dep-8-0-libcxx-hid-sections" "-GXcode" "-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/ios-11-0-dep-8-0-libcxx-hid-sections.cmake"
+-- [polly] Used toolchain: iOS 11.0 Universal (iphoneos + iphonesimulator) / Deployment 8.0 / clang / c++11 support / hidden / data-sections / function-sections
+-- The C compiler identification is AppleClang 9.0.0.9000031
+-- The CXX compiler identification is AppleClang 9.0.0.9000031
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [hunter]
+************************* !!! WARNING !!! *************************
+
+You're using experimental feature. This may not work well
+and can be removed anytime. It's a workaround for existsing
+feature request:
+
+https://github.com/ruslo/hunter/issues/495
+
+*******************************************************************
+-- [hunter] Building host project: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/cmake/host
+-- The C compiler identification is AppleClang 9.0.0.9000031
+-- The CXX compiler identification is AppleClang 9.0.0.9000031
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+-- [hunter] HUNTER_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter
+-- [hunter] [ Hunter-ID: xxxxxxx | Toolchain-ID: 32ca2e0 | Config-ID: 910437c ]
+-- [hunter] CAPNPROTO_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/32ca2e0/910437c/Install (ver.: 0.6.1)
+-- [hunter] PROTOBUF_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/32ca2e0/910437c/Install (ver.: 3.0.0-p1)
+-- [hunter] FLATBUFFERS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/32ca2e0/910437c/Install (ver.: 1.3.0-p3)
+-- [hunter] LUA_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/32ca2e0/910437c/Install (ver.: 5.3.2)
+Lua version: Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/ios-11-0-dep-8-0-libcxx-hid-sections/_3rdParty/Hunter/host-build-binary-tree/cmake/host
+-- [hunter] Host project build finished: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/cmake/host
+-- Using imported protoc from host: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/32ca2e0/910437c/Install/bin/protoc
+-- [hunter] Calculating Toolchain-SHA1
+-- [hunter] Calculating Config-SHA1
+>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>: /Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/cmake/Modules;/Users/lucmichalski/local/cpp/cmake/hunter/cmake/modules;/Users/lucmichalski/local/cpp/cmake/hunter/cmake/find;/Users/lucmichalski/local/cpp/xbuild/polly/utilities/../find;/Users/lucmichalski/local/cpp/xbuild/polly/utilities <:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:
+-- config.cmake --
+  MSVC:
+  APPLE: 1
+  ANDROID:
+  IOS: YES
+  is_linux: 0
+  XCODE: 1
+IOS ============================================================================
+-- [hunter] HUNTER_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter
+-- [hunter] [ Hunter-ID: xxxxxxx | Toolchain-ID: 3741360 | Config-ID: 90d7bda ]
+-- [hunter] PROTOBUF_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 3.0.0-p1)
+-- [hunter] Cache HIT: Protobuf
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/Protobuf/3.0.0-p1/e3d5ab6/2123d14/a49b0e5/da39a3e/16ff64c/cache.sha1
+-- [hunter] ZLIB_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.2.8-p3)
+-- [hunter] Cache HIT: ZLIB
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/ZLIB/1.2.8-p3/573dc28/da39a3e/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- Found ZLIB: ZLIB::zlib
+-- [hunter] FLATBUFFERS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.3.0-p3)
+-- [hunter] Cache HIT: flatbuffers
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/flatbuffers/1.3.0-p3/b031689/88ec39f/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- [hunter] GLM_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 0.9.8.5)
+-- [hunter] Cache HIT: glm
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/glm/0.9.8.5/04ff6d0/da39a3e/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- [hunter] SPDLOG_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 0.13.0-p0)
+-- [hunter] Cache HIT: spdlog
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/spdlog/0.13.0-p0/b34b920/da39a3e/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- [hunter] EOS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 0.12.1)
+-- [hunter] Cache HIT: eos
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/eos/0.12.1/cbc8143/096767c/a49b0e5/da39a3e/1b7a296/cache.sha1
+-- [hunter] BOOST_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.64.0)
+-- [hunter] Cache HIT: Boost
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/Boost/1.64.0/51421ef/da39a3e/a49b0e5/0716d97/da39a3e/cache.sha1
+-- [hunter] BOOST_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.64.0)
+-- [hunter] BOOST_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.64.0)
+-- [hunter] Cache HIT: Boost (comp.: system)
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/Boost/__system/1.64.0/51421ef/da39a3e/a49b0e5/0716d97/da39a3e/cache.sha1
+-- [hunter] EIGEN_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 3.3.1-p4)
+-- [hunter] Cache HIT: Eigen
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/Eigen/3.3.1-p4/3ea6a95/b654974/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- [hunter] OPENCV_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 3.2.0-p1)
+-- [hunter] Cache HIT: OpenCV
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/OpenCV/3.2.0-p1/be088ce/dd949b2/a49b0e5/356a192/81e1a05/cache.sha1
+-- [hunter] OPENCV-EXTRA_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cellar/fa8ac06b8f6ad0a290106077f64b2a886055fd53/fa8ac06/raw (ver.: 3.2.0)
+-- [hunter] PNG_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.6.26-p1)
+-- [hunter] Cache HIT: PNG
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/PNG/1.6.26-p1/10557d6/42bdf80/a49b0e5/da39a3e/16ff64c/cache.sha1
+-- [hunter] ZLIB_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.2.8-p3)
+-- [hunter] ZLIB_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.2.8-p3)
+-- [hunter] CEREAL_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.2.1-p1)
+-- [hunter] Cache HIT: cereal
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/cereal/1.2.1-p1/8d8179d/84beab5/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- [hunter] EIGEN3-NNLS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.0.0)
+-- [hunter] Cache HIT: eigen3-nnls
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/eigen3-nnls/1.0.0/0bc34af/da39a3e/a49b0e5/da39a3e/c3e186d/cache.sha1
+-- [hunter] EIGEN_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 3.3.1-p4)
+-- [hunter] GLM_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 0.9.8.5)
+-- [hunter] NANOFLANN_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.2.3-p0)
+-- [hunter] Cache HIT: nanoflann
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/nanoflann/1.2.3-p0/72a42a3/cc9b636/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- Found OpenCV: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (found version "3.2.0")
+-- Boost version: 1.64.0
+-- Found the following Boost libraries:
+--   system
+-- [hunter] GLM_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 0.9.8.5)
+-- [hunter] EIGEN_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 3.3.1-p4)
+Eigen licenses:
+* /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install/licenses/Eigen/COPYING.MPL2
+-- [hunter] CXXOPTS_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 1.0.0-p0)
+-- [hunter] Cache HIT: cxxopts
+-- [hunter] Cache info: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Cache/meta/3741360/cxxopts/1.0.0-p0/90040ef/72d3a49/a49b0e5/da39a3e/da39a3e/cache.sha1
+-- [hunter] OPENCV_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 3.2.0-p1)
+-- [hunter] DLIB_ROOT: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Install (ver.: 19.4-p2)
+-- [hunter] Building dlib
+loading initial cache file /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/cache.cmake
+loading initial cache file /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/args.cmake
+-- [polly] Used toolchain: iOS 11.0 Universal (iphoneos + iphonesimulator) / Deployment 8.0 / clang / c++11 support / hidden / data-sections / function-sections
+-- The C compiler identification is AppleClang 9.0.0.9000031
+-- The CXX compiler identification is AppleClang 9.0.0.9000031
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -- works
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -- works
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build
+=== BUILD AGGREGATE TARGET ZERO_CHECK OF PROJECT Hunter WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+Write auxiliary files
+write-file /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/Hunter.build/Debug-iphoneos/ZERO_CHECK.build/Script-8B0845BC3F314BF6B65B0576.sh
+chmod 0755 /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/Hunter.build/Debug-iphoneos/ZERO_CHECK.build/Script-8B0845BC3F314BF6B65B0576.sh
+
+PhaseScriptExecution CMake\ Rules Build/Hunter.build/Debug-iphoneos/ZERO_CHECK.build/Script-8B0845BC3F314BF6B65B0576.sh
+    cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib
+    /bin/sh -c /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/Hunter.build/Debug-iphoneos/ZERO_CHECK.build/Script-8B0845BC3F314BF6B65B0576.sh
+echo ""
+
+make -f /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/CMakeScripts/ReRunCMake.make
+make[1]: `/Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/CMakeFiles/cmake.check_cache' is up to date.
+
+=== BUILD AGGREGATE TARGET dlib-Release OF PROJECT Hunter WITH CONFIGURATION Debug ===
+
+Check dependencies
+
+Write auxiliary files
+write-file /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/Hunter.build/Debug-iphoneos/dlib-Release.build/Script-7C1248A070D04B2791D67249.sh
+chmod 0755 /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/Hunter.build/Debug-iphoneos/dlib-Release.build/Script-7C1248A070D04B2791D67249.sh
+
+PhaseScriptExecution CMake\ Rules Build/Hunter.build/Debug-iphoneos/dlib-Release.build/Script-7C1248A070D04B2791D67249.sh
+    cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib
+    /bin/sh -c /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/Hunter.build/Debug-iphoneos/dlib-Release.build/Script-7C1248A070D04B2791D67249.sh
+echo "Creating directories for 'dlib-Release'"
+Creating directories for 'dlib-Release'
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E make_directory /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Source
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E make_directory /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-build
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E make_directory /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Install
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E make_directory /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/tmp
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E make_directory /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/Debug-iphoneos
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E make_directory /Users/lucmichalski/local/cpp/cmake/hunter/_Base/Download/dlib/19.4-p2/119231f
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E touch /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/Debug-iphoneos/dlib-Release-mkdir
+echo "Performing download step (download, verify and extract) for 'dlib-Release'"
+Performing download step (download, verify and extract) for 'dlib-Release'
+cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib && /usr/local/Cellar/cmake/3.9.0/bin/cmake -P /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/download-dlib-Release.cmake
+-- verifying file...
+       file='/Users/lucmichalski/local/cpp/cmake/hunter/_Base/Download/dlib/19.4-p2/119231f/v19.4-p2.tar.gz'
+-- File already exists and hash match (skip download):
+  file='/Users/lucmichalski/local/cpp/cmake/hunter/_Base/Download/dlib/19.4-p2/119231f/v19.4-p2.tar.gz'
+  SHA1='119231fe068799efd0922594dc580a18ebdb3a15'
+cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib && /usr/local/Cellar/cmake/3.9.0/bin/cmake -P /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/verify-dlib-Release.cmake
+cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib && /usr/local/Cellar/cmake/3.9.0/bin/cmake -P /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/extract-dlib-Release.cmake
+-- extracting...
+     src='/Users/lucmichalski/local/cpp/cmake/hunter/_Base/Download/dlib/19.4-p2/119231f/v19.4-p2.tar.gz'
+     dst='/Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Source'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib && /usr/local/Cellar/cmake/3.9.0/bin/cmake -E touch /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/Debug-iphoneos/dlib-Release-download
+echo "No update step for 'dlib-Release'"
+No update step for 'dlib-Release'
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E echo_append
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E touch /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/Debug-iphoneos/dlib-Release-update
+echo "No patch step for 'dlib-Release'"
+No patch step for 'dlib-Release'
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E echo_append
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E touch /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-stamp/Debug-iphoneos/dlib-Release-patch
+echo "Performing configure step for 'dlib-Release'"
+Performing configure step for 'dlib-Release'
+cd /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Build/dlib-Release-prefix/src/dlib-Release-build && /usr/local/Cellar/cmake/3.9.0/bin/cmake -GXcode -C/Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/cache.cmake -C/Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/args.cmake -DCMAKE_RELEASE_POSTFIX= -DCMAKE_CONFIGURATION_TYPES=Release -DCMAKE_INSTALL_PREFIX=/Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Install -DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/toolchain.cmake -DCMAKE_MAKE_PROGRAM=/usr/bin/xcodebuild -DCMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH=NO -GXcode /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/Source
+loading initial cache file /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/cache.cmake
+loading initial cache file /Users/lucmichalski/local/cpp/cmake/hunter/_Base/xxxxxxx/3741360/90d7bda/Build/dlib/args.cmake
+-- [polly] Used toolchain: iOS 11.0 Universal (iphoneos + iphonesimulator) / Deployment 8.0 / clang / c++11 support / hidden / data-sections / function-sections
+-- The C compiler identification is AppleClang 9.0.0.9000031
+-- The CXX compiler identification is AppleClang 9.0.0.9000031
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+-- Check for working C compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -- works
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+-- Check for working CXX compiler: /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -- works
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning (dev) at dlib/CMakeLists.txt:8 (project):
+  Policy CMP0048 is not set: project() command manages VERSION variables.
+  Run "cmake --help-policy CMP0048" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The following variable(s) would be set to empty:
+
+    PROJECT_VERSION
+    PROJECT_VERSION_MAJOR
+    PROJECT_VERSION_MINOR
+    dlib_VERSION
+    dlib_VERSION_MAJOR
+    dlib_VERSION_MINOR
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Building a C++11 test project to see if your compiler supports C++11

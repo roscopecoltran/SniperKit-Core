@@ -1,0 +1,38 @@
+Execute command: [
+  `which`
+  `cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "which" "cmake"
+/usr/local/bin/cmake
+Execute command: [
+  `cmake`
+  `--version`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "--version"
+cmake version 3.9.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Execute command: [
+  `cmake`
+  `-H.`
+  `-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/linux-gcc-x64-Release`
+  `-DCMAKE_BUILD_TYPE=Release`
+  `-GUnix Makefiles`
+  `-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/linux-gcc-x64.cmake`
+]
+[/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins]> "cmake" "-H." "-B/Users/lucmichalski/local/golang/src/github.com/hellowod/u3d-plugins-development/NativePlugins/_builds/linux-gcc-x64-Release" "-DCMAKE_BUILD_TYPE=Release" "-GUnix Makefiles" "-DCMAKE_TOOLCHAIN_FILE=/Users/lucmichalski/local/cpp/xbuild/polly/linux-gcc-x64.cmake"
+-- [polly] Used toolchain: Linux / gcc / x86_64 / c++11 support
+
+GCC not found: x86_64-pc-linux-gcc (update PATH environment variable)
+
+CMake Error at /Users/lucmichalski/local/cpp/xbuild/polly/utilities/polly_fatal_error.cmake:10 (message):
+Call Stack (most recent call first):
+  /Users/lucmichalski/local/cpp/xbuild/polly/compiler/gcc-cross-compile-simple-layout.cmake:18 (polly_fatal_error)
+  /Users/lucmichalski/local/cpp/xbuild/polly/linux-gcc-x64.cmake:21 (include)
+  /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CMakeDetermineSystem.cmake:94 (include)
+  CMakeLists.txt:41 (project)
+
+
+CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
+CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
