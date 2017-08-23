@@ -1,0 +1,66 @@
+FROM alpine:3.6
+MAINTAINER Rosco Pecoltran <rosco.pecoltran@msn.com>
+
+## Project VCS - Info
+ARG PROJECT_VCS_PROVIDER=${PROJECT_VCS_PROVIDER:-"github.com"}
+ARG PROJECT_NAMESPACE=${PROJECT_NAMESPACE:-"roscopecoltran"}
+ARG PROJECT_NAME=${PROJECT_NAME:-"u3d-plugins-development"}
+
+## Global 'ENV' variables
+ENV PROJECT_VCS_PROVIDER=${PROJECT_VCS_PROVIDER} \
+    PROJECT_NAMESPACE=${PROJECT_NAMESPACE} \
+	PROJECT_NAME=${PROJECT_NAME}
+
+## Build Tasks - Settings
+ARG APP_TASK_MANAGER=${APP_TASK_MANAGER:-"github.com/Nananas/ymake"}
+
+## Pre-build - Settings
+ARG APP_PREBUILD_ALL=${APP_PREBUILD_ALL:-true}
+ARG APP_PREBUILD_DEL=${APP_PREBUILD_DEL:-true}
+ARG APP_PREBUILD_AUTH=${APP_PREBUILD_AUTH:-mkjwk}
+
+## Compilation - Settings
+ARG GOLANG_CROSS_BUILDER=${GOLANG_CROSS_BUILDER:-gox}
+ARG GOLANG_PKG_MANAGER=${GOLAMG_PKG_MANAGER:-glide}
+
+##### [Go] Cross-build - Settings
+ARG XC_BUILD=${XC_BUILD:-false}
+ARG XC_ARCH=${XC_ARCH:-"386 amd64"}
+ARG XC_OS=${XC_OS:-"linux darwin"}
+
+## Container Security - Settings
+ARG GOSU_VERSION=${GOSU_VERSION:-1.10}
+
+## Container Packages - Settings
+ARG ALPINE_PKG_BUILD="git mercurial bzr go g++ tree"
+#ARG ALPINE_PKG_BUILD="curl git mercurial bzr gcc musl-dev go g++ make openssl-dev libssh2-dev"
+ARG ALPINE_PKG_RUNTIME="ca-certificates openssl" 
+ARG ALPINE_PKG_INTERACTIVE="bash nano tree"
+ARG ALPINE_PKG_DEL_STACKS="INTERACTIVE BUILD"
+
+# Install Gosu to /usr/local/bin/gosu (Simple Go-based setuid+setgid+setgroups+exec)
+ADD https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64 /usr/local/sbin/gosu
+
+# Add sources
+ADD . /app
+
+# Set default work directory
+WORKDIR /app
+
+# Install runtime dependencies & create runtime user
+RUN	chmod +x /usr/local/sbin/gosu \
+    && adduser -D app -h /data -s /bin/sh \
+    && if [ ${APP_PREBUILD_ALL} ];then chmod +x ./docker/build.sh; ./docker/build.sh; fi
+    
+# NSSwitch configuration file
+COPY docker/config/nsswitch.conf /etc/nsswitch.conf
+
+# Container configuration
+VOLUME ["/data", "/dist", "/app/configuration"]
+EXPOSE 1705
+
+# Container entrypoints
+COPY ./docker/entrypoint.sh /app/docker/entrypoint.sh
+
+# Container run command
+CMD ["/usr/local/sbin/gosu", "app", "./docker/entrypoint.sh"]
