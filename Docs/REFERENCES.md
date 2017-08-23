@@ -23,3 +23,20 @@
 
 ## Cross-platform Native Plugin/Project Make/C/C++
 - https://github.com/CMU-Perceptual-Computing-Lab/openpose
+
+## Helpers for Docker/Moby
+- https://github.com/michaelsauter/crane
+- https://github.com/matthieudelaro/nut
+- 
+
+## Helpers for converting dockerfiles to other base images
+- https://github.com/nexB/scancode-toolkit
+- https://github.com/repology/repology
+- https://github.com/porter-io/tagg-python
+- https://github.com/roscopecoltran/apk-file
+
+## Helpers for VCS
+
+### Github
+- https://github.com/donnemartin/gitsome (manager)
+- https://github.com/donnemartin/viz (stats)

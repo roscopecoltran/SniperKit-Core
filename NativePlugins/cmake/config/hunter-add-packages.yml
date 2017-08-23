@@ -1,0 +1,81 @@
+---
+cmake:
+  hunter:
+    add:
+      - package_name:
+        config_mode:
+          status: True
+          mapping:
+            main:
+              config_name:          
+            modules:
+              - name:
+                config_name: 
+        cmake:
+          build:
+            args:
+          find:
+            required: True
+
+# 1.a download flatbuffers
+# hunter_add_package(flatbuffers)
+# find_package(flatbuffers CONFIG REQUIRED)
+# target_link_libraries(foo flatbuffers::flatbuffers) 
+
+# 1.b download Eigen3 + check licenses + check double inclusion
+# hunter_add_package(Eigen)
+# string(COMPARE EQUAL "${Eigen_LICENSES}" "" is_empty)
+# if(is_empty)
+#   message(FATAL_ERROR "Licenses not found")
+# endif()
+# message("Eigen licenses:")
+# foreach(x ${Eigen_LICENSES})
+#   message("* ${x}")
+#   if(NOT EXISTS "${Eigen_LICENSES}")
+#     message(FATAL_ERROR "File not found")
+#   endif()
+# endforeach()
+# find_package(Eigen3 CONFIG REQUIRED)
+# Test double library creation
+# find_package(Eigen3 CONFIG REQUIRED)
+# add_executable(foo foo.cpp)
+# target_link_libraries(foo Eigen3::Eigen)
+
+# 1.c download OpenCV3 + CMake array of namespaces for sub-modules (check also the case with monilthic OpenCV3 world module)
+# hunter_add_package(OpenCV)
+# find_package(OpenCV REQUIRED)
+# message("OpenCV_DIR: ${OpenCV_DIR}")
+# message("OpenCV_CONFIG: ${OpenCV_CONFIG}")
+# message("OpenCV_LIBS: ${OpenCV_LIBS}")
+# add_executable(foo foo.cpp)
+# target_link_libraries(foo PRIVATE ${OpenCV_LIBS})
+
+# 2. cross-compile integration + host
+# If we cross compile for Android or iOS build a separate protoc executable on host to compile .proto files in CMake
+# if(IOS OR ANDROID)
+# add cmake/host subdiretcory as host project to install protoc
+#   include(hunter_experimental_add_host_project)
+#   hunter_experimental_add_host_project(cmake/host)
+#   add_executable(protobuf::protoc IMPORTED)
+#   set_property(TARGET protobuf::protoc APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+#   set_target_properties(protobuf::protoc PROPERTIES IMPORTED_LOCATION_RELEASE "${HUNTER_HOST_ROOT}/bin/protoc")
+#   message(STATUS "Using imported protoc from host: ${HUNTER_HOST_ROOT}/bin/protoc")
+# endif(IOS OR ANDROID)
+
+# 3. hardcore integration - qt5
+# Some background: https://github.com/ruslo/hunter/issues/253
+#  hunter_add_package(Qt COMPONENTS qtmultimedia qtdeclarative)
+#  find_package(Qt5Widgets REQUIRED)
+#  find_package(Qt5Multimedia REQUIRED)
+#  find_package(Qt5MultimediaWidgets REQUIRED)
+#  find_package(Qt5OpenGL REQUIRED)
+#  find_package(Qt5Qml REQUIRED)
+#  find_package(Qt5Quick REQUIRED)
+#  find_package(Qt5QuickTest REQUIRED)
+#  find_package(Qt5QuickWidgets REQUIRED)
+#  message("Used Qt:")
+#  message("  ${QT_ROOT} (root from Hunter)")
+#  message("  ${Qt5Widgets_DIR} (find_package result)")
+#  set(CMAKE_AUTOMOC ON)
+#  set(CMAKE_AUTOUIC ON)
+#  set(CMAKE_AUTORCC ON)

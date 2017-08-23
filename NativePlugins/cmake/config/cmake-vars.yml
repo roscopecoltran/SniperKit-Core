@@ -1,0 +1,24 @@
+---
+cmake:
+
+  # global variables for CMake
+  vars:
+
+    jobs: 
+      local: "python -c 'import multiprocessing as mp; print(mp.cpu_count())'" # works for Linux and MacOSX
+      min: 4
+      max: 12
+
+    builds:
+      common:
+        type: Release
+        clear: True
+        reconfig: True
+      builders:
+        valid: ["polly"]
+        available: ["polly", "cmakepp", "conan"] # others are not operational yet, just for reminder
+      toolchains:
+        valid: []
+      restrict:
+        archs: []
+        platforms: []

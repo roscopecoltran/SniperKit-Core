@@ -289,16 +289,15 @@ find_package(cereal CONFIG REQUIRED)
 hunter_add_package(libyuv)
 find_package(libyuv CONFIG REQUIRED)
 
-# add_subdirectory(external/nanomsg)
 add_subdirectory(external/nng)
 
 include_directories(
-	tstunity
+	src/tstunity
 )
 
 set ( TSTUNITY_CORE 
-	tstunity/math_helper.c
-	tstunity/sort_helper.c 
+	src/tstunity/math_helper.c
+	src/tstunity/sort_helper.c 
 )
 
 if (APPLE)
