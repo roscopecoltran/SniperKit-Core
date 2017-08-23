@@ -1,0 +1,65 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Hunter/polly 
+_logs/*
+_builds/*
+_install/*
+_framework/*
+_os/*
+_archives/*
+_assets/*
+
+# octave
+src/octave/toolbox/detector/models/*
+
+# Store releases
+releases/*
+
+# Mac OS X
+.DS_Store
+
+# Emacs
+*.*~
+*~
+
+# TAGS
+TAGS
+
+# Common backup
+*.orig
+
+# Matlab
+*.mexmaci64
+
+# Private password
+passwords.cmake
+src/examples/integration/_builds
+src/examples/integration/_logs
