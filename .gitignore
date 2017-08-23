@@ -39,10 +39,22 @@ _builds
 _builds/
 _builds/**
 
+NativePlugins/_builds
+NativePlugins/_builds/
+NativePlugins/_builds/**
+
 _logs
 _logs/
 _logs/**
 
+NativePlugins/_logs
+NativePlugins/_logs/
+NativePlugins/_logs/**
+
 _install
 _install/
 _install/**
+
+NativePlugins/_logs
+NativePlugins/_logs/
+NativePlugins/_logs/**
