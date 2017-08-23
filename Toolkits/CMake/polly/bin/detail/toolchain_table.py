@@ -326,6 +326,16 @@ if platform.system() == 'Linux':
 
 if platform.system() == 'Darwin':
   toolchain_table += [
+
+      Toolchain('ios-11-0-armv7', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-dep-8-0-bitcode', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-dep-8-0-libcxx-hid-sections', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-dep-9-0-bitcode', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-dep-9-3-i386-armv7', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-dep-9-3-x86-64-arm64', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-lto', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0', 'Xcode', ios_version='11.0'),
+
       Toolchain('ios-11-0-dep-8-0-libcxx-hid-sections', 'Xcode', ios_version='11.0'),
       Toolchain('ios-10-3', 'Xcode', ios_version='10.3'),
       Toolchain('ios-10-3-dep-8-0-bitcode', 'Xcode', ios_version='10.3'),
@@ -434,6 +444,14 @@ if platform.system() == 'Darwin':
       Toolchain('osx-10-12', 'Xcode', osx_version='10.12'),
       Toolchain('osx-10-12-lto', 'Xcode', osx_version='10.12'),
       Toolchain('osx-10-12-cxx98', 'Xcode', osx_version='10.12'),
+
+      Toolchain('osx-10-13-cxx98', 'Xcode', osx_version='10.13'),
+      Toolchain('osx-10-13-lto', 'Xcode', osx_version='10.13'),
+      Toolchain('osx-10-13-make', 'Xcode', osx_version='10.13'),
+      Toolchain('osx-10-13-ninja', 'Xcode', osx_version='10.13'),
+      Toolchain('osx-10-13-sanitize-address-hid-sections', 'Xcode', osx_version='10.13'),
+      Toolchain('osx-10-13-sanitize-address', 'Xcode', osx_version='10.13'),
+
       Toolchain('osx-10-13', 'Xcode', osx_version='10.13'),
       Toolchain('osx-10-10-dep-10-7', 'Xcode', osx_version='10.10'),
       Toolchain('osx-10-10-dep-10-9-make', 'Unix Makefiles'),
