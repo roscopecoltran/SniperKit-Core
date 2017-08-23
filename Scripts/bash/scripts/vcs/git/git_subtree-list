@@ -1,0 +1,30 @@
+#!/bin/bash
+
+############################################# Author(s)
+
+
+
+
+############################################# Notes
+
+
+
+
+############################################# Script
+
+. ${DIR}/bash/scripts/cs-common.sh
+
+. ${DIR}/bash/scripts/bash/cs-env-lookup.sh
+
+PKEY="git_list_subtree"
+RES=${scan_patterns[$PKEY]}
+print_prefix_line "debug: $RES"
+
+OUTPUT=$(eval $RES)
+LABEL="check_${PKEY}"
+
+print_header ${LABEL:-"git_list_subtree"}
+print_array "${OUTPUT[@]}"
+print_separator
+
+#############################################

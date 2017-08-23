@@ -1,0 +1,22 @@
+#!/bin/bash
+
+############################################# Author(s)
+
+
+
+
+############################################# Notes
+
+
+
+
+############################################# Script
+
+## include common functions
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. ${DIR}/bash/scripts/cs-common.sh
+
+. ${DIR}/bash/scripts/vcs/git/git_subtree-list
+
+list_vars_by_prefix "AUTOLOAD_" search_grep_debug local print

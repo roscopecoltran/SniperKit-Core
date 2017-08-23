@@ -1,3 +1,16 @@
+#!/bin/bash
+
+############################################# Author(s)
+
+
+
+
+############################################# Notes
+
+
+
+
+############################################# Script
 
 # export ANDROID_NDK=/Users/xsj/Tools/android-ndk-r10e
 export ANDROID_NDK=/usr/local/share/android-ndk
@@ -8,7 +21,8 @@ export ANDROID_NDK=/usr/local/share/android-ndk
 
 # android-ndk-r10e-api-19-armeabi-v7a-neon
 
-
+# git subtree add --prefix NativePlugins/External/Protocols https://github.com/roscopecoltran/nng.git sniperkit --squash
+# git subtree add --prefix .References/src/github.com/mortea15/DAT234_MandatoryBashScripting https://github.com/mortea15/DAT234.git master --squash
 
 mkdir -p build_v7a && cd build_v7a
 

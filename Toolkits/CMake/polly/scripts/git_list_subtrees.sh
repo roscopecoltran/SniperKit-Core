@@ -3,6 +3,8 @@
 ## include common functions
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . ${DIR}/common.sh
+. ${VCS_ROOT_DIR}/.env
+. ${DIR}/autoload.sh
 
 
 LABEL="Sub-trees available: "

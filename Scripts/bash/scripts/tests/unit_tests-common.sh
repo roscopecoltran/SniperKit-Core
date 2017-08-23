@@ -24,3 +24,14 @@ function test_print_array {
 	print_separator
 
 }
+
+function test_bool_cases {
+	declare -ir TEST_BOOL_CASE=(0 1) #remember BOOL can't be unset till this shell terminate
+	readonly false=${TEST_BOOL_CASE[0]}
+	readonly true=${TEST_BOOL_CASE[1]}
+	#same as declare -ir false=0 true=1
+	((true)) && echo "True"
+	((false)) && echo "False"
+	((!true)) && echo "Not True"
+	((!false)) && echo "Not false"
+}
