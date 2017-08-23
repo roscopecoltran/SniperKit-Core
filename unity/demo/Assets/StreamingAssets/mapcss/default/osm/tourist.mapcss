@@ -1,0 +1,40 @@
+/* Nodes */
+node,area|z16[tourism] {
+    icon-image: eval("'tourism_' + tag('tourism')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 9;
+    text: name;
+    text-color: #0066ff
+*/
+}
+
+/*
+node|z16[tourism=theme_park],
+node|z16[tourism=museum] {
+    text-color: #734a08;
+}
+
+node|z16[tourism=attraction] {
+    text-color: #660033;
+}
+*/
+
+/* Areas */
+area|z16[tourism] {
+    mesh-name: eval("'terrain_tourism_' + tag('tourism')");
+}
+
+area|z16[tourism=camp_site],
+area|z16[tourism=caravan_site],
+area|z16[tourism=picnic_site] {
+    color: #ccff99;
+}
+
+area|z16[tourism=attraction] {
+    color: #f2caea;
+}
+
+area|z16[tourism=theme_park] {
+    color: #734a08;
+}

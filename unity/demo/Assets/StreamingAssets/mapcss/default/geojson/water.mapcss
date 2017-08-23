@@ -1,0 +1,25 @@
+way,relation|z9-15[kind=riverbank] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: water;
+}
+
+way,relation|z9-15[kind=river] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: water;
+    width: 1%;
+}
+
+area,relation|z4-8[kind=lake] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: water;
+}
+
+area,relation|z9-15[kind=water],
+area,relation|z9-15[kind=wetland] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: water;
+}

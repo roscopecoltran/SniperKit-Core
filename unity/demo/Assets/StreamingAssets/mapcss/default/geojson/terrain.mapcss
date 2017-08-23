@@ -1,0 +1,87 @@
+area,relation|z1-15[kind=earth] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: earth;
+}
+
+area,relation|z9-15[kind=nature_reserve],
+area,relation|z9-15[kind=park],
+/*area,relation|z9-15[kind=national_park],*/
+area,relation|z9-15[kind=urban_area] {
+    clip: true;
+    builder: terrain;
+    max-area: 0.25%;
+    color-noise-freq: 0;
+    ele-noise-freq: 0;
+}
+
+area,relation|z9-15[kind=nature_reserve] {
+    color: gradient(#b5e3b5);
+    mesh-name: nature_reserve;
+}
+
+/*area,relation|z9-15[kind=national_park],*/
+area,relation|z9-15[kind=park] {
+    color: gradient(#add19e);
+    mesh-name: national_park;
+}
+
+area,relation|z9-15[kind=urban_area] {
+    color: gradient(#e0dfdf);
+    mesh-name: urban_area;
+}
+
+area,relation|z11-15[kind=aerodrome],
+area,relation|z11-15[kind=recreation_track],
+area,relation|z11-15[kind=village_green],
+area,relation|z11-15[kind=wetland],
+area,relation|z11-15[kind=scrub],
+area,relation|z11-15[kind=meadow],
+area,relation|z11-15[kind=grass],
+area,relation|z11-15[kind=park],
+area,relation|z11-15[kind=residential] {
+    clip: true;
+    builder: terrain;
+    max-area: 0.25%;
+    color-noise-freq: 0;
+    ele-noise-freq: 0;
+}
+
+/* from zoom 11 */
+area,relation|z11-15[kind=aerodrome] {
+    color: gradient(#bbbbcc);
+    mesh-name: aerodrome;
+}
+
+area,relation|z11-15[kind=meadow],
+area,relation|z11-15[kind=grass],
+area,relation|z11-15[kind=village_green] {
+    color: gradient(#cfeca8);
+    mesh-name: village_green;
+}
+
+area,relation|z11-15[kind=scrub] {
+    color: gradient(#b5e3b5);
+    mesh-name: scrub;
+}
+
+area,relation|z11-15[kind=recreation_track],
+area,relation|z11-15[kind=park] {
+    color: gradient(#b6fdb6);
+    mesh-name: natural;
+}
+
+area,relation|z11-15[kind=residential] {
+    color: gradient(#dddddd);
+    mesh-name: residential;
+}
+
+area,relation|z11-15[kind=industrial] {
+    color: gradient(#dfd1d6);
+    mesh-name: industrial;
+}
+
+area,relation|z11-15[kind=commercial] {
+    color: gradient(#efc8c8);
+    mesh-name: commercial;
+}

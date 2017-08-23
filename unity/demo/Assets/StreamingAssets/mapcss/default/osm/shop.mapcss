@@ -1,0 +1,9 @@
+node,area|z16[shop] {
+    icon-image: eval("'shop_' + tag('shop')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 8;
+    text: name;
+    text-color: #993399;
+*/
+}

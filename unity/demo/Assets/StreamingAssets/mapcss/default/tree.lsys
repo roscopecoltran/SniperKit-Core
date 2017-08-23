@@ -1,0 +1,14 @@
+generations: 3
+angle: 45
+scale: 3
+axiom: root
+root(0.1) -> ! ! cylinder [ cylinder ] > G $ $ sphere
+root(0.9) -> ! ! cylinder branch branch branch
+branch(0.16) -> [   ! cylinder foliage ]
+branch(0.14) -> [ + ! cylinder foliage ]
+branch(0.14) -> [ - ! cylinder foliage ]
+branch(0.14) -> [ ^ ! cylinder foliage ]
+branch(0.14) -> [ & ! cylinder foliage ]
+branch(0.14) -> [ \ ! cylinder foliage ]
+branch(0.14) -> [ / ! cylinder foliage ]
+foliage -> [ G $ $ $ sphere ]

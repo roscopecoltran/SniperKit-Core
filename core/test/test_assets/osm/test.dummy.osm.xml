@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.5.8 (15652 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="40.6962990" minlon="-74.0103994" maxlat="40.7024636" maxlon="-74.0029062"/>
+ <node id="42421951" visible="true" version="7" changeset="38845400" timestamp="2016-04-25T02:46:27Z" user="wambag" uid="326503" lat="40.7033242" lon="-74.0077787">
+  <tag k="highway" v="traffic_signals"/>
+ </node>
+ <node id="42424605" visible="true" version="6" changeset="16386814" timestamp="2013-06-02T06:50:16Z" user="Xoan Manuel" uid="840447" lat="40.8142100" lon="-73.9341897"/>
+ <way id="32934353" visible="true" version="9" changeset="46914800" timestamp="2017-03-17T01:32:24Z" user="Sunfishtommy" uid="2302638">
+  <nd ref="42421951"/>
+  <nd ref="42424605"/>
+  <tag k="alt_name" v="Franklin Delano Roosevelt Drive"/>
+  <tag k="lanes" v="3"/>
+   <tag k="tiger:reviewed" v="no"/>
+ </way>
+ <relation id="32934353" visible="true" version="16" changeset="46018890" timestamp="2017-02-12T12:55:11Z" user="Aleks-Berlin" uid="85218">
+  <member type="way" ref="226015236" role=""/>
+  <member type="node" ref="42424605" role="view"/>
+  <tag k="name" v="Manhattan Waterfront Greenway"/>
+  <tag k="name:ru" v="Мантхеттен"/>
+  <tag k="wikipedia" v="en:Manhattan Waterfront Greenway"/>
+ </relation>
+</osm>

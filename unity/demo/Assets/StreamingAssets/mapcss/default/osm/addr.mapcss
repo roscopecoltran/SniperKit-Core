@@ -1,0 +1,14 @@
+/* TODO not used so far as has no builder support.
+way|z16[addr:interpolation] {
+    color: #888888;
+}
+
+node|z16[addr:housenumber],
+area|z16[addr:housenumber] {
+    font-family: DejaVu Sans Book;
+    font-size: 9;
+    text: eval("tag('addr:housenumber')");
+    text-color: #444444;
+    text-position: center;
+}
+*/

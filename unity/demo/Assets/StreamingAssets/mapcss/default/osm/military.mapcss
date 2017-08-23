@@ -1,0 +1,23 @@
+/* nodes */
+node|z16[military=danger_area] {
+    icon-image: military_danger_area;
+/*
+    font-family: DejaVu Sans Bold;
+    font-size: 9;
+    text: name;
+    text-color: pink;
+*/
+}
+
+/* areas */
+area|z16[military] {
+    mesh-name: eval("'terrain_military_' + tag('military')");
+}
+
+area|z16[military=barracks] {
+    color: #ff8f8f;
+}
+
+area|z16[military=danger_area] {
+    color: pink;
+}

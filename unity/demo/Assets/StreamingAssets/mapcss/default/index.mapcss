@@ -1,0 +1,12 @@
+/* Import all styles. */
+@import url("index.geojson.mapcss");
+@import url("index.osm.mapcss");
+
+/* Import lsystem grammars. */
+@lsystem url("tree.lsys");
+@lsystem url("conifer.lsys");
+@lsystem url("lamp.lsys");
+
+/* Import texture mappings. */
+@texture url("single.txt");
+@texture url("atlas.txt");

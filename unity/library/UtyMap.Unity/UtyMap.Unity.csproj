@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02582431-3E96-45F0-AA47-B83F3F468738}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UtyMap.Unity</RootNamespace>
+    <AssemblyName>UtyMap.Unity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="UnityEditor">
+      <HintPath>..\packages\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\packages\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UtyDepend">
+      <HintPath>..\packages\UtyDepend.dll</HintPath>
+    </Reference>
+    <Reference Include="UtyRx">
+      <HintPath>..\packages\UtyRx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animations\Rotation\IRotationInterpolator.cs" />
+    <Compile Include="Animations\PathAnimation.cs" />
+    <Compile Include="Animations\RotationAnimation.cs" />
+    <Compile Include="Animations\Rotation\LinearInterpolator.cs" />
+    <Compile Include="Animations\TransformAnimation.cs" />
+    <Compile Include="Animations\Animator.cs" />
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\CompositeAnimation.cs" />
+    <Compile Include="Animations\Path\IPathInterpolator.cs" />
+    <Compile Include="Animations\Path\LinearInterpolator.cs" />
+    <Compile Include="Animations\Path\SplineInterpolator.cs" />
+    <Compile Include="Animations\Time\AccelerateDecelerateInterpolator.cs" />
+    <Compile Include="Animations\Time\AccelerateInterpolator.cs" />
+    <Compile Include="Animations\Time\DeaccelerateInterpolator.cs" />
+    <Compile Include="Animations\Time\ITimeInterpolator.cs" />
+    <Compile Include="Animations\Time\LinearInterpolator.cs" />
+    <Compile Include="CompositionRoot.cs" />
+    <Compile Include="BoundingBox.cs" />
+    <Compile Include="Data\MapDataLibrary.cs" />
+    <Compile Include="GeoCoordinate.cs" />
+    <Compile Include="Infrastructure\Primitives\RangeTree.cs" />
+    <Compile Include="Infrastructure\Primitives\SafeDictionary.cs" />
+    <Compile Include="IProjection.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="MapData.cs" />
+    <Compile Include="Mesh.cs" />
+    <Compile Include="QuadKey.cs" />
+    <Compile Include="Stylesheet.cs" />
+    <Compile Include="Tile.cs" />
+    <Compile Include="Utils\ColorUtils.cs" />
+    <Compile Include="Utils\GeoUtils.cs" />
+    <Compile Include="Utils\MathUtils.cs" />
+    <Compile Include="Data\MapDataException.cs" />
+    <Compile Include="Infrastructure\Config\CodeConfigSection.cs" />
+    <Compile Include="Infrastructure\Config\ConfigBuilder.cs" />
+    <Compile Include="Infrastructure\Diagnostic\DefaultTrace.cs" />
+    <Compile Include="Infrastructure\Diagnostic\ITrace.cs" />
+    <Compile Include="Infrastructure\Formats\SimpleJSON.cs" />
+    <Compile Include="Infrastructure\IO\Compression\CompressionUtils.cs" />
+    <Compile Include="Infrastructure\IO\Compression\InflateZipStream.cs" />
+    <Compile Include="Infrastructure\IO\FileSystemService.cs" />
+    <Compile Include="Infrastructure\IO\IFileSystemService.cs" />
+    <Compile Include="Infrastructure\IO\IPathResolver.cs" />
+    <Compile Include="Infrastructure\IO\INetworkService.cs" />
+    <Compile Include="Infrastructure\IO\NetworkService.cs" />
+    <Compile Include="Infrastructure\IO\PathResolver.cs" />
+    <Compile Include="Infrastructure\MessageBus.cs" />
+    <Compile Include="Infrastructure\Primitives\SafeHashSet.cs" />
+    <Compile Include="Infrastructure\Primitives\Range.cs" />
+    <Compile Include="Infrastructure\Primitives\Rectangle.cs" />
+    <Compile Include="Infrastructure\Primitives\Union.cs" />
+    <Compile Include="Data\MapDataEditor.cs" />
+    <Compile Include="Data\ElevationDataType.cs" />
+    <Compile Include="Data\MapDataStore.cs" />
+    <Compile Include="Geocoding\IGeocoder.cs" />
+    <Compile Include="Geocoding\NominatimGeocoder.cs" />
+    <Compile Include="Data\MapDataStorageType.cs" />
+    <Compile Include="Data\Providers\AggregateMapDataProvider.cs" />
+    <Compile Include="Data\MapDataProvider.cs" />
+    <Compile Include="Data\Providers\Elevation\MapzenElevationDataProvider.cs" />
+    <Compile Include="Data\Providers\Geo\MapzenMapDataProvider.cs" />
+    <Compile Include="Data\Providers\Geo\OpenStreetMapDataProvider.cs" />
+    <Compile Include="Data\Providers\Elevation\SrtmElevationDataProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strings.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,47 @@
+canvas|z16 {
+    admin-mesh-name: terrain_admin;
+    admin-sort-order: 1003;
+
+    admin-color: purple;
+    admin-max-area: 5%;
+    admin-color-noise-freq: 0.1;
+    admin-ele-noise-freq: 0.05;
+    admin-height-offset:0.05m;
+
+    admin-texture-index: 0;
+    admin-texture-type: background;
+    admin-texture-scale: 200;
+}
+
+way|z16[admin_level] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: admin;
+
+    width: 1m;
+}
+
+way|z16[admin_level=2] {
+    width: 3m;
+}
+
+way|z16[admin_level=3] {
+    width: 2.5m;
+}
+
+way|z16[admin_level=4] {
+    width: 2m;
+}
+
+way|z16[admin_level=5] {
+    width: 1.8m;
+}
+
+way|z16[admin_level=6] {
+    width: 1.5m;
+}
+
+way|z16[admin_level=8],
+way|z16[admin_level=7] {
+    width: 1.2m;
+}

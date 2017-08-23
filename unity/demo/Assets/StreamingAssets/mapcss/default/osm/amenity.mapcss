@@ -1,0 +1,83 @@
+/* Nodes */
+node|z16[amenity] {
+    icon-image: eval("'amenity_' + tag('amenity')");
+/*
+    font-family: DejaVu Sans Bold;
+    font-size: 10;
+    text: name;
+    text-color: #734a08;
+*/
+}
+
+node|z16[religion][amenity=place_of_worship] {
+    icon-image: eval("'amenity_' + tag('amenity') + '_' + tag('religion')");
+/*
+    text-color: #000033;
+*/
+}
+
+/* TODO use text color in builder
+node|z16[amenity=parking][access][access!=public] {
+    text-color: #66ccaf;
+}
+
+node|z16[amenity=shelter] {
+    text-color: #6699cc;
+}
+
+node|z16[amenity=bank] {
+    text-color: black;
+}
+
+node|z16[amenity=parking][access=public],
+node|z16[amenity=parking][!access],
+node|z16[amenity=embassy],
+node|z16[amenity=fuel],
+node|z16[amenity=bus_station] {
+    text-color: #0066ff;
+}
+
+node|z16[amenity=university],
+node|z16[amenity=school],
+node|z16[amenity=college],
+node|z16[amenity=kindergarten] {
+    text-color: #000033;
+}
+
+node|z16[amenity=hospital],
+node|z16[amenity=pharmacy] {
+    text-color: #da0092;
+}
+*/
+
+/* areas */
+area|z16[amenity=grave_yard],
+area|z16[amenity=university],
+area|z16[amenity=college],
+area|z16[amenity=school],
+area|z16[amenity=hospital],
+area|z16[amenity=kindergarten],
+area|z16[amenity=parking],
+area|z16[amenity=place_of_worship] {
+    mesh-name: eval("'terrain_amenity_' + tag('amenity')");
+    color: brown;
+/*
+    icon-image: eval("tag('amenity')");
+*/
+}
+
+area|z16[amenity=fountain] {
+    terrain-layer: water-generic;
+}
+
+area|z16[amenity=grave_yard] {
+    color: #aacbaf;
+}
+
+area|z16[amenity=parking] {
+    color: #eeeed1;
+}
+
+area|z16[amenity=place_of_worship] {
+    color: #777777;
+}

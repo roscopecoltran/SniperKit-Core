@@ -1,0 +1,6 @@
+way,relation|z9-15[kind=train] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: railway;
+    width: 0.4%;
+}

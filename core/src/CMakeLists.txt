@@ -1,0 +1,181 @@
+set(LIBRARY_NAME UtyMap)
+
+if(WITH_FEATURE_PBF_SUPPORT)
+  add_definitions(-DPBF_SUPPORTED_ENABLED)
+  PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+      ${MAIN_SOURCE}/formats/osm/pbf/fileformat.proto
+      ${MAIN_SOURCE}/formats/osm/pbf/osmformat.proto)
+else()
+    set(PROTO_HDRS "")
+    set(PROTO_SRCS "")
+    set(PROTOBUF_LIBRARY "")
+    set(ZLIB_LIBRARY "")
+endif()
+
+set(HEADER_FILES
+        ${PROTO_HDRS}
+        ${LIB_SOURCE}/clipper/clipper.hpp
+        ${LIB_SOURCE}/hashing/MD5.h
+        ${LIB_SOURCE}/hashing/MurmurHash3.h
+        ${LIB_SOURCE}/triangle/triangle.h
+        ${LIB_SOURCE}/shapefile/shapefil.h
+        BoundingBox.hpp
+        CancellationToken.hpp
+        Exceptions.hpp
+        GeoCoordinate.hpp
+        LodRange.hpp
+        QuadKey.hpp
+        builders/BuilderContext.hpp
+        builders/CacheBuilder.hpp
+        builders/ElementBuilder.hpp
+        builders/EmptyBuilder.hpp
+        builders/ExternalBuilder.hpp
+        builders/MeshBuilder.hpp
+        builders/MeshCache.hpp
+        builders/MeshContext.hpp
+        builders/QuadKeyBuilder.hpp
+        builders/buildings/BuildingBuilder.hpp
+        builders/buildings/facades/CylinderFacadeBuilder.hpp
+        builders/buildings/facades/FacadeBuilder.hpp
+        builders/buildings/facades/FlatFacadeBuilder.hpp
+        builders/buildings/facades/SphereFacadeBuilder.hpp
+        builders/buildings/roofs/DomeRoofBuilder.hpp
+        builders/buildings/roofs/FlatRoofBuilder.hpp
+        builders/buildings/roofs/MansardRoofBuilder.hpp
+        builders/buildings/roofs/PyramidalRoofBuilder.hpp
+        builders/buildings/roofs/RoofBuilder.hpp
+        builders/buildings/roofs/RoundRoofBuilder.hpp
+        builders/buildings/roofs/SkillionRoofBuilder.hpp
+        builders/generators/AbstractGenerator.hpp
+        builders/generators/CylinderGenerator.hpp
+        builders/generators/IcoSphereGenerator.hpp
+        builders/generators/LSystemGenerator.hpp
+        builders/generators/WallGenerator.hpp
+        builders/misc/BarrierBuilder.hpp
+        builders/misc/LampBuilder.hpp
+        builders/poi/TreeBuilder.hpp
+        builders/terrain/ExteriorGenerator.hpp
+        builders/terrain/LineGridSplitter.hpp
+        builders/terrain/RegionTypes.hpp
+        builders/terrain/SurfaceGenerator.hpp
+        builders/terrain/TerraBuilder.hpp
+        builders/terrain/TerraExtras.hpp
+        builders/terrain/TerraGenerator.hpp
+        entities/Element.hpp
+        entities/ElementVisitor.hpp
+        entities/Node.hpp
+        entities/Relation.hpp
+        entities/Way.hpp
+        entities/Area.hpp
+        formats/FormatTypes.hpp
+        formats/osm/BuildingProcessor.hpp
+        formats/osm/CountableOsmDataVisitor.hpp
+        formats/osm/MultipolygonProcessor.hpp
+        formats/osm/OsmDataContext.hpp
+        formats/osm/OsmDataVisitor.hpp
+        formats/osm/RelationProcessor.hpp
+        formats/osm/json/OsmJsonParser.hpp
+        formats/osm/pbf/OsmPbfParser.hpp
+        formats/osm/xml/OsmXmlParser.hpp
+        formats/shape/CountableShapeDataVisitor.hpp
+        formats/shape/ShapeParser.hpp
+        formats/shape/ShapeDataVisitor.hpp
+        heightmap/ElevationProvider.hpp
+        heightmap/FlatElevationProvider.hpp
+        heightmap/GridElevationProvider.hpp
+        heightmap/SrtmElevationProvider.hpp
+        index/ElementGeometryClipper.hpp
+        index/ElementStore.hpp
+        index/ElementStream.hpp
+        index/GeoStore.hpp
+        index/InMemoryElementStore.hpp
+        index/MeshStream.hpp
+        index/PersistentElementStore.hpp
+        index/StringTable.hpp
+        lsys/Turtle3d.hpp
+        lsys/LSystem.hpp
+        lsys/LSystemParser.hpp
+        lsys/Rules.hpp
+        lsys/Turtle.hpp
+        mapcss/Color.hpp
+        mapcss/ColorGradient.hpp
+        mapcss/MapCssParser.hpp
+        mapcss/StyleSheet.hpp
+        mapcss/Style.hpp
+        mapcss/StyleConsts.hpp
+        mapcss/StyleEvaluator.hpp
+        mapcss/StyleDeclaration.hpp
+        mapcss/StyleProvider.hpp
+        mapcss/TextureAtlasParser.hpp
+        math/LineLinear.hpp
+        math/Mesh.hpp
+        math/Polygon.hpp
+        math/Quaternion.hpp
+        math/Rectangle.hpp
+        math/Vector2.hpp
+        math/Vector3.hpp
+        utils/CoreUtils.hpp
+        utils/ElementUtils.hpp
+        utils/GeometryUtils.hpp
+        utils/GeoUtils.hpp
+        utils/GradientUtils.hpp
+        utils/LruCache.hpp
+        utils/MathUtils.hpp
+        utils/MeshUtils.hpp
+        utils/NoiseUtils.hpp
+        utils/SvgBuilder.hpp
+        )
+
+add_library(${LIBRARY_NAME}
+        ${HEADER_FILES}
+        ${PROTO_SRCS}
+        ${LIB_SOURCE}/clipper/clipper.cpp
+        ${LIB_SOURCE}/hashing/MD5.cpp
+        ${LIB_SOURCE}/hashing/MurmurHash3.cpp
+        ${LIB_SOURCE}/triangle/triangle.c
+        ${LIB_SOURCE}/shapefile/dbfopen.c
+        ${LIB_SOURCE}/shapefile/safileio.c
+        ${LIB_SOURCE}/shapefile/shpopen.c
+        builders/MeshBuilder.cpp
+        builders/MeshCache.cpp
+        builders/generators/IcoSphereGenerator.cpp
+        builders/generators/LSystemGenerator.cpp
+        builders/misc/BarrierBuilder.cpp
+        builders/misc/LampBuilder.cpp
+        builders/poi/TreeBuilder.cpp
+        builders/terrain/SurfaceGenerator.cpp
+        builders/terrain/ExteriorGenerator.cpp
+        builders/terrain/TerraBuilder.cpp
+        builders/terrain/TerraExtras.cpp
+        builders/terrain/TerraGenerator.cpp
+        builders/QuadKeyBuilder.cpp
+        builders/buildings/BuildingBuilder.cpp
+        formats/osm/MultipolygonProcessor.cpp
+        formats/osm/OsmDataVisitor.cpp
+        formats/osm/xml/OsmXmlParser.cpp
+        index/ElementGeometryClipper.cpp
+        index/ElementStore.cpp
+        index/ElementStream.cpp
+        index/GeoStore.cpp
+        index/InMemoryElementStore.cpp
+        index/MeshStream.cpp
+        index/PersistentElementStore.cpp
+        index/StringTable.cpp
+        lsys/Turtle3d.cpp
+        lsys/LSystemParser.cpp
+        lsys/Turtle.cpp
+        mapcss/MapCssParser.cpp
+        mapcss/StyleConsts.cpp
+        mapcss/StyleEvaluator.cpp
+        mapcss/StyleProvider.cpp
+        mapcss/TextureAtlasParser.cpp
+        utils/GradientUtils.cpp
+        utils/NoiseUtils.cpp
+        )
+
+set_target_properties(${LIBRARY_NAME} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+set_target_properties(${LIBRARY_NAME} PROPERTIES LINKER_LANGUAGE CXX)
+
+target_link_libraries(${LIBRARY_NAME} ${PROTOBUF_LIBRARY} ${ZLIB_LIBRARY})
+
+include_directories(${MAIN_SOURCE} ${LIB_SOURCE} ${CMAKE_CURRENT_BINARY_DIR})

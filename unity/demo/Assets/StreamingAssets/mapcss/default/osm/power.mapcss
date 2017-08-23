@@ -1,0 +1,33 @@
+/* Nodes */
+node|z16[power] {
+    icon-image: eval("'power_' + tag('power')");
+}
+
+node|z16[power=generator][power_source=wind] {
+    icon-image: power_wind;
+}
+
+/* Ways */
+/*
+way|z16[power=line] {
+    color: #777777;
+    width: 1.5;
+}
+
+way|z16[power=minor_line] {
+    color: #777777;
+    width: 0.5;
+}
+*/
+
+/* Areas */
+area|z16[power] {
+    mesh-name: eval("'terrain_power_' + tag('power')");
+    color: #bbbbbb;
+}
+
+/*
+area|z16[power=generator][power_source=wind] {
+    icon-image: power_wind;
+}
+*/

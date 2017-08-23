@@ -1,0 +1,22 @@
+node|z16[place=country] {
+    icon-image: eval("'place_' + tag('place')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 14;
+    text: name;
+    text-color: #777777;
+*/
+}
+
+/*
+node|z16[place=country],
+node|z16[place=state] {
+    text-color: #9d6c9d;
+}
+
+ node|z16[place=city],
+ node|z16[place=metropolis],
+ node|z16[place=island] {
+     text-color: black;
+ }
+*/

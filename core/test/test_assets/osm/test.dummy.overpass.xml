@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2017-04-09T17:46:02Z"/>
+
+  <node id="27136439" lat="46.9657624" lon="32.0032481">
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+  <node id="35885285" lat="55.7498353" lon="37.6249335"/>
+  <way id="22744512">
+    <nd ref="27136439"/>
+    <nd ref="35885285"/>
+    <tag k="cladr:code" v="77000000000707100"/>
+    <tag k="cladr:name" v="Ветошный"/>
+    <tag k="cladr:suffix" v="Переулок"/>
+    <tag k="highway" v="pedestrian"/>
+    <tag k="lanes" v="1"/>
+    <tag k="name" v="Ветошный переулок"/>
+    <tag k="omkum:code" v="24470"/>
+    <tag k="omkum:old_name" v="проезд Сапунова (1957 г.) Ветошный проезд (до 1917 г.)"/>
+    <tag k="postal_code" v="109012"/>
+    <tag k="sorting_name" v="Ветошный переулок"/>
+    <tag k="vehicle" v="destination"/>
+  </way>
+  <relation id="51497">
+    <member type="way" ref="27136439" role="inner"/>
+    <member type="node" ref="35885285" role=""/>
+    <tag k="building" v="public"/>
+    <tag k="wikidata" v="Q704562"/>
+    <tag k="wikipedia" v="ru:Арсенал Московского Кремля"/>
+  </relation>
+  
+</osm>

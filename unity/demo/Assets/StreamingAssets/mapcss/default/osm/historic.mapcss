@@ -1,0 +1,46 @@
+/* nodes */
+node|z16[historic=memorial],
+node|z16[historic=archaeological_site] {
+    icon-image: eval("'historic_' + tag('historic')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 9;
+    text: name;
+    text-color: brown;
+*/
+}
+
+/* ways */
+way|z16[historic=citywalls] {
+    clip: true;
+    builder: barrier;
+    mesh-name: historic_citywalls;
+
+    color: grey;
+
+    texture-index: 0;
+    texture-type: background;
+    texture-scale: 50;
+
+    height: 3m;
+    width: 1m;
+    length: 5m;
+    gap: 0.05m;
+    type: wall;
+}
+
+/* areas */
+area|z16[historic] {
+    mesh-name: eval("'terrain_historic_' + tag('historic')");
+}
+
+area|z16[historic=castle_walls] {
+    color: #888888;
+}
+
+/*
+area|z16[historic=archaeological_site],
+area|z16[historic=memorial] {
+    icon-image: eval("'historic_' + tag('historic')");
+}
+*/

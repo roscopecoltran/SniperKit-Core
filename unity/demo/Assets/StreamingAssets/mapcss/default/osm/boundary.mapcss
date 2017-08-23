@@ -1,0 +1,7 @@
+area|z16[boundary] {
+    mesh-name: eval("'terrain_boundary_' + tag('boundary')");
+}
+
+area|z16[boundary=national_park] {
+    color: green;
+}

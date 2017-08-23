@@ -1,0 +1,5 @@
+generations: 1
+angle: 0
+scale: 5
+axiom: root
+root -> ! cylinder @ $ > cone

@@ -1,0 +1,155 @@
+/*** nodes ***/
+/*
+node|z16[landuse=reservoir],
+node|z16[landuse=basin] {
+    font-family: DejaVu Sans Book;
+    font-size: 10;
+    text: name;
+    text-color: #6699cc;
+}
+
+node|z16[landuse][point=yes] {
+    text-color: black;
+}
+*/
+
+/*** areas ***/
+area|z16[landuse] {
+    mesh-name: eval("'terrain_landuse_' + tag('landuse')");
+}
+
+area|z16[landuse=quarry] {
+    color: grey;
+}
+
+area|z16[landuse=orchard] {
+    color: green;
+/*
+    texture-type: orchard;
+*/
+}
+
+area|z16[landuse=vineyard] {
+    color: #abdf96;
+/*
+    texture-type: vineyard;
+*/
+}
+
+area|z16[landuse=cemetery],
+area|z16[landuse=grave_yard] {
+    color: #aacbaf;
+}
+
+area|z16[landuse=residential] {
+    color: #dddddd;
+}
+
+area|z16[landuse=garages] {
+    color: #999966;
+}
+
+area|z16[landuse=field] {
+    color: #666600;
+}
+
+/*
+area|z16[landuse=cemetery][religion=jewish],
+area|z16[landuse=grave_yard][religion=jewish] {
+    texture-type: cemetery-jewish;
+}
+
+area|z16[landuse=cemetery][religion=christian],
+area|z16[landuse=grave_yard][religion=christian] {
+    texture-type: grave-yard;
+}
+
+area|z16[landuse=cemetery][religion!=christian][religion!=jewish],
+area|z16[landuse=grave_yard][religion!=christian][religion!=jewish] {
+    texture-type: grave-yard-generic;
+}
+*/
+
+area|z16[landuse=meadow],
+area|z16[landuse=grass] {
+    color: #cfeca8;
+}
+
+area|z16[landuse=allotments] {
+    color: #e5c7ab;
+/*
+    texture-type: allotments;
+*/
+}
+
+area|z16[landuse=forest] {
+    color: #8dc56c;
+
+    mesh-extras: forest;
+    tree-frequency: 10;
+    tree-chunk-size: 30;
+    texture-type: grass;
+
+    lsys: tree;
+    lsys-size: 1m;
+    lsys-colors: brown,green;
+    lsys-texture-indices: 0,0;
+    lsys-texture-types: background,tree;
+    lsys-texture-scales: 200,50;
+}
+
+area|z16[landuse=farmyard] {
+    color: #ddbf92;
+}
+
+area|z16[landuse=farm],
+area|z16[landuse=farmland] {
+    color: #ead8bd;
+}
+
+area|z16[landuse=recreation_ground],
+area|z16[landuse=conservation] {
+    color: #cfeca8;
+}
+
+area|z16[landuse=village_green] {
+    mesh-name: terrain_landuse_green;
+    color: #cfeca8;
+}
+
+area|z16[landuse=retail] {
+    color: #f1dada;
+}
+
+area|z16[landuse=industrial],
+area|z16[landuse=railway] {
+    color: #dfd1d6;
+}
+
+area|z16[landuse=commercial] {
+    color: #efc8c8;
+}
+
+area|z16[landuse=brownfield],
+area|z16[landuse=landfill],
+area|z16[landuse=greenfield],
+area|z16[landuse=construction] {
+    color: #9d9d6c;
+}
+
+area|z16[landuse=wood] {
+    color: #aed1a0;
+}
+
+area|z16[landuse=basin],
+area|z16[landuse=reservoir],
+area|z16[landuse=water] {
+    terrain-layer: water-generic;
+}
+
+area|z16[landuse=military] {
+    color: #ff5555;
+/*
+    texture-type: military;
+*/
+}

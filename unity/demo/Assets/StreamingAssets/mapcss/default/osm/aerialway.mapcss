@@ -1,0 +1,26 @@
+/* Nodes */
+node|z16[aerialway] {
+    icon-image: eval("'aerialway_' + tag('aerialway')");
+
+/* TODO not used so far as has no builder support.
+    icon-image: station;
+    font-family: "DejaVu Sans Book";
+    font-size: 10;
+    text: "name";
+*/
+}
+
+/* Areas */
+area|z16[aerialway] {
+    mesh-name: eval("'terrain_aerialway_' + tag('aerialway')");
+}
+
+/* TODO not used so far as has no builder support.
+area|z16[aerialway=station] {
+
+    icon-image: station;
+    font-family: "DejaVu Sans Book";
+    font-size: 10;
+    text: "name";
+}
+*/

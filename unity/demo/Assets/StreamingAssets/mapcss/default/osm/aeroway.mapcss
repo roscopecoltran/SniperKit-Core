@@ -1,0 +1,61 @@
+/* Nodes */
+node|z16[aeroway] {
+    icon-image: eval("'aeroway_' + tag('aeroway')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 10;
+    text: ref;
+    text-color: #6692da;
+*/
+}
+
+/*
+node|z16[aeroway=gate] {
+    text-color: #aa66cc;
+}
+*/
+
+/* Ways */
+/* Removed so far*/
+
+/* Areas */
+area|z16[aeroway] {
+    mesh-name: eval("'terrain_aeroway_' + tag('aeroway')");
+}
+
+area|z16[aeroway=apron] {
+    color: #e9d1ff;
+}
+
+area|z16[aeroway=helipad],
+area|z16[aeroway=runway],
+area|z16[aeroway=taxiway] {
+    color: #bbbbcc;
+}
+
+area|z16[aeroway=terminal] {
+    color: #cc99ff;
+}
+
+area|z16[aeroway=aerodrome],
+area|z16[aeroway=airport] {
+    color: #cccccc;
+/*
+    icon-image: airport;
+    font-family: DejaVu Sans Bold;
+    font-size: 8;
+    text: name;
+    text-color: #6692da;
+*/
+}
+
+/*
+area|z16[aeroway=helipad] {
+/*
+    icon-image: helipad;
+    font-family: DejaVu Sans Bold;
+    font-size: 8;
+    text: "name";
+    text-color: #6692da;
+}
+*/

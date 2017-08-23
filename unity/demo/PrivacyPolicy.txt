@@ -1,0 +1,12 @@
+Privacy Policy
+
+UtyMap Demo is a demonstration purpose only application. It does not need any user data for work. However, the following questions must to be answered explicitly:
+
+* What information does application collect?
+	UtyMap caches locally geographic data requested by user and does not collect any user information.
+	
+* How do you use the information?
+    User data is not used by UtyMap.
+	
+* What information do you share?
+	UtyMap does not share any information.
