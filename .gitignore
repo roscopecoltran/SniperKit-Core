@@ -33,3 +33,16 @@
 *.su
 
 *.DS_Store
+
+# Hunter
+_builds
+_builds/
+_builds/**
+
+_logs
+_logs/
+_logs/**
+
+_install
+_install/
+_install/**
