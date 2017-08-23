@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Ruslan Baratov, David Hirvonen
+# Copyright (c) 2015-2017, Ruslan Baratov, Luc Michalski, David Hirvonen
 # All rights reserved.
 
 if(DEFINED POLLY_ANDROID_NDK_R15C_API_21_X86_HID_CMAKE_)

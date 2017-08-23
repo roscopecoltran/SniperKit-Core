@@ -1,4 +1,4 @@
-# Copyright (c) 2016, Ruslan Baratov
+# Copyright (c) 2015-2017, Ruslan Baratov, Luc Michalski
 # All rights reserved.
 
 if(DEFINED POLLY_IOS_11_0_CMAKE_)

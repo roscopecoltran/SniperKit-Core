@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2017, Ruslan Baratov
+# Copyright (c) 2015-2017, Ruslan Baratov, Luc Michalski
 # Copyright (c) 2015, David Hirvonen
 # Copyright (c) 2015, Alexandre Pretyman
 # All rights reserved.

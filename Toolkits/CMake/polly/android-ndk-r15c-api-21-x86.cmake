@@ -1,3 +1,4 @@
+# Copyright (c) 2015-2017, Ruslan Baratov, Luc Michalski
 # Copyright (c) 2016, Michele Caini
 # All rights reserved.
 

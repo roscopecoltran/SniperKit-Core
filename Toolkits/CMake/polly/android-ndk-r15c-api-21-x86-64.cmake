@@ -1,5 +1,5 @@
 # Copyright (c) 2016, Michele Caini
-# Copyright (c) 2017, Ruslan Baratov
+# Copyright (c) 2015-2017, Ruslan Baratov, Luc Michalski
 # All rights reserved.
 
 if(DEFINED POLLY_ANDROID_NDK_R15C_API_21_X86_64_CMAKE_)
