@@ -1,0 +1,54 @@
+# This is Git's per-user configuration file.
+[core]
+  ignorecase = false
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[push]
+  default = simple
+
+[alias]
+  s = status
+
+  #pretty git log
+  lg = log --graph --format=format:'%C(red)%h%C(reset) - %C(green)(%ar)%C(reset) %C(bold blue)%an%C(reset)%C(yellow)%d%C(reset)%n          %s'
+ 
+  #push a local branch to the remote
+  pushb = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
+ 
+  #put all unpushed work on a new branch and reset this one
+  switch = "!f() { [ `git rev-list @{u}.. | wc -l` = 0 ] && return; [ -z $1 ] && echo branch name required && return 1; git branch $1 && git reset --hard @{u} && git checkout $1; }; f"
+ 
+  cmal = commit -a -m
+  cmend = commit -a --amend --no-edit
+  
+  #open a pull request in github:
+  # git pr: open a PR from the current branch against master
+  # git pr <refname>: open a pr from the current branch against refname
+  # git pr <ref1> <ref2>: open a pr from ref2 against ref1
+  # Keep in mind that all refnames are from the remote's perspective, so "git pr master HEAD^" will use origin's head, aka the tip of master.  
+  pr = "!f() { open https://github.com/$(git config --get remote.origin.url | sed -r 's|^.*[:/]([^/]+/[^/]+).git$|\\1|')/compare/${1-master}...${2-$(git symbolic-ref HEAD &> /dev/null && git rev-parse --abbrev-ref HEAD)}?expand=1; }; f"
+  
+  #Usage: git merged <ref1> [ref2]
+  # Show whether ref 1 is merged into ref2 (default HEAD) 
+  merged = "!f() { git merge-base --is-ancestor $1 ${2-HEAD} && echo \"$1 is merged into ${2-HEAD}\" && return 0 || echo \"$1 is NOT merged into ${2-HEAD}\" && return 1; }; f"
+  
+  #Delete all local branches that have been merged into master (as determined by the "git merged" alias)
+  cleanup = "!git for-each-ref --format '%(refname)' refs/heads | grep -v 'master\\|release' | while read ref; do git merged $ref master >/dev/null && git branch -D ${ref#refs/heads/}; done"
+  
+  ch = checkout
+  changed = !git --no-pager diff --name-status
+  logs = log --name-status
+  delbranch = push origin --delete
+
+[user]
+  name = Your Name Here
+  email = your@email.here
+
+[fetch]
+  prune = true #WARNING: will remove local branches if they've been deleted from the remote
+
+[init]
+  #put a hooks directory in wherever this points to and they'll all get copied
+  #into new cloned repos. MAKE SURE THEY'RE ALL EXECUTABLE!
+  templatedir = ~/repos/.git-template

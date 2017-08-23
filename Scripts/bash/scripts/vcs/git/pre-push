@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#Pre-push hook
+# Install: put in .git/hooks/ (or add to existing pre-push file there)
+# Warns about pushing to master, prompts user to switch to another branch
+# Dependencies: pushb, pr, and switch aliases (see ~/.gitconfig)
+
+if [ "`git symbolic-ref --short HEAD`" == 'master' ]; then
+  i=0
+  while read stuff; do
+    ((i += 1))
+  done
+  [ $i -le 0 ] && exit  #no refs pushed, nothing to do
+
+  echo "You are pushing to MASTER! Are you sure you want to continue?"
+  echo "Enter the name of a new branch to switch all of your commits to, or if you're sure,"
+  echo "enter "'"'"I'm sure I want to push to master"'"'" (or CTRL+C to exit)"
+  exec < /dev/tty   #see http://stackoverflow.com/questions/3417896/how-do-i-prompt-the-user-from-within-a-commit-msg-hook
+  read -p '> ' input
+  [ "$input" = "I'm sure I want to push to master" ] && exit 0
+  
+  git switch $input
+  git pushb
+  
+  sleep .1  #github takes a sec to register the branch
+  git pr
+  
+  exit 1  #blocks original push
+fi

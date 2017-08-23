@@ -1,0 +1,5 @@
+set completion-ignore-case on    "Case-insensitive tab complete
+"\e[A": history-search-backward  "Search through history based on what you've already typed
+"\e[B": history-search-forward   " Bound to up and down arrows
+"\e[1;9C": forward-word          "Enable alt-forward and alt-back word skipping
+"\e[1;9D": backward-word
