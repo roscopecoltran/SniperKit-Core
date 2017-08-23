@@ -1,0 +1,160 @@
+canvas|z16 {
+    drive-mesh-name: terrain_drive;
+    drive-max-area: 5%;
+    drive-color-noise-freq: 0.1;
+    drive-ele-noise-freq: 0;
+    drive-color: gradient(#4d4d4d);
+    drive-height-offset:-0.2m;
+    drive-texture-index: 0;
+    drive-texture-type: drive;
+    drive-texture-scale: 10;
+    drive-sort-order: 101;
+
+    pedestrian-mesh-name: terrain_pedestrian;
+    pedestrian-sort-order: 100;
+    pedestrian-max-area: 5%;
+    pedestrian-color-noise-freq: 0.1;
+    pedestrian-ele-noise-freq: 0.05;
+    pedestrian-color: gradient(#636363);
+    pedestrian-height-offset:0.05m;
+    pedestrian-texture-index: 0;
+    pedestrian-texture-type: pedestrian;
+    pedestrian-texture-scale: 200;
+}
+
+/* nodes */
+node|z16[highway=mini_roundabout] {
+    icon-image: eval("'highway_' + tag('highway')");
+}
+
+/* ways */
+way|z16[highway] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: pedestrian;
+    width: 1m;
+}
+
+/*way|z16[highway] {
+    builder: lamp;
+
+    lamp-step: 30m;
+    lsys: lamp;
+    lsys-size: 1m;
+    lsys-colors: black,yellow;
+    lsys-texture-indices: 0,0;
+    lsys-texture-types: background,background;
+    lsys-texture-scales: 200,200;
+}*/
+
+way|z16[highway=path][foot=designated] {
+    terrain-layer: pedestrian;
+    width: 1m;
+}
+
+way|z16[highway=proposed][construction],
+way|z16[highway=construction][construction],
+way|z16[highway=service] {
+    terrain-layer: drive;
+    width: 2.5m;
+}
+way|z16[highway=footway] {
+    terrain-layer: pedestrian;
+    width: 1m;
+}
+
+way|z16[highway=tertiary],
+way|z16[highway=residential],
+way|z16[highway=unclassified],
+way|z16[highway=road] {
+    terrain-layer: drive;
+    width: 4.5m;
+}
+way|z16[highway=living_street] {
+    width: 4m;
+}
+way|z16[highway=trunk],
+way|z16[highway=trunk_link],
+way|z16[highway=primary],
+way|z16[highway=primary_link],
+way|z16[highway=motorway],
+way|z16[highway=motorway_link] {
+    terrain-layer: drive;
+    width: 4m;
+}
+way|z16[highway=secondary],
+way|z16[highway=secondary_link] {
+    terrain-layer: drive;
+    width: 3.5m;
+}
+way|z16[highway=tertiary],
+way|z16[highway=tertiary_link] {
+    terrain-layer: drive;
+    width: 4m;
+}
+
+way|z16[highway][lanes] {
+    width: eval("tag('lanes') * 1.8");
+    dimension: 1m;
+}
+
+/* Areas */
+area|z16[highway] {
+    mesh-name: eval("'terrain_highway_' + tag('highway')");
+}
+
+area|z16[highway=services],
+area|z16[highway=rest_area] {
+    color: #efc8c8;
+}
+
+area|z16[highway=residential],
+area|z16[highway=unclassified] {
+    color: #999999;
+}
+
+area|z16[highway=pedestrian],
+area|z16[highway=service],
+area|z16[highway=footway],
+area|z16[highway=path],
+area|z16[highway=platform] {
+    color: grey;
+}
+
+area|z16[highway=track] {
+    color: #996600;
+}
+
+area|z16[highway=living_street] {
+    color: #cccccc;
+}
+
+area|z16[highway=residential],
+area|z16[highway=unclassified],
+area|z16[highway=service] {
+    color: white;
+}
+
+area|z16[highway=pedestrian],
+area|z16[highway=footway],
+area|z16[highway=path] {
+    color: #ededed;
+}
+
+area|z16[highway=track] {
+    color: #dfcc66;
+}
+
+area|z16[highway=platform] {
+    color: #bbbbbb;
+}
+
+/*
+area|z16[highway=bus_stop],
+area|z16[highway=ford],
+area|z16[highway=gate],
+area,relation|z17[highway=traffic_signals],
+area|z16[highway=mini_roundabout] {
+    icon-image: eval("'highway_' + tag('highway')");
+}
+*/

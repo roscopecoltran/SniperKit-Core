@@ -1,0 +1,67 @@
+canvas|z16 {
+    bridge-mesh-name: terrain_bridges;
+    bridge-max-area: 5%;
+    bridge-color-noise-freq: 0.1;
+    bridge-ele-noise-freq: 0.05;
+    bridge-color: gradient(#636363);
+    bridge-height-offset:0.05m;
+    bridge-texture-index: 0;
+    bridge-texture-type: drive;
+    bridge-texture-scale: 200;
+    bridge-sort-order: 4;
+}
+
+/* nodes */
+node|z16[man_made=windmill] {
+    icon-image: eval("'man_made_' + tag('man_made')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 9;
+    text: "name";
+    text-color: #734a08;
+*/
+}
+
+/*
+node|z16[man_made=lighthouse] {
+    text-color: #000033;
+}
+*/
+
+/* ways */
+/* TODO skip for now
+way|z16[man_made=cutline] {
+    color: #f2efe9;
+    linecap: square;
+    linejoin: round;
+    width: 6;
+}
+
+way|z16[man_made=breakwater],
+way|z16[man_made=groyne] {
+    color: #aaaaaa;
+    width: 4;
+}
+
+way|z16[man_made=pier] {
+    color: #f2efe9;
+    width: 7;
+}
+
+way|z16[man_made=embankment] {
+    pattern-image: cliff;
+}
+*/
+
+/* areas */
+area|z16[man_made] {
+    mesh-name: eval("'terrain_man_made_' + tag('man_made')");
+    color: #f2efe9;
+/*
+    icon-image: eval("'man_made_' + tag('man_made')");
+*/
+}
+
+area|z16[man_made=bridge] {
+    terrain-layer: bridge;
+}

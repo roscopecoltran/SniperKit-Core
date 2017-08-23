@@ -1,0 +1,43 @@
+sudo: false
+language: cpp
+os: linux
+dist: trusty
+mono:
+ - latest
+compiler:
+    - gcc
+    - clang
+install:
+    - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+    - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.7
+            - boost-latest
+        packages:
+            - cmake
+            - cmake-data
+            - zlib1g-dev
+            - libprotobuf-dev
+            - protobuf-compiler
+            - libboost1.55-all-dev
+            - gcc-4.9
+            - g++-4.9
+            - clang-3.7
+            - mono-complete
+            - nunit-console
+before_script:
+    - cd core
+    - mkdir build
+    - cd build
+script:
+    - cmake -DCMAKE_BUILD_TYPE=Release ..
+    - make
+    - cd test
+    - ctest -V
+    - cd ../../../unity/library
+    - xbuild /p:Configuration=Debug UtyMap.Unity.sln
+    - cp ../../core/build/shared/libUtyMap.Shared.so UtyMap.Unity.Tests/bin/Debug/
+    - nunit-console -noshadow -framework=4.0 UtyMap.Unity.Tests/bin/Debug/UtyMap.Unity.Tests.exe

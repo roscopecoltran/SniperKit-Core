@@ -1,0 +1,9 @@
+canvas|z1-2 { import_file: root; }
+
+@texture url("import.txt");
+
+@lsystem url("tree.lsys");
+@lsystem url("pine.lsys");
+
+@import url("import/import1.mapcss");
+@import url("import/import2.mapcss");

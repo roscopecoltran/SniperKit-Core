@@ -1,0 +1,109 @@
+canvas|z1 {
+    layer-priority: water,border;
+    grid-cell-size: 5%;
+    max-area: 0.2%;
+    color-noise-freq: 0.1;
+    ele-noise-freq: 0.05;
+    color: gradient(#87cefa, #1e90ff);
+    height-offset:-0.2%;
+
+    water-max-area: 0.05%;
+    water-color-noise-freq: 0.1;
+    water-ele-noise-freq: 0.05;
+    water-color: gradient(#87cefa, #1e90ff);
+    water-height-offset:-0.2%;
+    water-mesh-name: terrain_water;
+
+    border-max-area: 0.1%;
+    border-color-noise-freq: 0.1;
+    border-ele-noise-freq: 0.05;
+    border-color: gradient(red);
+    border-mesh-name: terrain_border;
+}
+
+way|z1[featurecla=River][scalerank=1],
+way|z1[featurecla=River][scalerank=2],
+relation|z1[featurecla=River][scalerank=1],
+relation|z1[featurecla=River][scalerank=2] {
+    clip:true;
+    builder: terrain;
+    terrain-layer: water;
+    width: 0.1%;
+}
+
+area|z1[featurecla=Lake][scalerank=0],
+relation|z1[featurecla=Lake][scalerank=0],
+area|z1[featurecla=Lake][scalerank=1],
+relation|z1[featurecla=Lake][scalerank=1] {
+    clip:true;
+    builder: terrain;
+    terrain-layer: water;
+}
+
+area|z1[featurecla=Country][scalerank=1],
+relation|z1[featurecla=Country][scalerank=1] {
+    clip:true;
+    builder: terrain;
+    max-area: 0.1%;
+    color-noise-freq: 0.1;
+    ele-noise-freq: 0.05;
+    color: gradient(white);
+}
+
+way|z1[featurecla=International boundary (verify)],
+relation|z1[featurecla=International boundary (verify)] {
+    clip:true;
+    builder: terrain;
+    terrain-layer: border;
+    width: 0.02%;
+}
+
+area|z1[featurecla=Adm-0 scale ranks],
+relation|z1[featurecla=Adm-0 scale ranks]{
+    clip:true;
+    builder: terrain;
+    max-area: 0.05%;
+    color-noise-freq: 0.1;
+    ele-noise-freq: 0.05;
+    color: gradient(white);
+}
+
+area|z1[sr_geounit=Germany],
+relation|z1[sr_geounit=Germany] {
+    color: gradient(orange);
+    height-offset: 1%;
+}
+
+area|z1[sr_geounit=China],
+relation|z1[sr_geounit=China] {
+    color: gradient(orange);
+    height-offset: 0.2%;
+}
+
+area|z1[sr_geounit=Italy],
+relation|z1[sr_geounit=Italy] {
+    color: gradient(blue);
+    height-offset: 0.1%;
+}
+
+area|z1[sr_geounit=France],
+relation|z1[sr_geounit=France] {
+    color: gradient(lime);
+    height-offset: 0.1%;
+}
+
+area|z1[sr_geounit=Russia],
+relation|z1[sr_geounit=Russia],
+area|z1[sr_geounit=Belarus],
+relation|z1[sr_geounit=Belarus],
+area|z1[sr_geounit=Ukraine],
+relation|z1[sr_geounit=Ukraine] {
+    mesh-name: terrain_ussr;
+    color: gradient(red);
+    height-offset: 2%;
+}
+
+node|z1[featurecla=Populated place],
+node|z1[featurecla=Admin-0 capital] {
+     builder: place;
+}

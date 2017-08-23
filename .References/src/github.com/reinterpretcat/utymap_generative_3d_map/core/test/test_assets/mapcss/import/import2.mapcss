@@ -1,0 +1,3 @@
+canvas|z2 { import_file: child2; }
+
+area|z2[name2] { import_file: child2; }

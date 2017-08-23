@@ -1,0 +1,37 @@
+way,relation|z9-15[kind=major_road][kind_detail=primary],
+way,relation|z9-15[kind=highway][kind_detail=motorway] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: road-highway-primary;
+    width: 0.4%;
+}
+
+way,relation|z9-15[kind=highway],
+way,relation|z9-15[kind=major_road],
+way,relation|z9-15[kind=major_road][kind_detail=secondary]  {
+    clip: true;
+    builder: terrain;
+    terrain-layer: road-major-secondary;
+    width: 0.3%;
+}
+
+way,relation|z9-15[kind=major_road][kind_detail=tertiary] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: road-major-tertiary;
+    width: 0.25%;
+}
+
+way,relation|z9-15[kind=minor_road] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: road-minor;
+    width: 0.25%;
+}
+
+way,relation|z15[kind=path][kind_detail=footway] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: path-footway;
+    width: 0.15%;
+}

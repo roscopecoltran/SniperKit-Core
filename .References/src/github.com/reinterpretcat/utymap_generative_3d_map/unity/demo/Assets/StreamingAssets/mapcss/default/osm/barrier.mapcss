@@ -1,0 +1,39 @@
+node,way,area|z16[barrier] {
+    clip: true;
+    builder: barrier;
+    mesh-name: eval("'barrier_' + tag('barrier')");
+
+    color: #444444;
+
+    texture-index: 0;
+    texture-type: background;
+    texture-scale: 50;
+
+    height: 1.8m;
+    width: 0.05m;
+    length: 3m;
+    gap: 0.05m;
+    type: wall;
+
+    icon-image: eval("'barrier_' + tag('barrier')");
+}
+
+node,way,area|z16[barrier=bollard],
+node,way,area|z16[barrier=block] {
+    radius: 0.2m;
+    height: 1m;
+    step: 5m;
+    type: pillar;
+}
+
+way,area|z16[barrier=hedge] {
+    color: #aed1a0;
+    width: 0.2m;
+    gap: 0;
+}
+
+way,area|z16[barrier=kerb] {
+    height: 0.2m;
+    width: 0.1m;
+    length: 0.5m;
+}

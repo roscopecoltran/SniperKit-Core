@@ -1,0 +1,23 @@
+canvas|z16 {
+    grid-cell-size: 5%;
+
+    max-area: 0.1%;
+    color-noise-freq: 100000;
+    ele-noise-freq: 7500;
+    color: gradient(#dcdcdc 0%, #c0c0c0 10%, #a9a9a9 50%, #808080);
+    texture-index: 1;
+    texture-type: grass;
+    texture-scale: 100;
+}
+
+area,relation|z16[man_made=stele],
+area,relation|z16[man_made=tower],
+area,relation|z16[construction=building],
+area,relation|z16[building],
+area,relation|z16[building:levels],
+area,relation|z16[building:shape],
+area,relation|z16[building:part] {
+    height: 50m;
+    facade-texture-index: 1;
+    roof-texture-index: 1;
+}

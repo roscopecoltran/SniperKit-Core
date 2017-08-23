@@ -1,0 +1,35 @@
+
+/* Import mapcss from default theme */
+@import url("../default/index.osm.mapcss");
+@import url("../default/osm/access.mapcss");
+@import url("../default/osm/addr.mapcss");
+@import url("../default/osm/admin.mapcss");
+@import url("../default/osm/aerialway.mapcss");
+@import url("../default/osm/aeroway.mapcss");
+@import url("../default/osm/amenity.mapcss");
+@import url("../default/osm/barrier.mapcss");
+@import url("../default/osm/boundary.mapcss");
+@import url("../default/osm/building.mapcss");
+@import url("../default/osm/highway.mapcss");
+@import url("../default/osm/historic.mapcss");
+@import url("../default/osm/landuse.mapcss");
+@import url("../default/osm/leisure.mapcss");
+@import url("../default/osm/manmade.mapcss");
+@import url("../default/osm/military.mapcss");
+@import url("../default/osm/natural.mapcss");
+@import url("../default/osm/place.mapcss");
+@import url("../default/osm/power.mapcss");
+@import url("../default/osm/railway.mapcss");
+@import url("../default/osm/shop.mapcss");
+@import url("../default/osm/tourist.mapcss");
+@import url("../default/osm/waterway.mapcss");
+
+@import url("customization.import.mapcss");
+@import url("customization.overrides.mapcss");
+
+@texture url("../default/single.txt");
+@texture url("../default/atlas.txt");
+
+@lsystem url("../default/tree.lsys");
+@lsystem url("../default/conifer.lsys");
+@lsystem url("../default/lamp.lsys");

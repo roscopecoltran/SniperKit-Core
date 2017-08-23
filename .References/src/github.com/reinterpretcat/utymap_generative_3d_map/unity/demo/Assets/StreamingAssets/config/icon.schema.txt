@@ -1,0 +1,254 @@
+tourism_alpinehut: 0_65_64_64
+tourism_guest_house: 325_780_64_64
+tourism_camp_site: 65_65_64_64
+tourism_caravan_site: 0_130_64_64
+tourism_chalet: 65_130_64_64
+tourism_hostel: 130_65_64_64
+tourism_hotel: 130_130_64_64
+tourism_motel: 65_195_64_64
+amenity_shelter: 130_195_64_64
+
+tourism_youth_hostel: 195_65_64_64
+
+amenity_bench: 195_130_64_64
+amenity_courthouse: 195_195_64_64
+amenity_fire_station: 0_260_64_64
+amenity_library: 260_65_64_64
+leisure_playground: 260_195_64_64
+amenity_police: 260_260_64_64
+amenity_post_box: 65_325_64_64
+amenity_post_office: 130_325_64_64
+
+amenity_prison: 195_325_64_64
+amenity_public_building: 260_325_64_64
+amenity_recycling: 325_65_64_64
+man_made_survey_point: 325_130_64_64
+amenity_telephone: 325_195_64_64
+amenity_toilets: 325_260_64_64
+
+amenity_townhall: 130_390_64_64
+
+amenity_waste_basket: 260_390_64_64
+barrier_bollard: 390_0_64_64
+barrier_cattle_grid: 390_65_64_64
+barrier_cycle_barrier: 390_130_64_64
+barrier_entrance: 390_195_64_64
+barrier_exit: 390_260_64_64
+barrier_gate: 390_325_64_64:
+barrier_kissing_gate: 390_390_64_64
+barrier_lift_gate: 0_455_64_64
+barrier_step: 65_455_64_64
+barrier_stile: 130_455_64_64
+barrier_toll_booth: 195_455_64_64
+amenity_college: 260_455_64_64
+
+amenity_nursery: 390_455_64_64
+
+amenity_school: 455_130_64_64
+
+amenity_university: 455_325_64_64
+amenity_bar: 455_390_64_64
+amenity_biergarten: 455_455_64_64
+amenity_cafe: 0_520_64_64
+amenity_drinking_water: 65_520_64_64
+amenity_fast_food: 130_520_64_64
+
+amenity_ice_cream: 325_520_64_64
+amenity_pizza: 390_520_64_64
+amenity_pub: 455_520_64_64
+amenity_restaurant: 520_0_64_64
+amenity_dentist: 520_65_64_64
+amenity_doctors: 520_130_64_64
+amenity_hospital: 520_195_64_64
+
+shop_optician: 520_455_64_64
+amenity_pharmacy: 520_520_64_64
+
+amenity_veterinary: 65_585_64_64
+wood_coniferous: 130_585_64_64
+
+landuse_deciduous: 260_585_64_64
+landuse_grass: 325_585_64_64
+landuse_hills: 390_585_64_64
+landuse_quary: 455_585_64_64
+landuse_scrub: 520_585_64_64
+landuse_swamp: 585_0_64_64
+amenity_atm: 585_65_64_64
+
+amenity_bank: 585_195_64_64
+
+amenity_bureau_de_change: 585_325_64_64
+
+amenity_place_of_worship_religion_bahai: 585_390_64_64
+amenity_place_of_worship_religion_buddhist: 585_520_64_64
+amenity_place_of_worship_religion_christian: 0_650_64_64
+amenity_place_of_worship_religion_hindu: 130_650_64_64
+amenity_place_of_worship_religion_islamic: 260_650_64_64
+amenity_place_of_worship_religion_jain: 390_650_64_64
+amenity_place_of_worship_religion_jewish: 520_650_64_64
+amenity_place_of_worship_religion_shinto: 650_0_64_64
+amenity_place_of_worship_religion_sikh: 650_130_64_64
+amenity_place_of_worship_religion_unknown: 650_260_64_64
+
+boundary_administrative: 650_390_64_64
+natural_cave_entrance: 650_455_64_64
+man_made_crane: 650_520_64_64
+amenity_embassy: 650_585_64_64
+
+military_bunker: 0_715_64_64
+historic_mine: 65_715_64_64
+
+mountain_pass: 195_715_64_64
+natural_peak: 260_715_64_64
+
+place_city: 390_715_64_64
+place_hamlet: 455_715_64_64
+place_suburb: 520_715_64_64
+place_town: 585_715_64_64
+place_village: 650_715_64_64
+
+man_made_communications_tower: 715_65_64_64
+tower:type_observation: 715_130_64_64
+power_tower: 715_195_64_64
+man_made_water_tower: 715_260_64_64
+
+power_source_coal: 715_325_64_64
+power_source_gas: 715_390_64_64
+power_source_solar: 715_455_64_64
+power_source_water: 715_520_64_64
+power_source_wind: 715_585_64_64
+power_substation: 715_650_64_64
+
+power_transformer: 130_780_64_64
+shop_alcohol: 195_780_64_64
+shop_bakery: 260_780_64_64
+shop_bicycle: 0_0_64_64
+shop_book: 390_780_64_64
+shop_butcher: 455_780_64_64
+
+shop_car: 585_780_64_64
+shop_car_repair: 650_780_64_64
+shop_clothes: 715_780_64_64
+shop_computer: 780_0_64_64
+shop_confectionery: 780_65_64_64
+shop_convenience: 780_130_64_64
+shop_copyshop: 780_195_64_64
+shop_department_store: 780_260_64_64
+shop_doityourself: 780_325_64_64
+shop_cestateagent: 780_390_64_64
+
+shop_fish: 780_585_64_64
+shop_florist: 780_650_64_64
+shop_garden_centre: 780_715_64_64
+shop_gift: 780_780_64_64
+shop_greengrocer: 0_845_64_64
+shop_hairdresser: 65_845_64_64
+shop_hearing_aids: 130_845_64_64
+shop_hifi: 195_845_64_64
+shop_jewelry: 260_845_64_64
+
+shop_kiosk: 390_845_64_64
+shop_laundrette: 455_845_64_64
+amenity_marketplace: 520_845_64_64
+shop_mobile_phone: 585_845_64_64
+shop_motorcycle: 650_845_64_64
+shop_music: 715_845_64_64
+shop_newsagent: 780_845_64_64
+shop_pet: 845_0_64_64
+
+shop_photo: 845_130_64_64
+shop_supermarket: 845_195_64_64
+shop_tackle: 845_260_64_64
+shop_tobacco: 845_325_64_64
+shop_toys: 845_390_64_64
+amenity_vending_machine: 845_455_64_64
+shop_video: 845_520_64_64
+
+sport_archery: 845_585_64_64
+sport_baseball: 845_650_64_64
+sport_canoe: 845_715_64_64
+sport_cricket: 845_780_64_64
+sport_diving: 845_845_64_64
+sport_golf: 0_910_64_64
+amenity_gym: 65_910_64_64
+sport_gymnasium: 130_910_64_64
+sport_climbing: 260_910_64_64
+sport_horse_racing: 325_910_64_64
+sport_skating: 390_910_64_64
+sport_jetski: 455_910_64_64
+leisure_sports_centre: 520_910_64_64
+leisure_miniature_golf: 585_910_64_64
+sport_motor: 650_910_64_64
+sport_sailing: 780_910_64_64
+sport_shooting: 845_910_64_64
+
+sport_snooker: 910_130_64_64
+sport_soccer: 910_195_64_64
+leisure_stadium: 910_260_64_64
+
+sport_tennis: 910_455_64_64
+
+historic_archaeological_site: 910_585_64_64
+tourism_gallery: 910_715_64_64
+tourism_attraction: 910_845_64_64
+historic_battlefield: 910_910_64_64
+
+amenity_casino: 65_975_64_64
+historic_castle: 130_975_64_64
+amenity_cinema: 260_975_64_64
+amenity_clock: 390_975_64_64
+amenity_fountain: 455_975_64_64
+information_guidepost: 520_975_64_64
+tourism_information: 585_975_64_64
+
+historic_memorial: 715_975_64_64
+historic_monument: 780_975_64_64:
+tourism_museum: 845_975_64_64
+tourism_picnic_site: 910_975_64_64
+historic_ruins: 975_0_64_64
+
+amenity_theatre:  975_130_64_64
+tourism_theme_park: 975_195_64_64
+tourism_viewpoint: 975_260_64_64
+
+historic_wayside_cross: 975_390_64_64
+historic_wayside_shrine: 975_455_64_64
+man_made_windmill: 975_520_64_64
+historic_wreck: 975_585_64_64
+tourism_zoo: 975_650_64_64
+aeroway_aerodrome: 975_715_64_64
+aeroway_airport: 975_845_64_64
+aeroway_gate: 975_910_64_64
+aeroway_terminal: 975_975_64_64:
+amenity_bus_station: 65_1040_64_64
+highway_bus_stop: 130_1040_64_64
+amenity_car_sharing: 260_1040_64_64
+emergency_phone: 325_1040_64_64
+highway_ford: 390_1040_64_64
+amenity_fuel: 455_1040_64_64
+
+transport_helicopter: 585_1040_64_64
+aeroway_helipad: 650_1040_64_64
+man_made_lighthouse: 715_1040_64_64
+
+highway_mini_roundabout: 910_1040_64_64
+amenity_parking: 975_1040_64_64
+amenity_bicycle_parking: 1040_0_64_64
+
+landuse_port: 1040_455_64_64
+amenity_bicycle_rental: 1040_520_64_64
+amenity_car_rental: 1040_585_64_64:
+
+junction_roundabout: 1040_715_64_64
+leisure_slipway: 1040_780_64_64
+
+railway_subway_entrance: 1040_910_64_64
+amenity_taxi: 1040_975_64_64
+highway_traffic_signals: 1040_1040_64_64
+railway_station: 0_1105_64_64
+railway_tram_stop: 130_1105_64_64
+highway_turning_circle: 195_1105_64_64
+highway_path: 260_1105_64_64
+highway_crossing: 325_1105_64_64
+waterway_dam: 390_1105_64_64
+waterway_weir: 520_1105_64_64

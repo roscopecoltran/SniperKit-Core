@@ -1,0 +1,82 @@
+/* Nodes & Ways */
+node|z16[natural] {
+    icon-image: eval("'natural_' + tag('natural')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 10;
+    text: "name";
+    text-color: brown;
+*/
+}
+
+/*
+node|z16[natural=volcano][!name],
+node|z16[natural=peak][!name] {
+    text: "ele";
+    text-color: brown;
+}
+
+node|z16[natural=bay],
+node|z16[natural=spring],
+node|z16[natural=water],
+node|z16[natural=lake] {
+    text-color: #6699cc;
+}
+*/
+
+node|z16[natural=tree],
+way|z16[natural=tree_row],
+way|z16[natural=cliff],
+way|z16[natural=hedge] {
+    builder: tree;
+    tree-step: 10m;
+    lsys: tree;
+    lsys-size: 1m;
+    lsys-colors: brown,green;
+    lsys-texture-indices: 0,0;
+    lsys-texture-types: background,background;
+    lsys-texture-scales: 200,50;
+}
+
+/* Areas */
+area|z16[natural] {
+    mesh-name: eval("'terrain_natural_' + tag('natural')");
+/*
+    fill-image: eval("'natural_' + tag('natural')");
+    icon-image: eval("'natural_' + tag('natural')");
+*/
+}
+
+area|z16[natural=field] {
+    color: #666600;
+}
+
+area|z16[natural=wood] {
+    color: #aed1a0;
+}
+
+area|z16[natural=desert] {
+    color: #e3b57a;
+}
+
+area|z16[natural=sand] {
+    color: #ffdf88;
+}
+
+area|z16[natural=heath] {
+    color: #d6d99f;
+}
+
+area|z16[natural=glacier] {
+    color: #99ccff;
+}
+
+area|z16[natural=lake],
+area|z16[natural=water],
+area|z16[natural=bay] {
+    terrain-layer: water-generic;
+}
+
+area|z16[natural=land] {
+    color: #f2efe9;
+}

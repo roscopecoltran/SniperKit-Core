@@ -1,0 +1,46 @@
+
+area|z13-14[kind=building]{
+    clip: true;
+    builder: terrain;
+    terrain-layer: building;
+}
+
+area,relation|z15[kind=building]{
+    clip: false;
+    building: true;
+    multipolygon: true;
+    builder: building;
+
+    height: 20m;
+    min-height: 0m;
+
+    facade-color: #c0c0c0;
+    facade-type: flat;
+    facade-texture-index: 0;
+    facade-texture-type: facade;
+    facade-texture-scale: 200;
+
+    roof-color: #bca9a9;
+    roof-type: flat;
+    roof-height: 0m;
+    roof-texture-index: 0;
+    roof-texture-type: roof;
+    roof-texture-scale: 200;
+}
+
+area,relation|z15[kind=building][height] {
+    height: eval("tag('height')");
+}
+
+/* Skip small areas to speedup processing. */
+area,relation|z9[area<8096000],
+area,relation|z10[area<2048000],
+area,relation|z11[area<512000],
+area,relation|z12[area<128000],
+area,relation|z13[kind!=building][area<32000],
+area,relation|z13[kind=building][area<8000],
+area,relation|z14[kind!=building][area<8000],
+area,relation|z14[kind=building][area<2000],
+area,relation|z15[kind!=building][area<2000] {
+    skip: true;
+}

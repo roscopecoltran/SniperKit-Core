@@ -1,0 +1,60 @@
+node|z2[label_placement=true][kind=continent][name],
+node|z2[label_placement=true][kind=ocean][name] {
+    builder: label;
+    font-name: Arial;
+    font-size: 300;
+    font-color: #813d7e;
+}
+
+node|z4[kind=country][name][population>5000000] {
+    builder: label;
+    font-name: Arial;
+    font-size: 48;
+    font-color: black;
+}
+
+node|z5[kind=locality][name][country_capital=true] {
+    builder: label;
+    font-name: Arial;
+    font-size: 24;
+    font-color: red;
+}
+
+node|z6[kind=locality][name] {
+    builder: label;
+    font-name: Arial;
+    font-size: 20;
+    font-color: black;
+}
+
+node|z9-14[kind=locality][name] {
+    builder: label;
+    type: flat;
+    font-name: Arial;
+    font-color: black;
+    font-size: 48;
+    font-scale: 4;
+}
+
+node|z10[kind=locality][name] {
+    font-scale: 3;
+}
+
+node|z11[kind=locality][name] {
+    font-scale: 2;
+}
+
+node|z12[kind=locality][name] {
+    font-size: 36;
+    font-scale: 1;
+}
+
+node|z13[kind=locality][name] {
+    font-size: 36;
+    font-scale: 0.5;
+}
+
+node|z14[kind=locality][name] {
+    font-size: 36;
+    font-scale: 0.25;
+}

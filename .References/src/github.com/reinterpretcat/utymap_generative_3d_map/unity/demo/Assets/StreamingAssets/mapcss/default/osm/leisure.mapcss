@@ -1,0 +1,72 @@
+/*** nodes ***/
+node|z16[leisure] {
+    icon-image: eval("'leisure_' + tag('leisure')");
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 8;
+    text: name;
+    text-color: blue;
+*/
+}
+
+/*
+node|z16[leisure][point=yes] {
+    text-color: black;
+}
+*/
+
+/*** areas ***/
+area|z16[leisure] {
+    mesh-name: eval("'terrain_leisure_' + tag('leisure')");
+}
+
+area|z16[leisure=swimming_pool] {
+    terrain-layer: water-generic;
+}
+
+area|z16[leisure=park],
+area|z16[leisure=recreation_ground] {
+    color: #b6fdb6;
+}
+
+area|z16[leisure=garden],
+area|z16[leisure=common] {
+    color: #cfeca8;
+}
+
+area|z16[leisure=golf_course] {
+    color: #b5e3b5;
+}
+
+area|z16[leisure=sports_centre],
+area|z16[leisure=stadium] {
+    color: #33cc99;
+}
+
+area|z16[leisure=track] {
+    color: #74dcba;
+}
+
+area|z16[leisure=pitch] {
+    mesh-name: terrain_leisure_pitch;
+    color: #8ad3af;
+    z-index: -997;
+}
+
+area|z16[leisure=nature_reserve] {
+    color: #66cc33;
+}
+
+area|z16[leisure=playground] {
+    color: #ccfff1;
+}
+
+area|z16[leisure=marina] {
+    color: blue;
+}
+
+/*
+area|z16[leisure=slipway] {
+    icon-image: leisure_slipway;
+}
+*/

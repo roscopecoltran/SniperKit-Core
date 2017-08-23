@@ -1,0 +1,106 @@
+/* Default terrain properties. */
+canvas|z16 {
+    grid-cell-size: 5%;
+
+    max-area: 0.1%;
+    color-noise-freq: 100000;
+    ele-noise-freq: 7500;
+    color: #f1eee8;
+    texture-index: 0;
+    texture-type: background;
+    texture-scale: 100;
+}
+
+/* Handle multipolygons */
+relation|z16[type=multipolygon] {
+    multipolygon: true;
+}
+
+/* Terrain generic properties. */
+area|z16[aerialway],
+area|z16[aeroway],
+area|z16[boundary],
+area|z16[highway],
+area|z16[historic],
+area|z16[landuse],
+area|z16[leisure],
+area|z16[man_made],
+area|z16[military],
+area|z16[natural],
+area|z16[power],
+area|z16[railway],
+area|z16[shop],
+area|z16[tourism] {
+    clip: true;
+    builder: terrain;
+    mesh-name: terrain_common;
+
+    max-area: 0.1%;
+    ele-noise-freq: 7500;
+
+    color-noise-freq: 0;
+    color: red;
+
+    texture-index: 0;
+    texture-type: background;
+    texture-scale: 50;
+}
+
+/* Define place builder's base properties.  */
+node|z16[aerialway],
+node|z16[aeroway],
+node|z16[amenity],
+node|z16[barrier],
+node|z16[tourism],
+node|z16[leisure],
+node|z16[man_made],
+node|z16[waste],
+node|z16[shop],
+node|z16[wood],
+node|z16[religion],
+node|z16[boundary],
+node|z16[military],
+node|z16[historic],
+node|z16[place],
+node|z16[tower:type],
+node|z16[power_source],
+node|z16[power],
+node|z16[sport],
+node|z16[highway],
+node|z16[transport_helicopter],
+node|z16[junction=roundabout],
+node|z16[railway],
+node|z16[waterway] {
+    builder: place;
+    material: info_icons;
+    min-height: 16;
+}
+
+/* Main styles */
+@import url("osm/access.mapcss");
+@import url("osm/addr.mapcss");
+@import url("osm/admin.mapcss");
+@import url("osm/aerialway.mapcss");
+@import url("osm/aeroway.mapcss");
+@import url("osm/amenity.mapcss");
+@import url("osm/barrier.mapcss");
+@import url("osm/boundary.mapcss");
+@import url("osm/building.mapcss");
+@import url("osm/highway.mapcss");
+@import url("osm/historic.mapcss");
+@import url("osm/landuse.mapcss");
+@import url("osm/leisure.mapcss");
+@import url("osm/manmade.mapcss");
+@import url("osm/military.mapcss");
+@import url("osm/natural.mapcss");
+@import url("osm/place.mapcss");
+@import url("osm/power.mapcss");
+@import url("osm/railway.mapcss");
+@import url("osm/shop.mapcss");
+@import url("osm/tourist.mapcss");
+@import url("osm/waterway.mapcss");
+
+/* Ignore all objects under surface. */
+node,way,area,relation|z16[layer<0] {
+    skip: true;
+}

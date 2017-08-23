@@ -1,0 +1,19 @@
+/* TODO Used by highways, so color will be ignored because of terrain layering.
+way|z16[access=permissive],
+way|z16[access=permissive],
+way|z16[access=permissive],
+way|z16[access=permissive] {
+    color: #ccff99;
+}
+
+way|z16[access=destination],
+way|z16[access=destination],
+way|z16[access=destination] {
+    color: #c2e0ff;
+}
+
+way|z16[access=private],
+way|z16[access=no] {
+    color: #efa9a9;
+}
+*/

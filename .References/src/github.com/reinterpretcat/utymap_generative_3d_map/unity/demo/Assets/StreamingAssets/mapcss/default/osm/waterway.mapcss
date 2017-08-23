@@ -1,0 +1,122 @@
+canvas|z16 {
+    water-bridge-mesh-name: terrain_water;
+    water-bridge-max-area: 0.01%;
+    water-bridge-color-noise-freq: 100000;
+    water-bridge-ele-noise-freq: 100000;
+    water-bridge-color: #b5d0d0;
+    water-bridge-texture-index: 0;
+    water-bridge-texture-type: water;
+    water-bridge-texture-scale: 100;
+    water-bridge-sort-order: 3;
+
+    water-generic-mesh-name: terrain_water;
+    water-generic-max-area: 0.01%;
+    water-generic-color-noise-freq: 100000;
+    water-generic-ele-noise-freq: 100000;
+    water-generic-color: #b5d0d0;
+    water-generic-height-offset:-1m;
+    water-generic-texture-index: 0;
+    water-generic-texture-type: water;
+    water-generic-texture-scale: 100;
+    water-generic-sort-order: 2;
+
+    water-disused-mesh-name: terrain_water_disused;
+    water-disused-max-area: 0.01%;
+    water-disused-color-noise-freq: 100000;
+    water-disused-ele-noise-freq: 100000;
+    water-disused-color: #b5e4d0;
+    water-disused-height-offset:-1m;
+    water-disused-texture-index: 0;
+    water-disused-texture-type: water;
+    water-disused-texture-scale: 100;
+    water-disused-sort-order: 1;
+}
+
+/* Nodes */
+node|z16[waterway] {
+    icon-image: eval("'waterway_' + tag('waterway')");
+
+/*
+    font-family: "DejaVu Sans Book";
+    font-size: 9;
+    text: "name";
+    text-color: #0066ff;
+*/
+}
+
+/* Ways */
+way|z16[waterway] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: water-generic;
+
+    width: 2m;
+/*
+    font-family: DejaVu Sans Book;
+    font-size: 9;
+    text: name;
+    text-color: #6699cc;
+*/
+}
+
+way|z16[waterway][bridge] {
+    terrain-layer: water-bridge;
+}
+
+way|z16[waterway=wadi] {
+    width: 2m;
+}
+
+way|z16[waterway=river] {
+    width: 12m;
+}
+
+way|z16[waterway=canal] {
+    width: 4m;
+}
+
+/*
+way|z16[waterway=river][tunnel] {
+    width: 13m;
+}
+*/
+
+way|z16[waterway=derelict_canal],
+way|z16[waterway=canal][disused=yes],
+way|z16[waterway=canal][lock=yes] {
+    terrain-layer: water-disused;
+    width: 4m;
+/*
+    text-color: #6699cc;
+*/
+}
+
+way|z16[waterway=stream] {
+    width: 2m;
+}
+
+way|z16[waterway=drain],
+way|z16[waterway=ditch] {
+    terrain-layer: water-disused;
+    width: 1m;
+}
+
+/*
+way|z16[waterway=dam] {
+    text-color: #222222;
+}
+*/
+
+/* Areas */
+area|z16[waterway] {
+    clip: true;
+    builder: terrain;
+    terrain-layer: water-generic;
+}
+
+/*
+area|z16[waterway=lock],
+area|z16[lock=yes] {
+    icon-image: lock_gate;
+}
+*/
