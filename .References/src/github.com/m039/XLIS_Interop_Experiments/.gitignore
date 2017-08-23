@@ -1,0 +1,6 @@
+build
+Deps
+bin
+obj
+.idea
+**/packages/*
