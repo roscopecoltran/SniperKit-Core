@@ -1,0 +1,15 @@
+package: github.com/roscopecoltran/crane-orchestration
+import:
+- package: github.com/alecthomas/kingpin
+- package: github.com/bjaglin/multiplexio
+- package: github.com/fatih/color
+- package: github.com/flynn/go-shlex
+- package: github.com/imdario/mergo
+- package: github.com/michaelsauter/crane
+  subpackages:
+  - crane
+- package: gopkg.in/v2/yaml
+testImport:
+- package: github.com/stretchr/testify
+  subpackages:
+  - assert
