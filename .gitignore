@@ -66,3 +66,45 @@ NativePlugins/external/nanomsg/**
 NativePlugins/external/nng
 NativePlugins/external/nng/
 NativePlugins/external/nng/**
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# CMake temp build directories
+Toolkits/CMake/hunter/_builds
+Toolkits/CMake/hunter/_builds/
+Toolkits/CMake/hunter/_builds/**
+
+*/_builds
+*/*/_builds
+*/*/*/_builds
+*/*/*/*/_builds
+
+_testing
+
+# EP_BASE (install, download, build, ...)
+_Base
+
+# macosx
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+
+# emacs junk
+*.*~
+*~
+
+# Clion
+.idea/
+
+# CMake++
+Toolkits/CMake/CMakepp/tmp
+Toolkits/CMake/CMakepp/*/tmp
+Toolkits/CMake/CMakepp/tmp/
+Toolkits/CMake/CMakepp/tmp/**
+
+
