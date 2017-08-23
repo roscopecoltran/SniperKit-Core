@@ -1,2 +1,138 @@
-containers:
-  
+services:
+
+  golang19:
+    image: golang:1.9-alpine
+    rm: true
+    interactive: true
+    tty: true
+    env_file: .env
+    volume: ["$GOPATH:/go"]
+    workdir: /go/src/${GOLANG_DEFAULT_PROJ}
+    cmd: ["sh"]
+
+  golang18:
+    image: golang:1.8-alpine
+    rm: true
+    interactive: true
+    tty: true
+    env_file: .env
+    volume: ["$GOPATH:/go"]
+    workdir: /go/src/${GOLANG_DEFAULT_PROJ}
+    cmd: ["sh"]
+
+  golang17:
+    image: golang:1.7-alpine
+    rm: true
+    interactive: true
+    tty: true
+    env_file: .env
+    volume: ["$GOPATH:/go"]
+    workdir: /go/src/${GOLANG_DEFAULT_PROJ}
+    cmd: ["sh"]
+
+  elastic17:
+    image: lucmichalski/elasticsearch:1.7.1
+    run:
+      detach: true
+      volume:
+        - /opt/data:/data
+
+  kibana:
+    image: lucmichalski/kibana:3.1.2
+    run:
+      detach: true
+      publish:
+        - 1234:80
+      link:
+        - elasticsearch:elasticsearch
+      volume:
+        - /opt/kibana/htpassd:/etc/nginx/.htpassd
+      env:
+        - DEFAULT_ROUTE=/dashboard/file/logstash.json
+
+  logstash:
+    image: lucmichalski/logstash:1.5.4
+    run:
+      cmd: bin/logstash agent -f central.conf
+      detach: true
+      publish:
+        - 5000:5000
+      link:
+        - elasticsearch:elasticsearch
+      volume:
+        - ssl:/etc/logstash/ssl
+        - logstash.conf:/opt/logstash/central.conf
+
+  forwarder:
+    image: helder/logstash-forwarder:latest
+    run:
+      rm: true
+      volume:
+        - /usr/local/bin:/target
+
+  libccv:
+    image: lucmichalski/vmx-libccv
+    run:
+      rm: true
+      publish:
+        - 3350:3350
+      volume:
+        - /opt/models/libccv:/ccv
+
+  hdfs:
+    image: sequenceiq/hadoop-docker:2.4.1
+    command: /etc/bootstrap.sh -d -bash
+
+  mazerunner:
+    image: kbastani/neo4j-graph-analytics:1.1.1
+    links:
+     - hdfs
+
+  graphdb:
+    image: kbastani/docker-neo4j:2.2.1
+    ports:
+     - "7474:7474"
+     - "1337:1337"
+    volumes:
+     - /opt/data
+    links:
+     - mazerunner
+     - hdfs
+
+groups:
+  default:
+    # - elastic54
+    # - kibana3
+  graph:
+    - hdfs
+    - mazerunner
+    - graphdb
+  #vision_deep:
+  #  - tensorflow131
+  #  - deepdetect_ubuntu
+  #  - caffe2
+  #  - fast_rccn
+  #  - faster_rccn
+  vision_std:
+    - libccv
+    #- opencv33
+    #- opencv33_contrib
+  elk:
+    - elastic54
+    - kibana5
+    # - beats
+  elk_legacy:
+    - elastic17
+    - kibana4
+    - logstash
+  dev:
+    - golang19  
+  golang_dev_all:
+    - golang19  
+    - golang18
+    - golang17
+
+accelerated-mounts:
+  "$GOPATH:/go":
+    uid: 1000
+    gid: 1000
