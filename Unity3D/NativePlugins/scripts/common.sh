@@ -1,14 +1,14 @@
 #!/bin/bash
 
 CMAKE_JOBS=4
-CMAKE_BUILD_TYPE=Debug
+CMAKE_BUILD_TYPE=Release
 
 # U3D_PLUGIN_CMAKE_ROOT=`pwd`
 U3D_PLUGIN_CMAKE_ROOT=`pwd`
 
 ANDROID_TOOLCHAIN=android-ndk-r15c-api-19-armeabi-v7a-neon-c11 # android-ndk-r15c-api-19-armeabi-v7a-neon
 
-CONFIG=Debug
+CONFIG=${CMAKE_BUILD_TYPE}
 HUNTER_CONFIGURATION_TYPES=${CONFIG}
 BUILD_QT=ON
 

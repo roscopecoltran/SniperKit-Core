@@ -37,6 +37,11 @@ esac
 
 ## local path(s), vcs variables
 VCS_ROOT_DIR=`pwd`
+
+SNIPERKIT_ROOT_DIR="${VCS_ROOT_DIR}"
+SNIPERKIT_BIN_DIR="${SNIPERKIT_ROOT_DIR}/Bin/"
+export PATH=${SNIPERKIT_BIN_DIR}:$PATH
+
 CS_COMMON=True
 
 ## print decorators

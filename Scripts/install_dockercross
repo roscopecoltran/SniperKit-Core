@@ -19,7 +19,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 . ${DIR}/bash/scripts/xbuild/dockercross_functions.sh
 
-. ${DIR}/bash/scripts/vcs/git/git_subtree-list
+dockercross_get_images_list
 
-list_vars_by_prefix "AUTOLOAD_" search_grep_debug local print
+dockercross_install_base "dockcross/windows-x64"
+dockercross_install_base "dockcross/windows-x86"
 
+# dockercross_deploy_all
