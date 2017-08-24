@@ -315,7 +315,7 @@ if platform.system().startswith('CYGWIN'):
       Toolchain('cygwin', 'Unix Makefiles'),
   ]
 
-if platform.system() == 'Linux':
+if platform.system() == 'Linux' or platform.system() == 'Darwin':
   toolchain_table += [
       Toolchain('sanitize-leak', 'Unix Makefiles'),
       Toolchain('sanitize-memory', 'Unix Makefiles'),
