@@ -1,7 +1,7 @@
 usages:
 
 ```
-git subtree add --prefix Toolkits/Discovery/searx https://github.com/asciimoo/searx.git master --squash
+git subtree add --prefix Toolkits/VCS/api-repology https://github.com/repology/repology.git master --squash
 ```
 
 

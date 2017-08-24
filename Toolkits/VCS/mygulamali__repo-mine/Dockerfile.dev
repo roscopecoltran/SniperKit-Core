@@ -1,0 +1,27 @@
+###################################################################################
+#                                                                 		          #
+#  Build the image:                                               		          #
+#    docker build -t repo-mined -f Dockerfile.dev --no-cache . 	                  #                          
+#                                                                 		          #
+#  Run the container:                                             		          #
+#   docker run -ti --rm -v $(pwd)/data:/data/ -v $(pwd)/.env:/app/.env repo-mined #
+#                                                                 		          #
+###################################################################################
+
+FROM python:3.6-alpine
+LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
+
+# Install runtime dependencies & create runtime user
+RUN apk --no-cache --no-progress add ca-certificates git libssh2 openssl bash nano tree python3 python3-dev
+
+# Copy source code to the container & build it
+COPY . /app
+WORKDIR /app
+
+# Copy source code to the container & build it
+RUN pip install --no-cache -r requirements.txt && \
+	tree /app/bin
+
+CMD ["/bin/bash"]
+
+## please use ./bin/Dockerfile.release for a lighter and production deployment of repo-mine

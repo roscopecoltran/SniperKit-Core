@@ -1,0 +1,28 @@
+#################################################################
+#                                                               #
+#  Build the image:                                             #
+#    docker build -t gitsomed -f Dockerfile.dev --no-cache . 	#                          
+#                                                               #
+#  Run the container:                                           #
+#   docker run -ti --rm -v $(pwd):/src/                \        #
+#       -v ${HOME}/.gitsomeconfig:/root/.gitsomeconfig \        #
+#       -v ${HOME}/.gitconfig:/root/.gitconfig         \        #
+#       gitsomed                                                #
+#                                                               #
+#################################################################
+
+# Credit: https://github.com/jessfraz/dockerfiles/blob/master/gitsome/Dockerfile
+FROM python:3.5-alpine
+LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
+
+RUN apk add --no-cache --update bash nano tree python3 python3-dev
+
+# Copy source code to the container & build it
+COPY . /home/sniperkit
+WORKDIR /home/sniperkit
+
+RUN pip3 install -e --no-cache .
+
+CMD ["/bin/bash"]
+
+## please use ./bin/Dockerfile.release for a lighter and production deployment

@@ -1,0 +1,27 @@
+############################################################################
+#                                                                 		   #
+#  Build the image:                                               		   #
+#    docker build -t repo-mine -f Dockerfile.release --no-cache . 	       #                          
+#                                                                 		   #
+#  Run the container:                                             		   #
+#   docker run -ti --rm -v $(pwd):/src/ -v $(pwd)/.env:/app/.env repo-mine #
+#                                                                 		   #
+############################################################################
+
+
+FROM python:3.6-alpine
+LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
+
+RUN apk add --no-cache \
+    bash python3
+
+RUN	pip3 install -U --no-cache repo-mine
+
+ENV HOME /home/sniperkit
+RUN adduser -S sniperkit \
+    && chown -R sniperkit $HOME
+
+WORKDIR $HOME
+USER sniperkit
+
+ENTRYPOINT ["repo-mine"]

@@ -93,3 +93,7 @@ ENV/
 
 # PNG image files
 *.png
+
+data
+data/
+data/**
