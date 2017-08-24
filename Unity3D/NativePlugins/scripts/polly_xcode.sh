@@ -8,14 +8,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ## #################################################################
 
 VALID_ARCHS_OSX=(\
-	"libcxx "
+	"osx-10-13 "
+	"xcode "
 )
 
 ## #################################################################
 ## MacOSX / 10.13
 ## #################################################################
 
-POLLY_TOOLCHAIN="libcxx"
-LIBCXX_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${LIBCXX_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
+POLLY_TOOLCHAIN="xcode"
+XCODE_TOOLCHAIN=${POLLY_TOOLCHAIN}
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${XCODE_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
 
