@@ -1,0 +1,20 @@
+###########################################################################
+# Hackage (haskell)
+###########################################################################
+- name: hackage
+  type: modules
+  desc: Hackage
+  family: hackage
+  sources:
+    - name: hackage
+      fetcher: WgetTar
+      parser: Hackage
+      url: https://hackage.haskell.org/packages/index.tar.gz
+  shadow: true
+  repolinks:
+    - desc: Hackage
+      url: https://hackage.haskell.org/
+  packagelinks:
+    - desc: Hackage page
+      url: 'http://hackage.haskell.org/package/{name}'
+  tags: [ all, production ]
