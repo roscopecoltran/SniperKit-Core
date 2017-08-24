@@ -1,0 +1,10 @@
+version: '2'
+services:
+  buildbot:
+    image: buildbot/buildbot-travis
+    environment:
+        - buildbotURL=http://xxx.xxx.xxx.xxx/
+    ports:
+      - "80:8010"
+      - "9989:9989"
+    fip: xxx.xxx.xxx.xxx
