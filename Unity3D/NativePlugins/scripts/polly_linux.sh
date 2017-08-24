@@ -4,21 +4,18 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . ${DIR}/common.sh
 
 ## #################################################################
-## iPhoneOS 
+## MacOSX 
 ## #################################################################
 
-XCODEDIR=$(xcode-select -p)
-
-VALID_ARCHS_IOS=(\
-	"ios-11-0 "
-	" "
+VALID_ARCHS_OSX=(\
+	"osx-10-13 "
 )
 
 ## #################################################################
-## iPhoneOS / 10.3
+## MacOSX / 10.13
 ## #################################################################
 
-POLLY_TOOLCHAIN=${POLLY_TOOLCHAIN:-"ios-11-0"}
-IOS_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${IOS_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
+POLLY_TOOLCHAIN="osx-10-13"
+NIX_TOOLCHAIN=${POLLY_TOOLCHAIN}
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${NIX_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
 

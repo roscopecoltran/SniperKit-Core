@@ -1,5 +1,8 @@
 #!/bin/bash
 
+CMAKE_JOBS=4
+CMAKE_BUILD_TYPE=Debug
+
 # U3D_PLUGIN_CMAKE_ROOT=`pwd`
 U3D_PLUGIN_CMAKE_ROOT=`pwd`
 

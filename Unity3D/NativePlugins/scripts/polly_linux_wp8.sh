@@ -25,7 +25,7 @@ VALID_ARCHS_WP8=(\
 
 POLLY_TOOLCHAIN="mingw-c11"
 WP8_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${WP8_TOOLCHAIN} --config Release --clear --reconfig --jobs 4
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${WP8_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
 
 ## #################################################################
 ## WP8 / w64 / mingw
@@ -33,6 +33,6 @@ build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${WP8_TOOLCHAIN} --config R
 
 POLLY_TOOLCHAIN="linux-mingw-w64"
 WP8_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${WP8_TOOLCHAIN} --config Release --clear --reconfig --jobs 4
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${WP8_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
 
 

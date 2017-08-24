@@ -32,7 +32,7 @@ echo
 ## #################################################################
 POLLY_TOOLCHAIN=android-ndk-r15c-api-19-armeabi-v7a-neon-c11
 ANDROID_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${POLLY_TOOLCHAIN} --config Release --clear --reconfig --jobs 4
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${ANDROID_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
 check_apks
 
 # legacy:
@@ -44,7 +44,7 @@ check_apks
 ## #################################################################
 POLLY_TOOLCHAIN=android-ndk-r15c-api-19-x86
 ANDROID_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${POLLY_TOOLCHAIN} --config Release --clear --reconfig --jobs 4
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${ANDROID_TOOLCHAIN} --config ${CMAKE_BUILD_TYPE:-Release} --reconfig --jobs ${CMAKE_JOBS}
 check_apks
 
 
