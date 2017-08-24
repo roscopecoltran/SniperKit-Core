@@ -328,11 +328,10 @@ if platform.system() == 'Linux' or platform.system() == 'Darwin':
 if platform.system() == 'Darwin':
   toolchain_table += [
 
-      Toolchain('ios-11-0-armv7', 'Xcode', ios_version='11.0'),
+      Toolchain('ios-11-0-arm64', 'Xcode', ios_version='11.0'),
       Toolchain('ios-11-0-dep-8-0-bitcode', 'Xcode', ios_version='11.0'),
       Toolchain('ios-11-0-dep-8-0-libcxx-hid-sections', 'Xcode', ios_version='11.0'),
       Toolchain('ios-11-0-dep-9-0-bitcode', 'Xcode', ios_version='11.0'),
-      Toolchain('ios-11-0-dep-9-3-i386-armv7', 'Xcode', ios_version='11.0'),
       Toolchain('ios-11-0-dep-9-3-x86-64-arm64', 'Xcode', ios_version='11.0'),
       Toolchain('ios-11-0-lto', 'Xcode', ios_version='11.0'),
       Toolchain('ios-11-0', 'Xcode', ios_version='11.0'),
