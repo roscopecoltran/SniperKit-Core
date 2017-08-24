@@ -57,6 +57,7 @@ option(HUNTER_STATUS_DEBUG "Print a lot info" OFF)
 
 set(HUNTER_WIKI "https://github.com/ruslo/hunter/wiki")
 
+option(TEST_EXPORT_LIBS "" OFF)
 
 set(queued_libraries )
 set(queued_executables )
@@ -101,21 +102,22 @@ MACRO(FIND_PACKAGE _package_name)
     ENDIF()
   ENDIF()
 
-foreach(queued_library ${queued_libraries})
-  message(STATUS " #### - ${queued_library}")  
-  string(REPLACE "::" ";" NAMESPACE_ROOT ${queued_library})    
-  # hunter_add_package(foo)
-  # find_package(foo CONFIG REQUIRED) # introduce foo::foo target
-  add_custom_command(
-      OUTPUT "$<TARGET_FILE:${queued_library}>"
-      COMMAND
-      "${CMAKE_COMMAND}" -E copy
-      "$<TARGET_FILE:${queued_library}>"
-      "../PluginsBuild/NativePlugins/iOS"
-      # WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
-  )
-
-endforeach()
+  if(TEST_EXPORT_LIBS)
+    foreach(queued_library ${queued_libraries})
+      message(STATUS " #### - ${queued_library}")  
+      string(REPLACE "::" ";" NAMESPACE_ROOT ${queued_library})    
+      # hunter_add_package(foo)
+      # find_package(foo CONFIG REQUIRED) # introduce foo::foo target
+      add_custom_command(TARGET ${queued_library}
+          # OUTPUT "$<TARGET_FILE:${queued_library}>"
+          COMMAND
+          "${CMAKE_COMMAND}" -E copy
+          "$<TARGET_FILE:${queued_library}>"
+          "../PluginsBuild/NativePlugins/iOS"
+          # WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+      )
+    endforeach()
+  endif(TEST_EXPORT_LIBS)
 
 ENDMACRO()
 
