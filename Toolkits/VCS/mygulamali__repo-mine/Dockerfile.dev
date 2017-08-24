@@ -8,19 +8,26 @@
 #                                                                 		          #
 ###################################################################################
 
-FROM python:3.6-alpine
+FROM python:3.6-alpine3.6
 LABEL maintainer "Luc Michalski <michalski.luc@gmail.com>"
 
+ARG RUNTIME_APK=${RUNTIME_APK:-"ca-certificates git libssh2 openssl libpng bash nano tree"}
+ARG BUILD_APK=${BUILD_APK:-"musl-dev make cmake linux-headers gfortran g++ libpng-dev jpeg-dev zlib-dev cairo-dev"}
+
+# ADD ./docker/repositories /etc/apk/repositories # if install numpy with add instead of pip
+
 # Install runtime dependencies & create runtime user
-RUN apk --no-cache --no-progress add ca-certificates git libssh2 openssl bash nano tree python3 python3-dev
+RUN apk --no-cache --no-progress --update add ${RUNTIME_APK}
 
 # Copy source code to the container & build it
 COPY . /app
 WORKDIR /app
 
-# Copy source code to the container & build it
-RUN pip install --no-cache -r requirements.txt && \
-	tree /app/bin
+# Copy source code to the container & install build deps
+RUN apk --no-cache --no-progress --update --virtual build-deps add ${BUILD_APK} \
+	&& pip install --no-cache -r requirements.txt \
+	&& tree /app/bin \
+	&& apk --no-cache --no-progress del build-deps
 
 CMD ["/bin/bash"]
 

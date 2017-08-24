@@ -1,4 +1,9 @@
-matplotlib
 peewee
 python-dotenv
 PyGithub
+numpy
+tornado
+requests
+python-dateutil
+pillow
+matplotlib
