@@ -1,0 +1,13 @@
+scm-api
+git-client
+git
+greenballs
+golang
+github
+github-api
+github-oauth
+git-server
+github-pullrequest
+build-pipeline-plugin
+workflow-aggregator
+pipeline-stage-view
