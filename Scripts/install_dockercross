@@ -21,7 +21,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 dockercross_get_images_list
 
-dockercross_install_base "dockcross/windows-x64"
-dockercross_install_base "dockcross/windows-x86"
+# Unity 3D / WP8 / mobile & desktop builds
+dockercross_install_base "${DOCKERCROSS_NAMESPACE}/windows-x64"
+dockercross_install_base "${DOCKERCROSS_NAMESPACE}/windows-x86"
 
-# dockercross_deploy_all
+# Unity 3D / Linux / mobile & desktop builds
+dockercross_install_base "${DOCKERCROSS_NAMESPACE}/linux-x86"
+dockercross_install_base "${DOCKERCROSS_NAMESPACE}/linux-x64"
+
+# Unity 3D / Android / arm based mobile devices / Native Plugins
+dockercross_install_base "${DOCKERCROSS_NAMESPACE}/android-arm"
+
+print_separator
+

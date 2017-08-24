@@ -1,10 +1,7 @@
 usages:
 
 ```
-git subtree add --prefix Docker/Helpers/src/github.com/roscopecoltran/scancode-toolkit \
-						 https://github.com/roscopecoltran/scancode-toolkit.git \
-						 sniperkit \
-						 --squash
+git subtree add --prefix Toolkits/Discovery/searx https://github.com/asciimoo/searx.git master --squash
 ```
 
 
