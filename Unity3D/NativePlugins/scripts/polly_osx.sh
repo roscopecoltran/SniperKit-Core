@@ -17,5 +17,5 @@ VALID_ARCHS_OSX=(\
 
 POLLY_TOOLCHAIN="osx-10-13"
 OSX_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=osx-10-13 --config Releaase --clear --reconfig --jobs 4
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=osx-10-13 --config Release --clear --reconfig --jobs 4
 

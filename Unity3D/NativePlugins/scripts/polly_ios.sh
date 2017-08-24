@@ -20,5 +20,5 @@ VALID_ARCHS_IOS=(\
 
 POLLY_TOOLCHAIN=${POLLY_TOOLCHAIN:-"ios-11-0"}
 IOS_TOOLCHAIN=${POLLY_TOOLCHAIN}
-build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${IOS_TOOLCHAIN} --config Releaase --clear --reconfig --jobs 4
+build.py --home=${U3D_PLUGIN_CMAKE_ROOT} --toolchain=${IOS_TOOLCHAIN} --config Release --clear --reconfig --jobs 4
 
